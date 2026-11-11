@@ -10,7 +10,13 @@
     "styles": "Styles",
     "privacy": "Confidentialité",
     "faq": "FAQ",
-    "download": "Télécharger"
+    "download": "Télécharger",
+    "changelog": "Nouveautés",
+    "about": "À propos",
+    "language": "Langue",
+    "skip": "Aller au contenu",
+    "tools": "Outils gratuits",
+    "guides": "Guides"
   },
   "hero": {
     "eyebrow": "Gratuit · Hors ligne · Open source",
@@ -156,6 +162,328 @@
   "nf": {
     "title": "Page introuvable",
     "h": "Cette page n'existe pas.",
+    "home": "Aller à l'accueil"
+  },
+  "common": {
+    "version": "Version",
+    "released": "Publiée le 11 novembre 2026",
+    "cta": "Télécharger"
+  },
+  "footer": {
+    "tagline": "Sous-titres automatiques gratuits et hors ligne pour Mac et Windows.",
+    "product": "Produit",
+    "help": "Aide",
+    "studio": "Hollowbit",
+    "support": "Assistance",
+    "about": "À propos",
+    "github": "GitHub",
+    "made": "Fait par Hollowbit · Elvis Zygmanta",
+    "legal": "Open source sous licence GPL-3.0. Sans lien avec TikTok, Instagram ou YouTube."
+  },
+  "featuresPage": {
+    "title": "Fonctions",
+    "h1": "Tout ce que fait Captionshaper",
+    "lead": "Du premier mot entendu à la vidéo finie, entièrement sur votre ordinateur.",
+    "sections": [
+      {
+        "id": "listen",
+        "h": "Il écoute vraiment",
+        "img": "app-working",
+        "p": "La reconnaissance vocale tourne sur votre Mac ou PC avec le modèle Whisper d'OpenAI : elle comprend les accents, le débit rapide et environ 99 langues.",
+        "items": [
+          [
+            "Il trouve d'abord la parole",
+            "La détection de voix ignore intros, musique et silences : aucun mot inventé."
+          ],
+          [
+            "Synchronisé au mot",
+            "Chaque mot commence avec la voix. Les sous-titres arrivent pile, et la mise en avant tombe juste."
+          ],
+          [
+            "Il détecte la langue",
+            "Ou choisissez-la. Il peut aussi transformer toute langue prise en charge en sous-titres anglais."
+          ],
+          [
+            "Trois modèles",
+            "Recommandé pour la plupart des vidéos, Le plus précis pour les langues et sons difficiles, Rapide pour les brouillons."
+          ]
+        ]
+      },
+      {
+        "id": "captions",
+        "h": "Des sous-titres faciles à lire",
+        "img": "app-editor",
+        "p": "Une transcription n'est pas un sous-titrage. Captionshaper décide où chaque sous-titre commence et finit, et où chaque ligne se coupe.",
+        "items": [
+          [
+            "Coupures naturelles",
+            "Les coupures tombent en fin de phrase ou de proposition, jamais après « le », « un » ou « de »."
+          ],
+          [
+            "Jamais à travers une pause",
+            "Quand la personne se tait, le sous-titre s'arrête. Les lignes tiennent dans la largeur de la vidéo."
+          ],
+          [
+            "Facile à corriger",
+            "Les mots incertains sont soulignés. Modifiez sur place, rechercher-remplacer, couper, fusionner, annuler."
+          ],
+          [
+            "Enregistré automatiquement",
+            "Fermez l'app et rouvrez la vidéo plus tard : vos modifications sont toujours là."
+          ]
+        ]
+      },
+      {
+        "id": "styles",
+        "h": "Des styles pour les réseaux",
+        "img": "app-style",
+        "p": "Neuf styles de départ et onze polices. L'aperçu est exactement ce qui est exporté.",
+        "items": [
+          [
+            "Mettez en avant le mot prononcé",
+            "Changez sa couleur ou posez-le sur un encadré, comme les grands créateurs."
+          ],
+          [
+            "Animations par mot",
+            "Rebond, fondu ou glissement. Masquez ou atténuez les mots pas encore prononcés."
+          ],
+          [
+            "Contour, ombre et lueur",
+            "Chacun avec sa couleur, et un fond derrière les lignes."
+          ],
+          [
+            "Vue téléphone",
+            "Voyez où TikTok, Reels et Shorts placent leurs boutons pour que vos sous-titres ne soient jamais cachés."
+          ]
+        ]
+      },
+      {
+        "id": "export",
+        "h": "Toutes les sorties",
+        "img": "app-home",
+        "p": "Emportez vos sous-titres partout où il faut.",
+        "items": [
+          [
+            "Vidéo sous-titrée",
+            "Un MP4 avec les sous-titres incrustés, prêt à publier."
+          ],
+          [
+            "Fichiers de sous-titres",
+            "SRT pour YouTube et les logiciels de montage, VTT pour le web, ASS avec tout votre style."
+          ],
+          [
+            "Transcription",
+            "Texte brut, découpé en paragraphes aux longues pauses."
+          ],
+          [
+            "Privé par conception",
+            "Rien n'est envoyé. Après le téléchargement unique du modèle, tout fonctionne hors ligne."
+          ]
+        ]
+      }
+    ]
+  },
+  "downloadMore": {
+    "req_h2": "Configuration requise",
+    "req": [
+      [
+        "Mac",
+        "Apple Silicon (M1 ou plus récent), macOS 12 Monterey ou ultérieur"
+      ],
+      [
+        "Windows",
+        "Windows 10 ou 11, 64 bits. Un processeur récent transcrit plus vite."
+      ],
+      [
+        "Mémoire",
+        "8 Go de RAM recommandés"
+      ],
+      [
+        "Espace disque",
+        "Environ 400 Mo pour l'app, plus 60 Mo à 1,1 Go pour un modèle vocal"
+      ],
+      [
+        "Internet",
+        "Seulement pour télécharger l'app et le modèle vocal une fois"
+      ]
+    ],
+    "verify_h2": "Vérifiez votre téléchargement",
+    "verify_p": "Pour être sûr que le fichier n'a pas été modifié en chemin, comparez sa somme SHA-256 avec celles-ci.",
+    "no_intel": "Les Mac Intel ne sont pas encore pris en charge."
+  },
+  "changelog": {
+    "title": "Nouveautés",
+    "h1": "Nouveautés",
+    "lead": "Toutes les versions de Captionshaper, de la plus récente à la plus ancienne.",
+    "entries": [
+      {
+        "v": "1.1.0",
+        "date": "11 novembre 2026",
+        "name": "Styles de sous-titres refaits",
+        "items": [
+          "Neuf styles : Net, Encadré, Gras, Surlignage, Un mot, Révélation, Néon, BD et Minimal.",
+          "Onze polices, dont Montserrat, Poppins, Anton, Bebas Neue et Bangers.",
+          "Le mot prononcé peut changer de couleur ou s'afficher sur un encadré arrondi.",
+          "Animations par mot : rebond, fondu et glissement. Les mots pas encore dits peuvent s'afficher, s'atténuer ou rester cachés.",
+          "Contour, ombre et lueur, chacun avec sa couleur.",
+          "L'aperçu correspond exactement à la vidéo exportée."
+        ]
+      },
+      {
+        "v": "1.0.1",
+        "date": "11 novembre 2026",
+        "name": "Nouveau look",
+        "items": [
+          "Design noir et vert citron électrique avec une nouvelle icône.",
+          "Le mot prononcé dans la liste se lit mieux."
+        ]
+      },
+      {
+        "v": "1.0.0",
+        "date": "11 novembre 2026",
+        "name": "Première version",
+        "items": [
+          "Reconnaissance vocale hors ligne avec timing au mot dans environ 99 langues.",
+          "La détection de voix laisse la musique et les silences sans sous-titres.",
+          "Les mots apparaissent en direct pendant la transcription.",
+          "Éditeur avec forme d'onde, rechercher-remplacer, couper, fusionner et annuler.",
+          "Vue téléphone pour les vidéos verticales.",
+          "Export SRT, VTT, ASS, TXT ou MP4 avec sous-titres incrustés."
+        ]
+      }
+    ]
+  },
+  "faqPage": {
+    "title": "FAQ",
+    "h1": "Questions fréquentes",
+    "more": [
+      [
+        "Que puis-je exporter ?",
+        "Une vidéo MP4 avec sous-titres incrustés, des sous-titres SRT (YouTube, Premiere, DaVinci Resolve, CapCut), du VTT pour le web, de l'ASS avec tout votre style et une transcription en texte."
+      ],
+      [
+        "Puis-je modifier les sous-titres ?",
+        "Oui. Cliquez sur un sous-titre pour le modifier, utilisez rechercher-remplacer, coupez ou fusionnez, et annulez à tout moment. Les mots incertains sont soulignés pour être vérifiés d'abord."
+      ],
+      [
+        "Ça marche pour TikTok, Reels et YouTube Shorts ?",
+        "Oui. Les styles Gras, Surlignage, Un mot et Révélation sont faits pour la vidéo verticale, et la vue téléphone montre où chaque app place ses boutons."
+      ],
+      [
+        "Quels fichiers puis-je ouvrir ?",
+        "La plupart des vidéos et sons : MP4, MOV, MKV, WEBM, AVI, MP3, WAV, M4A et plus, y compris les vidéos d'iPhone."
+      ],
+      [
+        "Quelle durée maximale ?",
+        "Aucune limite. Une vidéo de 10 minutes prend environ deux minutes sur un Mac Apple Silicon. Les plus longues prennent simplement plus de temps."
+      ],
+      [
+        "Pourquoi mon ordinateur m'avertit à la première ouverture ?",
+        "Captionshaper n'est pas encore signé avec un certificat payant d'Apple ou de Microsoft, donc les deux systèmes demandent une fois. La page de téléchargement explique comment l'ouvrir et affiche la somme de contrôle."
+      ]
+    ]
+  },
+  "about": {
+    "title": "À propos",
+    "h1": "Salut, moi c'est Elvis.",
+    "lead": "Je suis Elvis Zygmanta. Hollowbit est mon studio de petits outils gratuits qui font une seule chose, bien, et respectent ceux qui les utilisent.",
+    "why_h2": "Pourquoi Captionshaper existe",
+    "why": [
+      "Les sous-titres ne sont plus optionnels. La plupart des gens regardent les vidéos courtes sans le son, et une vidéo sans sous-titres se fait zapper.",
+      "Les outils habituels envoient votre vidéo sur un serveur, réservent les meilleurs styles à un abonnement et ajoutent un filigrane tant que vous ne payez pas. Pour une tâche qu'un ordinateur normal fait en une minute, ça semblait injuste.",
+      "Captionshaper le fait sur votre ordinateur, gratuitement : des sous-titres précis, des styles comme ceux que vous voyez tous les jours, et rien d'envoyé."
+    ],
+    "rules_h2": "Les règles de Hollowbit",
+    "rules": [
+      [
+        "Pas de pubs",
+        "Ni dans l'app, ni sur le site."
+      ],
+      [
+        "Pas de compte",
+        "Pas besoin de s'inscrire pour sous-titrer une vidéo."
+      ],
+      [
+        "Pas de suivi",
+        "Aucune analyse ni collecte de données."
+      ],
+      [
+        "Open source",
+        "Chaque ligne de code est publique."
+      ]
+    ],
+    "tech_h2": "Comment c'est fait",
+    "tech": [
+      [
+        "Whisper",
+        "Le modèle vocal d'OpenAI, exécuté en local avec whisper.cpp"
+      ],
+      [
+        "Silero VAD",
+        "Repère où l'on parle"
+      ],
+      [
+        "Timing au mot",
+        "Horodatages calés sur la voix"
+      ],
+      [
+        "libass et FFmpeg",
+        "Incrustent les sous-titres dans la vidéo"
+      ],
+      [
+        "Electron",
+        "Une app pour Mac et Windows"
+      ],
+      [
+        "Testé",
+        "Des tests automatiques pilotent la vraie app et mesurent la précision"
+      ]
+    ],
+    "github": "Mon GitHub",
+    "other_h2": "Aussi chez Hollowbit",
+    "other_p": "Fileshaper : compresser des vidéos à une taille, convertir les photos d'iPhone, fusionner et signer des PDF, le tout hors ligne."
+  },
+  "support": {
+    "title": "Assistance",
+    "h1": "Assistance",
+    "help_h2": "Obtenir de l'aide",
+    "help_p": "Un bug ou quelque chose qui ne marche pas ? Ouvrez un ticket sur GitHub. Indiquez votre ordinateur, la version de Captionshaper et ce que vous avez essayé.",
+    "help_btn": "Ouvrir un ticket",
+    "give_h2": "Soutenir le projet",
+    "give_p": "Captionshaper est gratuit et le restera. Un pourboire aide à payer les certificats de signature qui suppriment les avertissements de sécurité.",
+    "tip_btn": "M'offrir un café",
+    "star_btn": "Étoile sur GitHub"
+  },
+  "privacyFull": {
+    "updated": "Dernière mise à jour : 11 novembre 2026",
+    "short": "Captionshaper fonctionne sur votre ordinateur. Vos vidéos, votre son et vos sous-titres n'en sortent jamais.",
+    "sections": [
+      [
+        "Ce que l'app fait de vos fichiers",
+        "Captionshaper lit la vidéo ou le son que vous ouvrez, reconnaît la parole et écrit les sous-titres, sur votre ordinateur. Il enregistre vos modifications dans son propre dossier pour que vous puissiez y revenir. Rien n'est envoyé."
+      ],
+      [
+        "Requêtes réseau",
+        "L'app ne fait qu'un type de requête : télécharger un modèle vocal depuis Hugging Face (huggingface.co) quand vous cliquez sur Télécharger. Cette requête ne contient rien sur vos fichiers. Ensuite, Captionshaper fonctionne sans internet."
+      ],
+      [
+        "Comptes, analyses et suivi",
+        "Il n'y en a aucun, ni dans l'app ni sur ce site."
+      ],
+      [
+        "Ce site",
+        "Ce site est hébergé sur GitHub Pages. GitHub peut conserver des journaux serveur standard, comme décrit dans sa déclaration de confidentialité. Le site ne dépose aucun cookie. La langue choisie est mémorisée uniquement dans votre navigateur."
+      ],
+      [
+        "Contact",
+        "Une question sur la confidentialité ? Ouvrez un ticket sur GitHub."
+      ]
+    ]
+  },
+  "notfound": {
+    "title": "Page introuvable",
+    "h": "Cette page n'existe pas.",
+    "p": "Elle a peut-être été déplacée. Tout est sur la page d'accueil.",
     "home": "Aller à l'accueil"
   }
 }

@@ -10,7 +10,13 @@
     "styles": "Styles",
     "privacy": "Privacy",
     "faq": "FAQ",
-    "download": "Download"
+    "download": "Download",
+    "changelog": "Changelog",
+    "about": "About",
+    "language": "Language",
+    "skip": "Skip to content",
+    "tools": "Free tools",
+    "guides": "Guides"
   },
   "hero": {
     "eyebrow": "Free · Offline · Open source",
@@ -156,6 +162,328 @@
   "nf": {
     "title": "Page not found",
     "h": "This page isn't here.",
+    "home": "Go to the home page"
+  },
+  "common": {
+    "version": "Version",
+    "released": "Released 11 November 2026",
+    "cta": "Download"
+  },
+  "footer": {
+    "tagline": "Free, offline auto-subtitles for Mac and Windows.",
+    "product": "Product",
+    "help": "Help",
+    "studio": "Hollowbit",
+    "support": "Support",
+    "about": "About",
+    "github": "GitHub",
+    "made": "Made by Hollowbit · Elvis Zygmanta",
+    "legal": "Open source under the GPL-3.0. Not affiliated with TikTok, Instagram or YouTube."
+  },
+  "featuresPage": {
+    "title": "Features",
+    "h1": "Everything Captionshaper does",
+    "lead": "From the first word it hears to the finished video, all on your own computer.",
+    "sections": [
+      {
+        "id": "listen",
+        "h": "It listens properly",
+        "img": "app-working",
+        "p": "Speech recognition runs on your Mac or PC with OpenAI's Whisper model, so it understands accents, fast talkers and around 99 languages.",
+        "items": [
+          [
+            "Finds the speech first",
+            "Voice detection skips intros, music and silence, so no words get invented over a beat drop."
+          ],
+          [
+            "Timed to the word",
+            "Each word starts when the voice does. Captions appear in sync, and word highlights land on the beat."
+          ],
+          [
+            "Detects the language",
+            "Or pick it yourself. It can also turn any supported language into English captions."
+          ],
+          [
+            "Three models",
+            "Recommended for most videos, Most accurate for harder languages and audio, Fast for quick drafts."
+          ]
+        ]
+      },
+      {
+        "id": "captions",
+        "h": "Captions that read well",
+        "img": "app-editor",
+        "p": "A transcript isn't captions. Captionshaper decides where every caption starts and ends, and where each line breaks.",
+        "items": [
+          [
+            "Natural line breaks",
+            "Breaks fall at sentence and clause ends, never after “the”, “a” or “to”."
+          ],
+          [
+            "Never across a pause",
+            "When the speaker stops, the caption stops. Lines fit the width of your video."
+          ],
+          [
+            "Easy to fix",
+            "Words it isn't sure about are underlined. Edit in place, find and replace, split, merge and undo."
+          ],
+          [
+            "Saved as you go",
+            "Close the app and open the same video later: your edits are still there."
+          ]
+        ]
+      },
+      {
+        "id": "styles",
+        "h": "Styles made for social video",
+        "img": "app-style",
+        "p": "Nine looks to start from and eleven caption fonts. The preview is exactly what gets exported.",
+        "items": [
+          [
+            "Highlight the spoken word",
+            "Change its colour or put it on a box, the way the big creators do."
+          ],
+          [
+            "Word animations",
+            "Pop, fade in or slide up. Hide or dim the words that haven't been said yet."
+          ],
+          [
+            "Outline, shadow and glow",
+            "Each with its own colour, plus a background box behind lines."
+          ],
+          [
+            "Phone view",
+            "See where TikTok, Reels and Shorts put their buttons, so captions never hide under them."
+          ]
+        ]
+      },
+      {
+        "id": "export",
+        "h": "Every way out",
+        "img": "app-home",
+        "p": "Take your captions wherever they need to go.",
+        "items": [
+          [
+            "Video with captions",
+            "An MP4 with the captions burned in, ready to post."
+          ],
+          [
+            "Subtitle files",
+            "SRT for YouTube and video editors, VTT for the web, ASS with your full style."
+          ],
+          [
+            "Transcript",
+            "Plain text, split into paragraphs at long pauses."
+          ],
+          [
+            "Private by design",
+            "Nothing is uploaded. After the one-time model download, it works offline."
+          ]
+        ]
+      }
+    ]
+  },
+  "downloadMore": {
+    "req_h2": "System requirements",
+    "req": [
+      [
+        "Mac",
+        "Apple Silicon (M1 or newer), macOS 12 Monterey or later"
+      ],
+      [
+        "Windows",
+        "Windows 10 or 11, 64-bit. A recent processor makes transcription faster."
+      ],
+      [
+        "Memory",
+        "8 GB of RAM recommended"
+      ],
+      [
+        "Disk space",
+        "About 400 MB for the app, plus 60 MB to 1.1 GB for a speech model"
+      ],
+      [
+        "Internet",
+        "Only to download the app and the speech model once"
+      ]
+    ],
+    "verify_h2": "Check your download",
+    "verify_p": "If you want to be sure the file wasn't changed on the way, compare its SHA-256 checksum with these.",
+    "no_intel": "Intel Macs aren't supported yet."
+  },
+  "changelog": {
+    "title": "Changelog",
+    "h1": "Changelog",
+    "lead": "Every release of Captionshaper, newest first.",
+    "entries": [
+      {
+        "v": "1.1.0",
+        "date": "11 November 2026",
+        "name": "Caption styles, rebuilt",
+        "items": [
+          "Nine styles: Clean, Subtitle box, Bold, Highlight, One word, Reveal, Neon, Comic and Minimal.",
+          "Eleven caption fonts, including Montserrat, Poppins, Anton, Bebas Neue and Bangers.",
+          "The spoken word can change colour or sit on a rounded box.",
+          "Word animations: pop, fade in and slide up. Words not spoken yet can show, dim or stay hidden.",
+          "Outline, shadow and glow, each with its own colour.",
+          "The preview now matches the exported video exactly."
+        ]
+      },
+      {
+        "v": "1.0.1",
+        "date": "11 November 2026",
+        "name": "New look",
+        "items": [
+          "Black and electric lime design with a new icon.",
+          "The spoken word in the caption list is easier to read."
+        ]
+      },
+      {
+        "v": "1.0.0",
+        "date": "11 November 2026",
+        "name": "First release",
+        "items": [
+          "Offline speech recognition with word-level timing in about 99 languages.",
+          "Voice detection keeps captions off music and silence.",
+          "Words appear live while transcribing.",
+          "Caption editor with waveform timeline, find and replace, split, merge and undo.",
+          "Phone view for vertical videos.",
+          "Export SRT, VTT, ASS, TXT, or an MP4 with captions burned in."
+        ]
+      }
+    ]
+  },
+  "faqPage": {
+    "title": "FAQ",
+    "h1": "Frequently asked questions",
+    "more": [
+      [
+        "What can I export?",
+        "An MP4 video with the captions burned in, SRT subtitles (YouTube, Premiere, DaVinci Resolve, CapCut), VTT for websites, ASS with your full style, and a plain-text transcript."
+      ],
+      [
+        "Can I edit the captions?",
+        "Yes. Click any caption to edit it, use find and replace, split or merge captions, and undo anything. Words Captionshaper isn't sure about are underlined so you can check them first."
+      ],
+      [
+        "Does it work for TikTok, Reels and YouTube Shorts?",
+        "Yes. The Bold, Highlight, One word and Reveal styles are made for vertical video, and the phone view shows where each app puts its buttons so your captions stay clear of them."
+      ],
+      [
+        "Which files can I open?",
+        "Most video and audio files: MP4, MOV, MKV, WEBM, AVI, MP3, WAV, M4A and more, including iPhone videos."
+      ],
+      [
+        "How long can a video be?",
+        "There's no limit. A 10-minute video takes about two minutes on an Apple Silicon Mac. Longer videos simply take longer."
+      ],
+      [
+        "Why does my computer warn me when I first open it?",
+        "Captionshaper isn't signed with a paid Apple or Microsoft certificate yet, so both systems ask once. The download page shows how to open it, and you can check the file's checksum there."
+      ]
+    ]
+  },
+  "about": {
+    "title": "About",
+    "h1": "Hi, I'm Elvis.",
+    "lead": "I'm Elvis Zygmanta. Hollowbit is my studio for small, free tools that do one job well and treat the people using them with respect.",
+    "why_h2": "Why Captionshaper exists",
+    "why": [
+      "Captions are no longer optional. Most people watch short videos with the sound off, and a video without captions gets scrolled past.",
+      "The usual tools upload your video to a server, put the best styles behind a subscription and add a watermark until you pay. For something a normal computer can do in a minute, that felt wrong.",
+      "Captionshaper does it on your own computer, for free: accurate captions, styles that look like the ones you see every day, and nothing uploaded."
+    ],
+    "rules_h2": "What Hollowbit sticks to",
+    "rules": [
+      [
+        "No ads",
+        "Not in the app, not on the website."
+      ],
+      [
+        "No accounts",
+        "You shouldn't need to sign up to caption a video."
+      ],
+      [
+        "No tracking",
+        "No analytics and no data collection."
+      ],
+      [
+        "Open source",
+        "Every line of code is public."
+      ]
+    ],
+    "tech_h2": "How it's built",
+    "tech": [
+      [
+        "Whisper",
+        "OpenAI's speech model, run locally with whisper.cpp"
+      ],
+      [
+        "Silero VAD",
+        "Finds where people speak"
+      ],
+      [
+        "Word-level timing",
+        "Token timestamps matched to the voice"
+      ],
+      [
+        "libass and FFmpeg",
+        "Burns the captions into the video"
+      ],
+      [
+        "Electron",
+        "One app for Mac and Windows"
+      ],
+      [
+        "Tested",
+        "Automated tests drive the real app and measure accuracy"
+      ]
+    ],
+    "github": "My GitHub",
+    "other_h2": "Also from Hollowbit",
+    "other_p": "Fileshaper: compress videos to a size, convert iPhone photos, and merge and sign PDFs, all offline."
+  },
+  "support": {
+    "title": "Support",
+    "h1": "Support",
+    "help_h2": "Get help",
+    "help_p": "Found a bug or something not working? Open an issue on GitHub. Say which computer you're on, which version of Captionshaper, and what you tried.",
+    "help_btn": "Open an issue",
+    "give_h2": "Support the project",
+    "give_p": "Captionshaper is free and stays free. A tip helps pay for the code-signing certificates that make the security warnings go away.",
+    "tip_btn": "Buy me a coffee",
+    "star_btn": "Star on GitHub"
+  },
+  "privacyFull": {
+    "updated": "Last updated 11 November 2026",
+    "short": "Captionshaper runs on your computer. Your videos, audio and captions never leave it.",
+    "sections": [
+      [
+        "What the app does with your files",
+        "Captionshaper reads the video or audio you open, recognises the speech and writes captions, all on your computer. It saves your edits in its own folder so you can come back to them. Nothing is sent anywhere."
+      ],
+      [
+        "Network requests",
+        "The app makes one kind of request: downloading a speech model from Hugging Face (huggingface.co) when you click Download. That request contains nothing about your files. After that, Captionshaper works with the internet off."
+      ],
+      [
+        "Accounts, analytics and tracking",
+        "There are none, in the app or on this website."
+      ],
+      [
+        "This website",
+        "This site is hosted on GitHub Pages. GitHub may keep standard server logs, as described in GitHub's privacy statement. The site sets no cookies. Your chosen language is remembered in your own browser only."
+      ],
+      [
+        "Contact",
+        "Questions about privacy? Open an issue on GitHub."
+      ]
+    ]
+  },
+  "notfound": {
+    "title": "Page not found",
+    "h": "This page isn't here.",
+    "p": "It may have moved. The home page has everything.",
     "home": "Go to the home page"
   }
 }

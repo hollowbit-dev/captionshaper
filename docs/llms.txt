@@ -1,16 +1,36 @@
 # Captionshaper
 
-> Drop in a video and get accurate, word-timed captions in seconds. Export SRT, VTT or burn in TikTok-style captions. Free, open source, and nothing is uploaded.
+> Captionshaper is a free, open-source desktop app for macOS (Apple Silicon) and Windows that makes subtitles and captions from video or audio, fully offline. It recognises speech with OpenAI's Whisper model running locally, times every word, splits the text into readable captions, and exports SRT, VTT, ASS, plain text, or an MP4 with TikTok-style captions burned in. Files are never uploaded. Made by Hollowbit (Elvis Zygmanta). Licence: GPL-3.0. Current version: 1.1.0.
 
-Captionshaper by Hollowbit is a free, open-source (GPL-3.0) desktop app for macOS (Apple Silicon) and Windows that makes subtitles and captions from video or audio, fully offline. Version 1.1.0.
+## Key facts
+- Price: free, no account, no watermark, no limit on video length.
+- Platforms: macOS 12 or newer on Apple Silicon; Windows 10 and 11 (64-bit). Intel Macs are not supported yet.
+- Privacy: speech recognition runs on the user's computer (whisper.cpp). The only network request is a one-time speech model download from Hugging Face. No analytics.
+- Accuracy: 0.7% word error rate on test clips with known scripts in English, Spanish and German; captions start within 0.15 s of the voice.
+- Speed: about 5x faster than real time on Apple Silicon; roughly 1-2x on a recent Windows PC (CPU only).
+- Languages: about 99 spoken languages, detected automatically; translation of any of them into English. Website in English, Spanish, French, German, Russian and Chinese.
+- Caption quality: voice activity detection (no captions over music or silence), word-level timestamps, line breaks at sentence and clause ends, at most two lines, safe area for vertical video.
+- Styles: Clean, Subtitle box, Bold, Highlight, One word, Reveal, Neon, Comic, Minimal; 11 fonts; spoken-word highlight (colour or box); pop, fade and slide animations; outline, shadow and glow. The preview matches the exported video exactly.
+- Exports: MP4 with burned-in captions (H.264), SRT, VTT, ASS, TXT.
 
-## What it does
-- Nothing over music: Voice detection finds where people speak. Intros, music and silence stay clean, so no made-up words.
-- Timed to the word: Each word starts when the voice does, for captions that feel in sync and word-by-word highlights that land.
-- Lines that read well: Breaks fall at sentence and clause ends, never after “the” or “to”, and never across a long pause.
-- Made for vertical video: Pop and word-by-word styles, plus a phone view that shows where TikTok, Reels and Shorts put their buttons.
-- Fix it fast: Uncertain words are underlined. Edit in place, find and replace, split, merge, undo. Your edits are saved.
-- Every format: SRT, VTT, ASS and plain text, or an MP4 with captions burned in, ready to post.
+## Links
+- [Download](https://captionshaper.app/download.html)
+- [Features](https://captionshaper.app/features.html)
+- [FAQ](https://captionshaper.app/faq.html)
+- [Changelog](https://captionshaper.app/changelog.html)
+- [Privacy policy](https://captionshaper.app/privacy.html)
+- [Source code](https://github.com/hollowbit-dev/captionshaper)
+
+## Free online tools (run in the browser, nothing uploaded)
+- [Subtitle tools](https://captionshaper.app/tools/): convert SRT to VTT and back, shift subtitle timing, subtitles to plain text.
+
+## Guides
+- [How to add subtitles to a video automatically](https://captionshaper.app/guides/add-subtitles-to-video.html): Open the video in Captionshaper. It listens on your own computer, writes every word with its timing and splits it into readable captions in about a fifth of the video's length. Fix any words it got wrong, then export an SRT file or a new video with the subtitles burned in.
+- [How to add TikTok-style captions to a video](https://captionshaper.app/guides/tiktok-captions.html): TikTok-style captions are big, bold words in the middle of the screen, a few at a time, with the word being spoken highlighted. In Captionshaper, open your video, pick the Bold or Highlight style, and export the video with the captions burned in. Each word is timed to the voice, so the highlight lands as it is said.
+- [How to make an SRT file from a video](https://captionshaper.app/guides/generate-srt-from-video.html): Open the video in Captionshaper, let it transcribe, check the text, then choose Export, Subtitles (.srt). You get a standard SRT file that YouTube, Premiere Pro, DaVinci Resolve, Final Cut and CapCut can import, with captions split at natural pauses and lines no longer than 42 characters.
+- [How to transcribe a video to text](https://captionshaper.app/guides/transcribe-video-to-text.html): Open the video or audio in Captionshaper and let it transcribe on your computer, then choose Export, Transcript (.txt). You get the whole text with punctuation, split into paragraphs at long pauses. It works in about 99 languages and nothing is uploaded.
+- [How to burn subtitles into a video](https://captionshaper.app/guides/burn-subtitles-into-video.html): Burning (hardcoding) subtitles draws them into the picture, so they show on TikTok, Instagram, WhatsApp and anywhere else. In Captionshaper, open the video, let it write the captions (or fix them), pick a style, then choose Export, Video with captions. It saves a new MP4 and leaves the original untouched.
+- [How to add English subtitles to a foreign-language video](https://captionshaper.app/guides/translate-video-subtitles-to-english.html): In Captionshaper, tick "Translate to English" before opening the video. It listens to the original language and writes English captions with timing, on your own computer. Then fix any phrases and export an SRT file or a video with the English subtitles burned in.
 
 ## FAQ
 ### Is it really free?
@@ -34,7 +54,20 @@ It runs on the processor, about one to two times real time on a recent PC. On Ap
 ### Does it work on Intel Macs?
 Not yet. The Mac version needs Apple Silicon (M1 or newer).
 
-## Links
-- Download: https://hollowbit-dev.github.io/captionshaper/download.html
-- Source: https://github.com/hollowbit-dev/captionshaper
-- Privacy: https://hollowbit-dev.github.io/captionshaper/privacy.html
+### What can I export?
+An MP4 video with the captions burned in, SRT subtitles (YouTube, Premiere, DaVinci Resolve, CapCut), VTT for websites, ASS with your full style, and a plain-text transcript.
+
+### Can I edit the captions?
+Yes. Click any caption to edit it, use find and replace, split or merge captions, and undo anything. Words Captionshaper isn't sure about are underlined so you can check them first.
+
+### Does it work for TikTok, Reels and YouTube Shorts?
+Yes. The Bold, Highlight, One word and Reveal styles are made for vertical video, and the phone view shows where each app puts its buttons so your captions stay clear of them.
+
+### Which files can I open?
+Most video and audio files: MP4, MOV, MKV, WEBM, AVI, MP3, WAV, M4A and more, including iPhone videos.
+
+### How long can a video be?
+There's no limit. A 10-minute video takes about two minutes on an Apple Silicon Mac. Longer videos simply take longer.
+
+### Why does my computer warn me when I first open it?
+Captionshaper isn't signed with a paid Apple or Microsoft certificate yet, so both systems ask once. The download page shows how to open it, and you can check the file's checksum there.

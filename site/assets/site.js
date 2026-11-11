@@ -1,6 +1,19 @@
 // Captionshaper site: OS-aware download button, a live caption on the hero, gentle entrances.
 document.documentElement.classList.add('js');
 (() => {
+  const CS = window.CS || { lang: 'en', langs: ['en'] };
+  const store = { get(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }, set(k, v) { try { localStorage.setItem(k, v); } catch (e) { /* private mode */ } } };
+  // First visit: send people to their own language once. A manual choice always wins afterwards.
+  if (!store.get('cs-lang') && CS.lang === 'en' && !CS.english) {
+    const pref = (navigator.languages || [navigator.language || 'en']).map((l) => l.toLowerCase().slice(0, 2)).find((l) => CS.langs.includes(l));
+    store.set('cs-lang', pref || 'en');
+    if (pref && pref !== 'en') { location.replace(`${pref}/${location.pathname.split('/').pop()}${location.hash}`); return; }
+  }
+  document.querySelectorAll('[data-set-lang]').forEach((a) => a.addEventListener('click', () => store.set('cs-lang', a.dataset.setLang)));
+  document.addEventListener('click', (e) => { const open = document.querySelector('details.lang[open]'); if (open && !open.contains(e.target)) open.removeAttribute('open'); });
+  // Highlight the download card for the visitor's own system.
+  const isWin = /Windows/i.test(navigator.userAgent);
+  document.querySelectorAll(`[data-os-card="${isWin ? 'win' : 'mac'}"]`).forEach((c) => c.classList.add('mine'));
   // Put the visitor's own OS first.
   const win = /Windows/i.test(navigator.userAgent);
   document.querySelectorAll('.cta').forEach((c) => {
@@ -49,23 +62,8 @@ document.documentElement.classList.add('js');
     const r = c.getBoundingClientRect();
     c.style.setProperty('--mx', `${e.clientX - r.left}px`); c.style.setProperty('--my', `${e.clientY - r.top}px`);
   }));
-  // The .srt cue numbers type in when they come into view.
-  const cues = document.querySelectorAll('.srt b');
-  const cio = new IntersectionObserver((es) => es.forEach((e) => {
-    if (!e.isIntersecting) return; cio.unobserve(e.target);
-    const el = e.target; const full = el.textContent;
-    if (reduce) return;
-    let n = 0; el.textContent = '';
-    const caret = document.createElement('span'); caret.className = 'caret';
-    const tick = () => {
-      el.textContent = full.slice(0, ++n); el.append(caret);
-      if (n < full.length) setTimeout(tick, 90); else setTimeout(() => caret.remove(), 1600);
-    };
-    setTimeout(tick, 250);
-  }), { threshold: .6 });
-  cues.forEach((c) => cio.observe(c));
   // Fade sections in as they scroll into view.
-  const items = document.querySelectorAll('.split-text, .shot:not(.hero-shot), .card, .nums-in > div, .priv .wrap, .faq, .end .wrap, h2.center, .dl-grid .card, .steps > div');
+  const items = document.querySelectorAll('.split-text, .shot:not(.hero-shot), .card, .nums-in > div, .priv .wrap, .end .wrap, h2.center, .panel, .release, .cell, .guide-list li');
   items.forEach((x) => x.classList.add('rise'));
   const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { rootMargin: '0px 0px -8% 0px' });
   items.forEach((x) => io.observe(x));

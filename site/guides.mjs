@@ -1,0 +1,155 @@
+// Search guides: plain answers to the caption questions people actually search for.
+// Each one gives the answer first, then steps (marked up as HowTo), then honest alternatives and an FAQ.
+export const UPDATED = '2026-11-11';
+
+export const GUIDES = [
+  {
+    slug: 'add-subtitles-to-video',
+    title: 'How to add subtitles to a video automatically (free, offline)',
+    desc: 'Turn speech into accurate, word-timed subtitles and add them to any video for free. No upload, no watermark, works on Mac and Windows.',
+    h1: 'How to add subtitles to a video automatically',
+    answer: 'Open the video in Captionshaper. It listens on your own computer, writes every word with its timing and splits it into readable captions in about a fifth of the video\'s length. Fix any words it got wrong, then export an SRT file or a new video with the subtitles burned in.',
+    shot: 'app-editor',
+    steps: [
+      ['Download Captionshaper', 'Install the free app for Mac (Apple Silicon) or Windows from the download page.'],
+      ['Drop your video on the window', 'MP4, MOV, MKV, WEBM and iPhone videos all work. The first time, Captionshaper downloads its speech model once.'],
+      ['Let it listen', 'Words appear as they are written. A one-minute clip takes about ten seconds on an M-series Mac.'],
+      ['Check the words', 'Words it isn\'t sure about are underlined. Click a caption to fix it, or use find and replace for names.'],
+      ['Export', 'Choose "Video with captions" for an MP4 with subtitles burned in, or "Subtitles (.srt)" to upload them separately.'],
+    ],
+    sections: [
+      ['Burned-in subtitles or a subtitle file?', 'Burned-in (open) captions are part of the picture, so they show everywhere, including on TikTok, Instagram and WhatsApp, which don\'t accept subtitle files. A subtitle file (SRT or VTT) keeps the text separate, so viewers can turn it off and platforms like YouTube can index it. If in doubt, export both.'],
+      ['Why automatic subtitles used to be bad', 'Older tools wrote a transcript and cut it every few seconds, so lines broke mid-phrase and captions sat on screen during silence or music. Captionshaper finds the speech first, times every word, and breaks lines where a person would.'],
+      ['Other ways to do it', 'YouTube Studio can generate captions after you upload, but only for YouTube. CapCut and online caption sites work, but upload your video and keep some styles behind a subscription. Captionshaper is free and keeps the video on your computer.'],
+    ],
+    faq: [
+      ['Is it really free?', 'Yes. No trial, no watermark, no limit on video length.'],
+      ['How accurate are automatic subtitles?', 'On clear speech almost every word is right. In our tests the word error rate was under 1% on clean English, Spanish and German clips. Noisy audio makes more mistakes, which is why editing is built in.'],
+      ['Which languages work?', 'About 99, detected automatically.'],
+    ],
+  },
+  {
+    slug: 'tiktok-captions',
+    title: 'How to add TikTok-style captions to a video (word by word, free)',
+    desc: 'Make the bold, word-by-word captions you see on TikTok and Reels, with the spoken word highlighted. Free, offline, no watermark.',
+    h1: 'How to add TikTok-style captions to a video',
+    answer: 'TikTok-style captions are big, bold words in the middle of the screen, a few at a time, with the word being spoken highlighted. In Captionshaper, open your video, pick the Bold or Highlight style, and export the video with the captions burned in. Each word is timed to the voice, so the highlight lands as it is said.',
+    shot: 'app-style',
+    steps: [
+      ['Open your video in Captionshaper', 'Drop a vertical (9:16) video on the window. Captionshaper writes the captions on your computer.'],
+      ['Open the Style tab', 'Pick Bold (yellow highlight), Highlight (word on a box), One word, or Reveal (words appear as they are said).'],
+      ['Check the phone view', 'The preview shows where TikTok puts its like and share buttons, so you can see the captions stay clear of them.'],
+      ['Tweak the look', 'Change the font, size, colours, outline and animation. What you see is exactly what gets exported.'],
+      ['Export the video', 'Choose "Video with captions" and post the MP4.'],
+    ],
+    sections: [
+      ['What makes captions look like TikTok\'s', 'Three things: a heavy font (Montserrat Black, Poppins Black or Anton), only two to four words on screen, and the current word changing colour or popping. A thick outline or shadow keeps them readable on any background.'],
+      ['Keep clear of the buttons', 'TikTok, Reels and Shorts cover the right side with buttons and the bottom with the caption and username. Captionshaper keeps vertical captions inside a safe zone automatically.'],
+      ['Other ways to do it', 'CapCut has auto captions but uploads your video and keeps some styles behind Pro. TikTok\'s own captions can\'t be styled. Submagic and similar sites charge a subscription.'],
+    ],
+    faq: [
+      ['Can I change the highlight colour?', 'Yes, any colour, and you can switch between a coloured word and a word on a box.'],
+      ['Will the captions have a watermark?', 'No. Captionshaper never adds a watermark.'],
+      ['Does it work for Instagram Reels and YouTube Shorts?', 'Yes. They use the same 9:16 format and similar safe zones.'],
+    ],
+  },
+  {
+    slug: 'generate-srt-from-video',
+    title: 'How to make an SRT subtitle file from a video (free)',
+    desc: 'Create an accurate SRT file from any video or audio, with every caption timed to the speech. Free and offline on Mac and Windows.',
+    h1: 'How to make an SRT file from a video',
+    answer: 'Open the video in Captionshaper, let it transcribe, check the text, then choose Export, Subtitles (.srt). You get a standard SRT file that YouTube, Premiere Pro, DaVinci Resolve, Final Cut and CapCut can import, with captions split at natural pauses and lines no longer than 42 characters.',
+    shot: 'app-editor',
+    steps: [
+      ['Download Captionshaper', 'Free for Mac (Apple Silicon) and Windows.'],
+      ['Open your video or audio', 'Any common format works, including MP3 and WAV for podcasts.'],
+      ['Check the captions', 'Fix any misheard words. Underlined words are the ones to check first.'],
+      ['Choose caption length', 'Under Style, Caption length: Two lines suits YouTube and films, One line or Short suits social video.'],
+      ['Export, Subtitles (.srt)', 'Save the file next to your video. Use VTT instead for websites.'],
+    ],
+    sections: [
+      ['What an SRT file is', 'SRT (SubRip) is a plain-text file of numbered captions, each with a start and end time like 00:00:01,900 --> 00:00:03,300 and one or two lines of text. Almost every video player and editor reads it.'],
+      ['Good subtitle rules', 'Broadcast subtitles keep lines under about 42 characters, use at most two lines, stay on screen long enough to read, and never cover silence. Captionshaper follows these rules when it splits captions.'],
+      ['Other ways to do it', 'You can type an SRT by hand, use YouTube\'s automatic captions and download them, or pay a transcription service. Captionshaper is faster than typing and keeps the video private.'],
+    ],
+    faq: [
+      ['Can I upload the SRT to YouTube?', 'Yes. In YouTube Studio, open Subtitles, Add, Upload file, With timing.'],
+      ['SRT or VTT?', 'SRT for video editors and YouTube; VTT for HTML5 video on websites. Captionshaper exports both.'],
+      ['Does the SRT keep my caption style?', 'No, SRT is plain text. Export ASS to keep the style, or burn the captions into the video.'],
+    ],
+  },
+  {
+    slug: 'transcribe-video-to-text',
+    title: 'How to transcribe a video to text for free (offline)',
+    desc: 'Get a full text transcript of any video or audio, with punctuation and paragraphs, without uploading it. Free on Mac and Windows.',
+    h1: 'How to transcribe a video to text',
+    answer: 'Open the video or audio in Captionshaper and let it transcribe on your computer, then choose Export, Transcript (.txt). You get the whole text with punctuation, split into paragraphs at long pauses. It works in about 99 languages and nothing is uploaded.',
+    shot: 'app-working',
+    steps: [
+      ['Download Captionshaper', 'Free for Mac (Apple Silicon) and Windows.'],
+      ['Open the file', 'Videos, voice memos, podcasts and lectures all work.'],
+      ['Pick the model', 'Recommended suits most recordings. Most accurate is better for heavy accents, noise or less common languages.'],
+      ['Read through it', 'Fix names and technical words with find and replace.'],
+      ['Export, Transcript (.txt)', 'Paste it into a document, a blog post or show notes.'],
+    ],
+    sections: [
+      ['Why local transcription matters', 'Interviews, meetings and lectures are often private. Online transcription sites keep copies of what you upload. Captionshaper does the whole job on your own computer.'],
+      ['How long it takes', 'About a fifth of real time with the Recommended model on an Apple Silicon Mac: a 30-minute recording takes about six minutes. Windows PCs take longer because transcription runs on the processor.'],
+      ['Other ways to do it', 'Otter, Descript and Rev transcribe well but need an account and an upload, and limit free minutes. Whisper itself is free but needs the command line.'],
+    ],
+    faq: [
+      ['Does it add punctuation?', 'Yes, full stops, commas, question marks and capital letters.'],
+      ['Can it tell speakers apart?', 'Not yet. The transcript is one continuous text split at pauses.'],
+      ['Can it transcribe audio files?', 'Yes: MP3, WAV, M4A, FLAC and more.'],
+    ],
+  },
+  {
+    slug: 'burn-subtitles-into-video',
+    title: 'How to burn subtitles into a video (hardcode SRT, free)',
+    desc: 'Hardcode subtitles permanently into an MP4 so they show on every platform. Use your own SRT or generate one automatically. Free and offline.',
+    h1: 'How to burn subtitles into a video',
+    answer: 'Burning (hardcoding) subtitles draws them into the picture, so they show on TikTok, Instagram, WhatsApp and anywhere else. In Captionshaper, open the video, let it write the captions (or fix them), pick a style, then choose Export, Video with captions. It saves a new MP4 and leaves the original untouched.',
+    shot: 'app-style',
+    steps: [
+      ['Open your video in Captionshaper', 'It writes the captions automatically with word timing.'],
+      ['Fix any words', 'Edit, merge or split captions until they are right.'],
+      ['Choose a style', 'Clean or Subtitle box for classic subtitles, Bold or Highlight for social video.'],
+      ['Export, Video with captions', 'Captionshaper encodes a new MP4 (H.264) with the captions drawn in. Keep the app open until it finishes.'],
+    ],
+    sections: [
+      ['Hardcoded vs soft subtitles', 'Soft subtitles are a separate track or file that viewers can switch off. Hardcoded subtitles are part of the image and can\'t be turned off, which is what social platforms need.'],
+      ['Quality', 'Captionshaper re-encodes at high quality (CRF 18), so the picture looks the same as the original. Captions are drawn at the video\'s full resolution with smooth edges.'],
+      ['Other ways to do it', 'FFmpeg can burn an SRT with the subtitles filter if you are comfortable with the command line. HandBrake can burn SRT files too, but styling is limited.'],
+    ],
+    faq: [
+      ['Can I use my own SRT file?', 'Not yet: Captionshaper writes the captions itself from the audio. You can edit every caption before exporting.'],
+      ['Will it lower the video quality?', 'Barely. The export uses high-quality H.264 settings.'],
+      ['How long does it take?', 'About as long as the video plays, often less, depending on your computer.'],
+    ],
+  },
+  {
+    slug: 'translate-video-subtitles-to-english',
+    title: 'How to add English subtitles to a video in another language (free)',
+    desc: 'Turn speech in Spanish, French, German, Japanese or 90+ other languages into English subtitles automatically. Free and offline.',
+    h1: 'How to add English subtitles to a foreign-language video',
+    answer: 'In Captionshaper, tick "Translate to English" before opening the video. It listens to the original language and writes English captions with timing, on your own computer. Then fix any phrases and export an SRT file or a video with the English subtitles burned in.',
+    shot: 'app-home',
+    steps: [
+      ['Download Captionshaper', 'Free for Mac (Apple Silicon) and Windows.'],
+      ['Tick "Translate to English"', 'On the start screen, next to Language and Model.'],
+      ['Open the video', 'Captionshaper detects the spoken language and writes English captions.'],
+      ['Polish the wording', 'Translations are good but not perfect. Edit any caption by clicking it.'],
+      ['Export', 'SRT for YouTube, or a video with the English captions burned in.'],
+    ],
+    sections: [
+      ['How good is the translation?', 'It comes from the Whisper model, which was trained on a large amount of translated speech. It handles everyday speech well; idioms and names sometimes need a fix.'],
+      ['Only into English', 'Translation goes into English only. For subtitles in the original language, leave the box unticked.'],
+      ['Other ways to do it', 'YouTube can auto-translate captions after upload. DeepL or Google Translate can translate an SRT file, but you need the original subtitles first.'],
+    ],
+    faq: [
+      ['Which languages can it translate from?', 'About 99, including Spanish, French, German, Portuguese, Russian, Chinese, Japanese and Korean.'],
+      ['Can it translate into other languages?', 'No, only into English for now.'],
+      ['Is the video uploaded for translation?', 'No. Everything happens on your computer.'],
+    ],
+  },
+];

@@ -1,3 +1,5 @@
+# Search engines and AI assistants are welcome.
 User-agent: *
 Allow: /
-Sitemap: https://hollowbit-dev.github.io/captionshaper/sitemap.xml
+
+Sitemap: https://captionshaper.app/sitemap.xml

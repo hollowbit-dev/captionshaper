@@ -116,7 +116,7 @@
       "include": "installer/installer.nsh"
     },
     "afterPack": "scripts/after-pack.js",
-    "copyright": "\u00a9 2026 Hollowbit \u00b7 Elvis Zygmanta",
+    "copyright": "© 2026 Hollowbit · Elvis Zygmanta",
     "extraResources": [
       {
         "from": "LICENSE",
@@ -132,5 +132,5 @@
     "type": "git",
     "url": "https://github.com/hollowbit-dev/captionshaper.git"
   },
-  "homepage": "https://hollowbit-dev.github.io/captionshaper/"
+  "homepage": "https://captionshaper.app"
 }

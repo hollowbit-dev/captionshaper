@@ -1,107 +1,117 @@
 <!doctype html>
 <html lang="zh-Hans">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Captionshaper：免费离线自动字幕，支持 Mac 和 Windows</title>
-  <meta name="description" content="拖入视频，几秒内得到精准到每个字词的字幕。导出 SRT、VTT，或烧录 TikTok 风格字幕。免费、开源，不上传任何内容。">
-  <link rel="canonical" href="https://hollowbit-dev.github.io/captionshaper/zh/">
-  <link rel="alternate" hreflang="en" href="https://hollowbit-dev.github.io/captionshaper/">
-  <link rel="alternate" hreflang="es" href="https://hollowbit-dev.github.io/captionshaper/es/">
-  <link rel="alternate" hreflang="fr" href="https://hollowbit-dev.github.io/captionshaper/fr/">
-  <link rel="alternate" hreflang="de" href="https://hollowbit-dev.github.io/captionshaper/de/">
-  <link rel="alternate" hreflang="ru" href="https://hollowbit-dev.github.io/captionshaper/ru/">
-  <link rel="alternate" hreflang="zh-Hans" href="https://hollowbit-dev.github.io/captionshaper/zh/">
-  <link rel="alternate" hreflang="x-default" href="https://hollowbit-dev.github.io/captionshaper/">
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Captionshaper：免费离线自动字幕，支持 Mac 和 Windows">
-  <meta property="og:description" content="拖入视频，几秒内得到精准到每个字词的字幕。导出 SRT、VTT，或烧录 TikTok 风格字幕。免费、开源，不上传任何内容。">
-  <meta property="og:url" content="https://hollowbit-dev.github.io/captionshaper/zh/">
-  <meta property="og:image" content="https://hollowbit-dev.github.io/captionshaper/img/og.png">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="theme-color" content="#08090a">
-  <link rel="icon" type="image/png" href="../favicon.png">
-  <link rel="preload" href="../fonts/Geist-Variable.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="../style.css?v=1.1.0">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Captionshaper","operatingSystem":"macOS, Windows","applicationCategory":"MultimediaApplication","description":"拖入视频，几秒内得到精准到每个字词的字幕。导出 SRT、VTT，或烧录 TikTok 风格字幕。免费、开源，不上传任何内容。","softwareVersion":"1.1.0","url":"https://hollowbit-dev.github.io/captionshaper/zh/","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"author":{"@type":"Organization","name":"Hollowbit"},"downloadUrl":["https://github.com/hollowbit-dev/captionshaper/releases/latest/download/Captionshaper-1.1.0-mac-arm64.dmg","https://github.com/hollowbit-dev/captionshaper/releases/latest/download/Captionshaper-Setup-1.1.0-win-x64.exe"],"license":"https://www.gnu.org/licenses/gpl-3.0.html"}</script>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"真的免费吗？","acceptedAnswer":{"@type":"Answer","text":"是的。没有试用期、没有水印、没有限制。Captionshaper 是开源的，如果它帮你省了时间，可以在 Ko-fi 上支持。"}},{"@type":"Question","name":"会上传我的视频吗？","acceptedAnswer":{"@type":"Answer","text":"不会。一切都在你的电脑上完成。应用只会下载一次语音模型（约 570 MB），这是它唯一的联网操作。"}},{"@type":"Question","name":"支持哪些语言？","acceptedAnswer":{"@type":"Answer","text":"约 99 种，包括中文、英语、西班牙语、法语、德语、葡萄牙语、俄语和日语，并会自动识别语言。较少见的语言建议使用“最准确”模型。"}},{"@type":"Question","name":"准确度如何？","acceptedAnswer":{"@type":"Answer","text":"清晰的语音几乎每个词都对。我们用英语、西班牙语和德语的已知文稿片段测试：词错误率 0.7%，字幕与声音相差不到 0.15 秒。噪音和浓重口音会带来更多错误，所以修改也做得很快。"}},{"@type":"Question","name":"能翻译吗？","acceptedAnswer":{"@type":"Answer","text":"可以把任何支持语言的语音转成英文字幕。开始前勾选“翻译成英文”。"}},{"@type":"Question","name":"Windows 上速度快吗？","acceptedAnswer":{"@type":"Answer","text":"Windows 版使用处理器运行，在较新的电脑上约为实时的一到两倍。Apple 芯片的 Mac 使用 GPU，约为实时的五倍。"}},{"@type":"Question","name":"支持 Intel 芯片的 Mac 吗？","acceptedAnswer":{"@type":"Answer","text":"暂不支持。Mac 版需要 Apple 芯片（M1 或更新）。"}}]}</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>document.documentElement.classList.add('js')</script>
+<title>Captionshaper：免费离线自动字幕，支持 Mac 和 Windows</title>
+<meta name="description" content="拖入视频，几秒内得到精准到每个字词的字幕。导出 SRT、VTT，或烧录 TikTok 风格字幕。免费、开源，不上传任何内容。">
+<meta name="theme-color" content="#08090a">
+<meta name="author" content="Hollowbit">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Captionshaper">
+<meta property="og:title" content="Captionshaper：免费离线自动字幕，支持 Mac 和 Windows">
+<meta property="og:description" content="拖入视频，几秒内得到精准到每个字词的字幕。导出 SRT、VTT，或烧录 TikTok 风格字幕。免费、开源，不上传任何内容。">
+<meta property="og:url" content="https://captionshaper.app/zh/">
+<meta property="og:image" content="https://captionshaper.app/og/og-zh.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="zh_Hans">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Captionshaper：免费离线自动字幕，支持 Mac 和 Windows">
+<meta name="twitter:description" content="拖入视频，几秒内得到精准到每个字词的字幕。导出 SRT、VTT，或烧录 TikTok 风格字幕。免费、开源，不上传任何内容。">
+<meta name="twitter:image" content="https://captionshaper.app/og/og-zh.png">
+<link rel="canonical" href="https://captionshaper.app/zh/">
+<link rel="alternate" hreflang="en" href="https://captionshaper.app/">
+<link rel="alternate" hreflang="es" href="https://captionshaper.app/es/">
+<link rel="alternate" hreflang="fr" href="https://captionshaper.app/fr/">
+<link rel="alternate" hreflang="de" href="https://captionshaper.app/de/">
+<link rel="alternate" hreflang="ru" href="https://captionshaper.app/ru/">
+<link rel="alternate" hreflang="zh-Hans" href="https://captionshaper.app/zh/">
+<link rel="alternate" hreflang="x-default" href="https://captionshaper.app/">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Hollowbit","url":"https://captionshaper.app","logo":"https://captionshaper.app/img/icon-256.png","founder":{"@type":"Person","name":"Elvis Zygmanta"},"sameAs":["https://github.com/hollowbit-dev/captionshaper","https://fileshaper.app"]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Captionshaper","applicationCategory":"MultimediaApplication","operatingSystem":"macOS 12 or later (Apple Silicon), Windows 10, Windows 11","softwareVersion":"1.1.0","inLanguage":"zh-Hans","description":"拖入视频，几秒内得到精准到每个字词的字幕。导出 SRT、VTT，或烧录 TikTok 风格字幕。免费、开源，不上传任何内容。","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"downloadUrl":"https://captionshaper.app/download.html","license":"https://www.gnu.org/licenses/gpl-3.0.html","publisher":{"@type":"Organization","name":"Hollowbit"},"image":"https://captionshaper.app/og/og-en.png","screenshot":"https://captionshaper.app/img/app-editor.webp","featureList":["Automatic subtitles and captions from speech, offline","Word-level timing with voice activity detection","TikTok, Reels and Shorts caption styles with word highlight and animation","Export SRT, VTT, ASS, TXT or MP4 with burned-in captions","About 99 languages, translation to English","Free, no watermark, nothing uploaded"]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"真的免费吗？","acceptedAnswer":{"@type":"Answer","text":"是的。没有试用期、没有水印、没有限制。Captionshaper 是开源的，如果它帮你省了时间，可以在 Ko-fi 上支持。"}},{"@type":"Question","name":"会上传我的视频吗？","acceptedAnswer":{"@type":"Answer","text":"不会。一切都在你的电脑上完成。应用只会下载一次语音模型（约 570 MB），这是它唯一的联网操作。"}},{"@type":"Question","name":"支持哪些语言？","acceptedAnswer":{"@type":"Answer","text":"约 99 种，包括中文、英语、西班牙语、法语、德语、葡萄牙语、俄语和日语，并会自动识别语言。较少见的语言建议使用“最准确”模型。"}},{"@type":"Question","name":"准确度如何？","acceptedAnswer":{"@type":"Answer","text":"清晰的语音几乎每个词都对。我们用英语、西班牙语和德语的已知文稿片段测试：词错误率 0.7%，字幕与声音相差不到 0.15 秒。噪音和浓重口音会带来更多错误，所以修改也做得很快。"}},{"@type":"Question","name":"能翻译吗？","acceptedAnswer":{"@type":"Answer","text":"可以把任何支持语言的语音转成英文字幕。开始前勾选“翻译成英文”。"}},{"@type":"Question","name":"Windows 上速度快吗？","acceptedAnswer":{"@type":"Answer","text":"Windows 版使用处理器运行，在较新的电脑上约为实时的一到两倍。Apple 芯片的 Mac 使用 GPU，约为实时的五倍。"}},{"@type":"Question","name":"支持 Intel 芯片的 Mac 吗？","acceptedAnswer":{"@type":"Answer","text":"暂不支持。Mac 版需要 Apple 芯片（M1 或更新）。"}}]}</script>
+<link rel="icon" type="image/png" href="../favicon.png">
+<link rel="preload" href="../fonts/Geist-Variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../style.css?v=1.1.0">
 </head>
-<body>
+<body data-page="index">
 <div class="progress" aria-hidden="true"><i></i></div>
-<a class="skip" href="#main">Skip to content</a>
+<a class="skip" href="#main">跳到内容</a>
 <header class="nav"><div class="wrap nav-in">
   <a class="logo" href="./"><img src="../favicon.png" alt="" width="26" height="26">Captionshaper</a>
-  <nav class="links" aria-label="Main">
-    <a href="#features">功能</a><a href="#styles">样式</a><a href="#privacy">隐私</a><a href="#faq">常见问题</a>
-  </nav>
+  <nav class="links" aria-label="Main"><a href="features.html">功能</a><a href="download.html">下载</a><a href="changelog.html">更新日志</a><a href="faq.html">常见问题</a><a href="about.html">关于</a></nav>
   <div class="nav-end">
-    <a class="btn btn-ghost btn-sm kofi" href="https://ko-fi.com/hollowbit" target="_blank" rel="noopener"><svg class="ic" viewBox="0 0 24 24"><path d="M12 20s-7-4.3-8.8-8.7C1.9 8 4 4.8 7.2 4.8c1.9 0 3.4 1 4.8 2.8 1.4-1.8 2.9-2.8 4.8-2.8 3.2 0 5.3 3.2 4 6.5C19 15.7 12 20 12 20z"/></svg><span>Ko-fi</span></a>
+    <details class="lang"><summary aria-label="语言"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5c2.4 2.4 3.5 5.3 3.5 8.5s-1.1 6.1-3.5 8.5c-2.4-2.4-3.5-5.3-3.5-8.5s1.1-6.1 3.5-8.5z"/></svg><span>ZH</span></summary>
+      <div class="lang-menu"><a href="../" hreflang="en" lang="en" data-set-lang="en">English</a><a href="../es/" hreflang="es" lang="es" data-set-lang="es">Español</a><a href="../fr/" hreflang="fr" lang="fr" data-set-lang="fr">Français</a><a href="../de/" hreflang="de" lang="de" data-set-lang="de">Deutsch</a><a href="../ru/" hreflang="ru" lang="ru" data-set-lang="ru">Русский</a><a href="../zh/" hreflang="zh-Hans" lang="zh-Hans" data-set-lang="zh" aria-current="true">简体中文</a></div></details>
+    <a class="btn btn-ghost btn-sm kofi" href="https://ko-fi.com/hollowbit" target="_blank" rel="noopener"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.3-8.8-8.7C1.9 8 4 4.8 7.2 4.8c1.9 0 3.4 1 4.8 2.8 1.4-1.8 2.9-2.8 4.8-2.8 3.2 0 5.3 3.2 4 6.5C19 15.7 12 20 12 20z"/></svg><span>Ko-fi</span></a>
     <a class="btn btn-primary btn-sm" href="download.html">下载</a>
   </div>
 </div></header>
 <main id="main">
-<section class="hero">
-  <div class="wrap">
+
+<section class="hero"><div class="wrap">
   <p class="cue-head"><span class="tags">免费 · 离线 · 开源</span></p>
   <h1 class="kara"><span class="hw" style="--i:0">跟得上你的字幕。</span></h1>
   <p class="lede">拖入视频，Captionshaper 就在你的电脑上写下每个词及其时间。修改、选样式、导出。不上传任何内容。</p>
   <div class="cta">
-  <a class="btn btn-primary btn-lg" data-os="mac" href="https://github.com/hollowbit-dev/captionshaper/releases/latest/download/Captionshaper-1.1.0-mac-arm64.dmg"><svg class="ic" viewBox="0 0 24 24"><path d="M16.4 12.6c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.1-2.8.9-3.5.9-.7 0-1.8-.8-3-.8-1.5 0-3 .9-3.8 2.3-1.6 2.8-.4 7 1.2 9.3.8 1.1 1.7 2.4 2.9 2.3 1.2 0 1.6-.7 3-.7s1.8.7 3 .7c1.3 0 2.1-1.1 2.8-2.3.9-1.3 1.3-2.6 1.3-2.6s-2.5-1-2.5-3.8zM14.2 5.8c.6-.8 1.1-1.8 1-2.8-.9 0-2 .6-2.7 1.4-.6.7-1.1 1.7-1 2.7 1 .1 2-.5 2.7-1.3z" fill="currentColor" stroke="none"/></svg>下载 Mac 版</a>
-  <a class="btn btn-ghost btn-lg" data-os="win" href="https://github.com/hollowbit-dev/captionshaper/releases/latest/download/Captionshaper-Setup-1.1.0-win-x64.exe"><svg class="ic" viewBox="0 0 24 24"><path d="M3 5.5l7.5-1v7H3zM11.5 4.3L21 3v8.5h-9.5zM3 12.5h7.5v7L3 18.5zM11.5 12.5H21V21l-9.5-1.3z" fill="currentColor" stroke="none"/></svg>下载 Windows 版</a>
+  <a class="btn btn-primary btn-lg" data-os="mac" href="https://github.com/hollowbit-dev/captionshaper/releases/latest/download/Captionshaper-1.1.0-mac-arm64.dmg"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" stroke="none" d="M16.4 12.6c0-2.4 2-3.6 2.1-3.7-1.2-1.7-3-1.9-3.6-2-1.5-.2-3 .9-3.8.9s-2-.9-3.3-.9C6.1 7 4.5 8 3.6 9.6c-1.8 3.2-.5 7.9 1.3 10.4.9 1.3 1.9 2.7 3.2 2.6 1.3 0 1.8-.8 3.3-.8s2 .8 3.3.8c1.4 0 2.3-1.3 3.1-2.5 1-1.4 1.4-2.8 1.4-2.9 0 0-2.8-1.1-2.8-4.6zM14 5.2c.7-.9 1.2-2 1-3.2-1 .1-2.3.7-3 1.6-.7.8-1.2 2-1.1 3.1 1.2.1 2.3-.6 3.1-1.5z"/></svg>下载 Mac 版</a>
+  <a class="btn btn-ghost btn-lg" data-os="win" href="https://github.com/hollowbit-dev/captionshaper/releases/latest/download/Captionshaper-Setup-1.1.0-win-x64.exe"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" stroke="none" d="M3 5.6 10.4 4.6v7H3zM11.6 4.4 21 3v8.6h-9.4zM3 12.6h7.4v7L3 18.6zM11.6 12.6H21V21l-9.4-1.4z"/></svg>下载 Windows 版</a>
 </div>
   <p class="note">macOS 12+（Apple 芯片）· Windows 10 和 11（64 位）</p>
-  </div>
-  <div class="wrap">
   <div class="hero-wave" aria-hidden="true"><div class="hw-bars"><i style="--h:0.35"></i><i style="--h:0.40"></i><i style="--h:0.47"></i><i style="--h:0.54"></i><i style="--h:0.62"></i><i style="--h:0.69"></i><i style="--h:0.75"></i><i style="--h:0.78"></i><i style="--h:0.79"></i><i style="--h:0.77"></i><i style="--h:0.73"></i><i style="--h:0.67"></i><i style="--h:0.61"></i><i style="--h:0.55"></i><i style="--h:0.51"></i><i style="--h:0.48"></i><i style="--h:0.48"></i><i style="--h:0.50"></i><i style="--h:0.53"></i><i style="--h:0.57"></i><i style="--h:0.61"></i><i style="--h:0.65"></i><i style="--h:0.66"></i><i style="--h:0.66"></i><i style="--h:0.63"></i><i style="--h:0.58"></i><i style="--h:0.51"></i><i style="--h:0.44"></i><i style="--h:0.37"></i><i style="--h:0.39"></i><i style="--h:0.44"></i><i style="--h:0.47"></i><i style="--h:0.06"></i><i style="--h:0.06"></i><i style="--h:0.06"></i><i style="--h:0.06"></i><i style="--h:0.06"></i><i style="--h:0.46"></i><i style="--h:0.49"></i><i style="--h:0.55"></i><i style="--h:0.62"></i><i style="--h:0.70"></i><i style="--h:0.78"></i><i style="--h:0.86"></i><i style="--h:0.91"></i><i style="--h:0.94"></i><i style="--h:0.94"></i><i style="--h:0.92"></i><i style="--h:0.86"></i><i style="--h:0.79"></i><i style="--h:0.70"></i><i style="--h:0.61"></i><i style="--h:0.53"></i><i style="--h:0.47"></i><i style="--h:0.41"></i><i style="--h:0.38"></i><i style="--h:0.36"></i><i style="--h:0.36"></i><i style="--h:0.37"></i><i style="--h:0.40"></i><i style="--h:0.44"></i><i style="--h:0.49"></i><i style="--h:0.56"></i><i style="--h:0.65"></i><i style="--h:0.74"></i><i style="--h:0.82"></i><i style="--h:0.89"></i><i style="--h:0.94"></i><i style="--h:0.97"></i><i style="--h:0.08"></i><i style="--h:0.07"></i><i style="--h:0.07"></i><i style="--h:0.06"></i><i style="--h:0.06"></i><i style="--h:0.61"></i><i style="--h:0.54"></i><i style="--h:0.49"></i><i style="--h:0.45"></i><i style="--h:0.44"></i><i style="--h:0.44"></i><i style="--h:0.45"></i><i style="--h:0.45"></i><i style="--h:0.45"></i><i style="--h:0.43"></i><i style="--h:0.39"></i><i style="--h:0.36"></i><i style="--h:0.43"></i><i style="--h:0.50"></i><i style="--h:0.57"></i><i style="--h:0.64"></i><i style="--h:0.68"></i><i style="--h:0.70"></i><i style="--h:0.70"></i><i style="--h:0.68"></i><i style="--h:0.64"></i><i style="--h:0.59"></i></div><div class="hw-head"></div></div>
   <div class="shot hero-shot">
     <img src="../img/app-editor.webp" width="1600" height="1018" alt="Captionshaper editor: a vertical video in a phone frame with bold captions, the caption list and a waveform timeline">
-    <div class="scan" aria-hidden="true"></div>
     <div class="live-chip" aria-hidden="true"><span class="dot"></span><span class="live-words" data-words="Every|word,|right|on|time."></span></div>
   </div>
 </div></section>
-
 <div class="marquee" aria-hidden="true"><div class="mq-track"><span><b>Hello</b><i>·</i><b>Hola</b><i>·</i><b>Bonjour</b><i>·</i><b>Hallo</b><i>·</i><b>Ciao</b><i>·</i><b>Olá</b><i>·</i><b>Привет</b><i>·</i><b>Labas</b><i>·</i><b>Cześć</b><i>·</i><b>Merhaba</b><i>·</i><b>こんにちは</b><i>·</i><b>你好</b><i>·</i><b>안녕하세요</b><i>·</i><b>مرحبا</b><i>·</i><b>नमस्ते</b><i>·</i><b>Hej</b><i>·</i><b>Γεια σου</b><i>·</i><b>Sveiki</b><i>·</i><b>Xin chào</b><i>·</i><b>Shalom</b><i>·</i><b>Ahoj</b><i>·</i><b>Hei</b><i>·</i><b>Szia</b><i>·</i><b>Halo</b><i>·</i></span><span><b>Hello</b><i>·</i><b>Hola</b><i>·</i><b>Bonjour</b><i>·</i><b>Hallo</b><i>·</i><b>Ciao</b><i>·</i><b>Olá</b><i>·</i><b>Привет</b><i>·</i><b>Labas</b><i>·</i><b>Cześć</b><i>·</i><b>Merhaba</b><i>·</i><b>こんにちは</b><i>·</i><b>你好</b><i>·</i><b>안녕하세요</b><i>·</i><b>مرحبا</b><i>·</i><b>नमस्ते</b><i>·</i><b>Hej</b><i>·</i><b>Γεια σου</b><i>·</i><b>Sveiki</b><i>·</i><b>Xin chào</b><i>·</i><b>Shalom</b><i>·</i><b>Ahoj</b><i>·</i><b>Hei</b><i>·</i><b>Szia</b><i>·</i><b>Halo</b><i>·</i></span></div></div>
-
 <section class="split" id="live"><div class="wrap split-in">
   <div class="split-text"><h2>看它一边听一边写。</h2><p>Captionshaper 找到说话的部分，跳过音乐和静音，文字随识别实时出现。在 M 系列芯片的 Mac 上，一分钟的视频大约十秒完成。</p></div>
   <div class="shot"><img src="../img/app-working.webp" width="1440" height="792" alt="Words appearing live while Captionshaper transcribes, above a waveform" loading="lazy"></div>
 </div></section>
-
 <section id="features"><div class="wrap">
   <h2 class="center">真正好用的字幕，而不只是文字稿。</h2>
-  <div class="grid"><div class="card spot b0" style="--d:0"><svg class="ic fi" viewBox="0 0 24 24"><path d="M9 18V6l10-2v12"/><circle cx="6.5" cy="18" r="2.5"/><circle cx="16.5" cy="16" r="2.5"/><path d="M3 3l18 18"/></svg><h3>不会盖在音乐上</h3><p>语音检测找出有人说话的地方。片头、音乐和静音保持干净，不会凭空冒出文字。</p></div><div class="card spot b1" style="--d:1"><svg class="ic fi" viewBox="0 0 24 24"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2.5M9 2h6"/></svg><h3>精确到每个词</h3><p>每个词都在声音响起时出现：字幕同步自然，逐词高亮恰到好处。</p></div><div class="card spot b2" style="--d:2"><svg class="ic fi" viewBox="0 0 24 24"><path d="M4 7h16M4 12h11M4 17h14"/></svg><h3>断行好读</h3><p>在句子和短语结尾断行，不在虚词后断开，也不会跨过长停顿。</p></div><div class="card spot b3" style="--d:3"><svg class="ic fi" viewBox="0 0 24 24"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M10 18.5h4"/></svg><h3>为竖屏视频而做</h3><p>Pop 和逐词样式，加上手机预览，显示 TikTok、Reels 和 Shorts 的按钮位置。</p></div><div class="card spot b4" style="--d:4"><svg class="ic fi" viewBox="0 0 24 24"><path d="M4 20h4L19 9l-4-4L4 16v4zM13.5 6.5l4 4"/></svg><h3>改起来很快</h3><p>不确定的词会加下划线。直接编辑、查找替换、拆分、合并、撤销，修改自动保存。</p></div><div class="card spot b5" style="--d:5"><svg class="ic fi" viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg><h3>支持所有格式</h3><p>SRT、VTT、ASS 和纯文本，或烧录字幕的 MP4，直接发布。</p></div></div>
+  <div class="grid"><div class="card spot" style="--d:0"><svg class="ic fi" viewBox="0 0 24 24"><path d="M9 18V6l10-2v12"/><circle cx="6.5" cy="18" r="2.5"/><circle cx="16.5" cy="16" r="2.5"/><path d="M3 3l18 18"/></svg><h3>不会盖在音乐上</h3><p>语音检测找出有人说话的地方。片头、音乐和静音保持干净，不会凭空冒出文字。</p></div><div class="card spot" style="--d:1"><svg class="ic fi" viewBox="0 0 24 24"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2.5M9 2h6"/></svg><h3>精确到每个词</h3><p>每个词都在声音响起时出现：字幕同步自然，逐词高亮恰到好处。</p></div><div class="card spot" style="--d:2"><svg class="ic fi" viewBox="0 0 24 24"><path d="M4 7h16M4 12h11M4 17h14"/></svg><h3>断行好读</h3><p>在句子和短语结尾断行，不在虚词后断开，也不会跨过长停顿。</p></div><div class="card spot" style="--d:3"><svg class="ic fi" viewBox="0 0 24 24"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M10 18.5h4"/></svg><h3>为竖屏视频而做</h3><p>Pop 和逐词样式，加上手机预览，显示 TikTok、Reels 和 Shorts 的按钮位置。</p></div><div class="card spot" style="--d:4"><svg class="ic fi" viewBox="0 0 24 24"><path d="M4 20h4L19 9l-4-4L4 16v4zM13.5 6.5l4 4"/></svg><h3>改起来很快</h3><p>不确定的词会加下划线。直接编辑、查找替换、拆分、合并、撤销，修改自动保存。</p></div><div class="card spot" style="--d:5"><svg class="ic fi" viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg><h3>支持所有格式</h3><p>SRT、VTT、ASS 和纯文本，或烧录字幕的 MP4，直接发布。</p></div></div>
+  <p class="center more"><a class="link" href="features.html">Captionshaper 能做的一切 <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p>
 </div></section>
-
 <section class="split rev" id="styles"><div class="wrap split-in">
   <div class="split-text"><h2>选个样式，所见即导出。</h2><p>九种起步样式，包括粗体、高亮框、逐词、渐显和霓虹，配有十一种字幕字体。正在说的词可以变色或加底框，文字可以弹出、淡入或滑入。预览就是成片：字体、大小和时间完全一致。</p></div>
-  <div class="shot"><img src="../img/app-style.webp" width="1600" height="1018" alt="Caption style options: Clean, Box, Pop and Word by word, with size, position and colours" loading="lazy"></div>
+  <div class="shot"><img src="../img/app-style.webp" width="1600" height="1018" alt="Captionshaper caption styles: nine presets with fonts, highlight, animation, outline, shadow and glow controls" loading="lazy"></div>
 </div></section>
-
-<section class="nums"><div class="wrap nums-in"><div class="srt"><span class="srt-tc">00:00:04,200 --&gt; 00:00:06,000</span><b>0.7%</b><span class="srt-l">测试片段的词错误率</span></div><div class="srt"><span class="srt-tc">00:00:06,080 --&gt; 00:00:07,900</span><b>~5×</b><span class="srt-l">Apple 芯片上快于实时</span></div><div class="srt"><span class="srt-tc">00:00:08,000 --&gt; 00:00:09,600</span><b>99</b><span class="srt-l">种语言，自动识别</span></div></div></section>
-
+<section class="nums"><div class="wrap nums-in"><div class="stat"><b>0.7%</b><span>测试片段的词错误率</span></div><div class="stat"><b>~5×</b><span>Apple 芯片上快于实时</span></div><div class="stat"><b>99</b><span>种语言，自动识别</span></div></div></section>
 <section id="privacy" class="priv"><div class="wrap narrow center">
   <h2>你的视频从不离开你的电脑。</h2><p class="lede">无需账号，不上传，无水印，无限制。只需下载一次语音模型，之后 Captionshaper 无需联网即可使用。</p>
-  <ul class="ticks"><li><svg class="ic" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>语音识别在你的 Mac 或 PC 上运行</li><li><svg class="ic" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>无账号，无追踪</li><li><svg class="ic" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>基于 GPL 开源</li></ul>
+  <ul class="ticks"><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>语音识别在你的 Mac 或 PC 上运行</li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>无账号，无追踪</li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>基于 GPL 开源</li></ul>
 </div></section>
-
 <section id="faq"><div class="wrap narrow">
   <h2>常见问题</h2>
   <div class="faq"><details><summary>真的免费吗？</summary><p>是的。没有试用期、没有水印、没有限制。Captionshaper 是开源的，如果它帮你省了时间，可以在 Ko-fi 上支持。</p></details><details><summary>会上传我的视频吗？</summary><p>不会。一切都在你的电脑上完成。应用只会下载一次语音模型（约 570 MB），这是它唯一的联网操作。</p></details><details><summary>支持哪些语言？</summary><p>约 99 种，包括中文、英语、西班牙语、法语、德语、葡萄牙语、俄语和日语，并会自动识别语言。较少见的语言建议使用“最准确”模型。</p></details><details><summary>准确度如何？</summary><p>清晰的语音几乎每个词都对。我们用英语、西班牙语和德语的已知文稿片段测试：词错误率 0.7%，字幕与声音相差不到 0.15 秒。噪音和浓重口音会带来更多错误，所以修改也做得很快。</p></details><details><summary>能翻译吗？</summary><p>可以把任何支持语言的语音转成英文字幕。开始前勾选“翻译成英文”。</p></details><details><summary>Windows 上速度快吗？</summary><p>Windows 版使用处理器运行，在较新的电脑上约为实时的一到两倍。Apple 芯片的 Mac 使用 GPU，约为实时的五倍。</p></details><details><summary>支持 Intel 芯片的 Mac 吗？</summary><p>暂不支持。Mac 版需要 Apple 芯片（M1 或更新）。</p></details></div>
+  <p class="more"><a class="link" href="faq.html">常见问题 <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p>
 </div></section>
-
+<section class="extras"><div class="wrap two-col">
+  <a class="panel link-panel" href="../tools/"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z"/></svg><h3>免费工具</h3><p>SRT ↔ VTT, shift subtitle timing, subtitles to text. In your browser, nothing uploaded.</p></a>
+  <a class="panel link-panel" href="../guides/"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg><h3>教程</h3><p>How to add subtitles to a video automatically · How to add TikTok-style captions to a video · How to make an SRT file from a video</p></a>
+</div></section>
 <section class="end"><div class="wrap center">
   <h2>跟得上你的字幕。</h2>
   <div class="cta">
-  <a class="btn btn-primary btn-lg" data-os="mac" href="https://github.com/hollowbit-dev/captionshaper/releases/latest/download/Captionshaper-1.1.0-mac-arm64.dmg"><svg class="ic" viewBox="0 0 24 24"><path d="M16.4 12.6c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.1-2.8.9-3.5.9-.7 0-1.8-.8-3-.8-1.5 0-3 .9-3.8 2.3-1.6 2.8-.4 7 1.2 9.3.8 1.1 1.7 2.4 2.9 2.3 1.2 0 1.6-.7 3-.7s1.8.7 3 .7c1.3 0 2.1-1.1 2.8-2.3.9-1.3 1.3-2.6 1.3-2.6s-2.5-1-2.5-3.8zM14.2 5.8c.6-.8 1.1-1.8 1-2.8-.9 0-2 .6-2.7 1.4-.6.7-1.1 1.7-1 2.7 1 .1 2-.5 2.7-1.3z" fill="currentColor" stroke="none"/></svg>下载 Mac 版</a>
-  <a class="btn btn-ghost btn-lg" data-os="win" href="https://github.com/hollowbit-dev/captionshaper/releases/latest/download/Captionshaper-Setup-1.1.0-win-x64.exe"><svg class="ic" viewBox="0 0 24 24"><path d="M3 5.5l7.5-1v7H3zM11.5 4.3L21 3v8.5h-9.5zM3 12.5h7.5v7L3 18.5zM11.5 12.5H21V21l-9.5-1.3z" fill="currentColor" stroke="none"/></svg>下载 Windows 版</a>
+  <a class="btn btn-primary btn-lg" data-os="mac" href="https://github.com/hollowbit-dev/captionshaper/releases/latest/download/Captionshaper-1.1.0-mac-arm64.dmg"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" stroke="none" d="M16.4 12.6c0-2.4 2-3.6 2.1-3.7-1.2-1.7-3-1.9-3.6-2-1.5-.2-3 .9-3.8.9s-2-.9-3.3-.9C6.1 7 4.5 8 3.6 9.6c-1.8 3.2-.5 7.9 1.3 10.4.9 1.3 1.9 2.7 3.2 2.6 1.3 0 1.8-.8 3.3-.8s2 .8 3.3.8c1.4 0 2.3-1.3 3.1-2.5 1-1.4 1.4-2.8 1.4-2.9 0 0-2.8-1.1-2.8-4.6zM14 5.2c.7-.9 1.2-2 1-3.2-1 .1-2.3.7-3 1.6-.7.8-1.2 2-1.1 3.1 1.2.1 2.3-.6 3.1-1.5z"/></svg>下载 Mac 版</a>
+  <a class="btn btn-ghost btn-lg" data-os="win" href="https://github.com/hollowbit-dev/captionshaper/releases/latest/download/Captionshaper-Setup-1.1.0-win-x64.exe"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" stroke="none" d="M3 5.6 10.4 4.6v7H3zM11.6 4.4 21 3v8.6h-9.4zM3 12.6h7.4v7L3 18.6zM11.6 12.6H21V21l-9.4-1.4z"/></svg>下载 Windows 版</a>
 </div>
   <p class="note">macOS 12+（Apple 芯片）· Windows 10 和 11（64 位）</p>
 </div></section>
 </main>
-<footer class="foot"><div class="wrap foot-in">
-  <div class="foot-brand"><img src="../favicon.png" alt="" width="22" height="22"><span>由 Hollowbit 制作</span><span class="dim">·</span><a href="https://fileshaper.app">Hollowbit 的其他作品：Fileshaper</a></div>
-  <div class="foot-links"><a href="https://github.com/hollowbit-dev/captionshaper"><svg class="ic" viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-3.2 19.5c.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.3-3.4-1.3-.5-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.6 2.4 1.1 3 .9.1-.7.4-1.1.6-1.4-2.2-.3-4.6-1.1-4.6-5 0-1.1.4-2 1-2.7-.1-.3-.4-1.3.1-2.7 0 0 .8-.3 2.8 1a9.6 9.6 0 0 1 5 0c1.9-1.3 2.8-1 2.8-1 .5 1.4.2 2.4.1 2.7.6.7 1 1.6 1 2.7 0 3.9-2.4 4.7-4.6 5 .4.3.7.9.7 1.9V21c0 .3.2.6.7.5A10 10 0 0 0 12 2z" fill="currentColor" stroke="none"/></svg>GitHub 源代码</a><a href="privacy.html">隐私</a><span class="dim">开源，GPL-3.0</span></div>
-  <div class="langs"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 3.8 5.7 3.8 9s-1.3 6.3-3.8 9c-2.5-2.7-3.8-5.7-3.8-9S9.5 5.7 12 3z"/></svg><a href="../" hreflang="en">English</a><a href="../es/" hreflang="es">Español</a><a href="../fr/" hreflang="fr">Français</a><a href="../de/" hreflang="de">Deutsch</a><a href="../ru/" hreflang="ru">Русский</a><a href="../zh/" aria-current="true" hreflang="zh">简体中文</a></div>
-</div></footer>
+<footer class="foot"><div class="wrap foot-grid">
+  <div class="foot-brand"><a class="logo" href="./"><img src="../favicon.png" alt="" width="24" height="24">Captionshaper</a><p>免费离线自动字幕，支持 Mac 和 Windows。</p></div>
+  <div class="foot-col"><p class="foot-h">产品</p><a href="features.html">功能</a><a href="download.html">下载</a><a href="changelog.html">更新日志</a><a href="../tools/">免费工具</a><a href="../guides/">教程</a></div>
+  <div class="foot-col"><p class="foot-h">帮助</p><a href="faq.html">常见问题</a><a href="support.html">支持</a><a href="privacy.html">隐私</a></div>
+  <div class="foot-col"><p class="foot-h">Hollowbit</p><a href="about.html">关于</a><a href="https://fileshaper.app">Fileshaper</a><a href="https://github.com/hollowbit-dev/captionshaper" rel="noopener">GitHub</a></div>
+</div>
+<div class="wrap foot-legal"><span>由 Hollowbit · Elvis Zygmanta 制作</span><span>基于 GPL-3.0 开源。与 TikTok、Instagram 或 YouTube 无关。</span></div></footer>
+<script>window.CS={"lang":"zh","langs":["en","es","fr","de","ru","zh"],"english":false};</script>
 <script src="../site.js?v=1.1.0" defer></script>
-</body></html>
+
+</body>
+</html>
