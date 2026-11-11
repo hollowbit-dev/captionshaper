@@ -9,7 +9,7 @@ const T = {
   ru: { pill: 'Hollowbit', badge: 'Бесплатное приложение от Hollowbit Studio', card: '{app} сделан Hollowbit Studio — авторами {others}. Бесплатные инструменты, которые никогда не загружают ваши файлы.', visit: 'Перейти на hollowbit.dev', and: 'и' },
   zh: { pill: 'Hollowbit', badge: 'Hollowbit Studio 出品的免费应用', card: '{app} 由 Hollowbit Studio 制作，他们也做了 {others}。从不上传你文件的免费工具。', visit: '访问 hollowbit.dev', and: '和' },
 };
-const APPS = ['Fileshaper', 'Captionshaper', 'Diskshaper'];
+const APPS = ['Fileshaper', 'Captionshaper', 'Diskshaper', 'Writeshaper'];
 const MARK = '<svg class="hbm" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" fill-rule="evenodd" d="M6 2h12a4 4 0 0 1 4 4v12a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V6a4 4 0 0 1 4-4Zm9 13.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Z"/></svg>';
 const ARROW = '<svg class="hba" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></svg>';
 const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
@@ -19,7 +19,7 @@ export const studioPill = (lang) => `<a class="hb-pill" href="${STUDIO}" title="
 export const studioBadge = (lang) => `<a class="hb-badge" href="${STUDIO}">${MARK}<span>${esc(t(lang).badge)}</span>${ARROW}</a>`;
 export const studioCard = (lang, app) => {
   const s = t(lang), others = APPS.filter((a) => a !== app);
-  return `<a class="hb-card" href="${STUDIO}"><span class="hb-tile">${MARK}</span><span class="hb-txt"><b>Hollowbit Studio</b><span>${esc(s.card.replace('{app}', app).replace('{others}', `${others[0]} ${s.and} ${others[1]}`))}</span></span><span class="hb-go">${esc(s.visit)}${ARROW}</span></a>`;
+  return `<a class="hb-card" href="${STUDIO}"><span class="hb-tile">${MARK}</span><span class="hb-txt"><b>Hollowbit Studio</b><span>${esc(s.card.replace('{app}', app).replace('{others}', `${others.slice(0, -1).join(lang === 'zh' ? '、' : ', ')} ${s.and} ${others[others.length - 1]}`))}</span></span><span class="hb-go">${esc(s.visit)}${ARROW}</span></a>`;
 };
 export const studioCss = `
 /* Hollowbit Studio links (site/studio.mjs) */

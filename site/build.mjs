@@ -23,10 +23,16 @@ const PAGES = ['index', 'features', 'download', 'changelog', 'faq', 'about', 'su
 const T = Object.fromEntries(LANGS.map((l) => [l.code, JSON.parse(fs.readFileSync(path.join(here, 'locales', `${l.code}.json`), 'utf8'))]));
 const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 
-// Checksums of the installers in dist/, when they've been built.
+// Checksums: from the local installers if they're built, otherwise from the GitHub release (same files).
+const RELEASE_SUMS = {};
+try {
+  const r = await fetch(`https://api.github.com/repos/hollowbit-dev/captionshaper/releases/tags/v${V}`, { headers: { 'User-Agent': 'hollowbit-site-build' } });
+  if (r.ok) for (const a of (await r.json()).assets || []) if (a.digest) RELEASE_SUMS[a.name] = a.digest.replace(/^sha256:/, '');
+} catch { /* offline */ }
 function sha(file) {
   const p = path.join(root, 'dist', file);
-  return fs.existsSync(p) ? crypto.createHash('sha256').update(fs.readFileSync(p)).digest('hex') : 'build the installers to fill this in';
+  if (fs.existsSync(p)) return crypto.createHash('sha256').update(fs.readFileSync(p)).digest('hex');
+  return RELEASE_SUMS[file] || 'build the installers to fill this in';
 }
 const SUMS = { mac: sha(FILES.mac), win: sha(FILES.win) };
 
