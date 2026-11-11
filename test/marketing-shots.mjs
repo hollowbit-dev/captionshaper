@@ -17,7 +17,7 @@ const shot = async (n) => {
 await shot('app-home');
 await win.evaluate((f) => window.__cs.openFile(f), path.join(root, 'test/media/demo-vertical.mp4'));
 await win.waitForSelector('.wk-w', { timeout: 60000 });
-for (let i = 0; i < 60 && (await win.locator('.wk-w').count()) < 40; i++) await win.waitForTimeout(50);
+for (let i = 0; i < 200 && (await win.locator(".wk-w").count()) < 75; i++) await win.waitForTimeout(50);
 await shot('app-working');
 await win.waitForSelector('.editor .row', { timeout: 120000 });
 await win.click('.preset[data-k="pop"]').catch(() => {});

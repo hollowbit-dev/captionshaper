@@ -40,9 +40,6 @@ document.documentElement.classList.add('js');
       head.style.left = `${(on ? k : 0) * 100}%`;
       const lit = on ? Math.floor(k * bars.length) : -1;
       bars.forEach((x, i) => x.classList.toggle('lit', i <= lit));
-      // Spread the headline across the first 70% of each loop.
-      const wi = on && k < 0.7 ? Math.floor((k / 0.7) * words.length) : -1;
-      words.forEach((w, i) => w.classList.toggle('on', i === wi));
       requestAnimationFrame(frame);
     };
     requestAnimationFrame(frame);

@@ -78,7 +78,7 @@ function head(lang, page, title, desc) {
 }
 
 // A fixed, speech-like waveform for the hero (same every build).
-const WAVE = Array.from({ length: 120 }, (_, i) => {
+const WAVE = Array.from({ length: 96 }, (_, i) => {
   const env = 0.35 + 0.65 * Math.abs(Math.sin(i / 9)) * (0.6 + 0.4 * Math.sin(i / 3.3));
   const gap = (i % 37 > 31) ? 0.08 : 1; // short pauses, like speech
   return `<i style="--h:${Math.max(0.06, env * gap).toFixed(2)}"></i>`;
@@ -130,14 +130,14 @@ ${nav(lang, 'index')}
 <main id="main">
 <section class="hero">
   <div class="wrap">
-  <p class="cue-head"><span class="cue-n">1</span><span class="tc">00:00:01,900 --&gt; 00:00:03,300</span><span class="tags">${t.hero.eyebrow}</span></p>
+  <p class="cue-head"><span class="tc">00:00:01,900 --&gt; 00:00:03,300</span><span class="tags">${t.hero.eyebrow}</span></p>
   <h1 class="kara">${t.hero.h1.split(' ').map((w, i) => `<span class="hw" style="--i:${i}">${w}</span>`).join(' ')}</h1>
   <p class="lede">${t.hero.sub}</p>
   ${dlButtons(t)}
   <p class="note">${t.hero.note}</p>
   </div>
-  <div class="hero-wave" aria-hidden="true"><div class="hw-bars">${WAVE}</div><div class="hw-head"></div></div>
   <div class="wrap">
+  <div class="hero-wave" aria-hidden="true"><div class="hw-bars">${WAVE}</div><div class="hw-head"></div></div>
   <div class="shot hero-shot">
     <img src="${u}img/app-editor.webp" width="1600" height="1018" alt="Captionshaper editor: a vertical video in a phone frame with bold captions, the caption list and a waveform timeline">
     <div class="scan" aria-hidden="true"></div>
@@ -148,13 +148,13 @@ ${nav(lang, 'index')}
 <div class="marquee" aria-hidden="true"><div class="mq-track">${[0, 1].map(() => `<span>${GREETINGS.map((g) => `<b>${g}</b>`).join('<i>·</i>')}<i>·</i></span>`).join('')}</div></div>
 
 <section class="split" id="live"><div class="wrap split-in">
-  <div class="split-text"><h2>${t.live.h}</h2><p>${t.live.p}</p><div class="eq" aria-hidden="true">${'<i></i>'.repeat(32)}</div></div>
-  <div class="shot"><img src="${u}img/app-working.webp" width="1600" height="960" alt="Words appearing live while Captionshaper transcribes, above a waveform" loading="lazy"></div>
+  <div class="split-text"><h2>${t.live.h}</h2><p>${t.live.p}</p></div>
+  <div class="shot"><img src="${u}img/app-working.webp" width="1440" height="792" alt="Words appearing live while Captionshaper transcribes, above a waveform" loading="lazy"></div>
 </div></section>
 
 <section id="features"><div class="wrap">
   <h2 class="center">${t.feat.h}</h2>
-  <div class="bento">${t.feat.items.map(([h, p], i) => `<div class="card spot b${i}" style="--d:${i}"><div class="b-top"><span class="b-num">${String(i + 1).padStart(2, '0')}</span><svg class="ic fi" viewBox="0 0 24 24">${FEAT_ICONS[i]}</svg></div><h3>${h}</h3><p>${p}</p></div>`).join('')}</div>
+  <div class="grid">${t.feat.items.map(([h, p], i) => `<div class="card spot b${i}" style="--d:${i}"><svg class="ic fi" viewBox="0 0 24 24">${FEAT_ICONS[i]}</svg><h3>${h}</h3><p>${p}</p></div>`).join('')}</div>
 </div></section>
 
 <section class="split rev" id="styles"><div class="wrap split-in">
@@ -162,7 +162,7 @@ ${nav(lang, 'index')}
   <div class="shot"><img src="${u}img/app-style.webp" width="1600" height="1018" alt="Caption style options: Clean, Box, Pop and Word by word, with size, position and colours" loading="lazy"></div>
 </div></section>
 
-<section class="nums"><div class="wrap nums-in">${t.nums.map(([n, l], i) => `<div class="srt"><span class="srt-n">${i + 1}</span><span class="srt-tc">${CUE_TIMES[i]}</span><b>${n}</b><span class="srt-l">${l}</span></div>`).join('')}</div></section>
+<section class="nums"><div class="wrap nums-in">${t.nums.map(([n, l], i) => `<div class="srt"><span class="srt-tc">${CUE_TIMES[i]}</span><b>${n}</b><span class="srt-l">${l}</span></div>`).join('')}</div></section>
 
 <section id="privacy" class="priv"><div class="wrap narrow center">
   <h2>${t.priv.h}</h2><p class="lede">${t.priv.p}</p>

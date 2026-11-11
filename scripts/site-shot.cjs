@@ -10,7 +10,7 @@ app.whenReady().then(async () => {
   await win.webContents.executeJavaScript('document.querySelectorAll(".rise").forEach(e=>e.classList.add("in")); 0');
   const hgt = await win.webContents.executeJavaScript('document.documentElement.scrollHeight');
   win.setContentSize(+w, Math.min(hgt, 9000));
-  await new Promise((r) => setTimeout(r, 1200));
+  await new Promise((r) => setTimeout(r, 3500));
   fs.writeFileSync(out, (await win.webContents.capturePage()).toPNG());
   app.exit(0);
 });
