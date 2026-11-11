@@ -387,7 +387,7 @@ fs.writeFileSync(path.join(out, 'llms.txt'), `# Captionshaper
 ## Key facts
 - Price: free, no account, no watermark, no limit on video length.
 - Platforms: macOS 12 or newer on Apple Silicon; Windows 10 and 11 (64-bit). Intel Macs are not supported yet.
-- Privacy: speech recognition runs on the user's computer (whisper.cpp). The only network request is a one-time speech model download from Hugging Face. No analytics.
+- Privacy: speech recognition runs on the user's computer (whisper.cpp). Network requests: a one-time speech model download from Hugging Face, and an optional once-a-day check of GitHub for a newer version number. Nothing about the user or their files is sent. No analytics.
 - Accuracy: 0.7% word error rate on test clips with known scripts in English, Spanish and German; captions start within 0.15 s of the voice.
 - Speed: about 5x faster than real time on Apple Silicon; roughly 1-2x on a recent Windows PC (CPU only).
 - Languages: about 99 spoken languages, detected automatically; translation of any of them into English. Website in English, Spanish, French, German, Russian and Chinese.

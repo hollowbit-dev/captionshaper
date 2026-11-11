@@ -95,7 +95,7 @@
       ],
       [
         "Ma vidéo est-elle envoyée ?",
-        "Non. Tout se passe sur votre ordinateur. L'app télécharge le modèle vocal une fois (environ 570 Mo), et c'est sa seule connexion à internet."
+        "Non. Tout se passe sur votre ordinateur. L'app télécharge le modèle vocal une fois (environ 570 Mo). À part ça, elle demande seulement à GitHub une fois par jour s'il existe une nouvelle version, et vous pouvez le désactiver."
       ],
       [
         "Quelles langues comprend-il ?",
@@ -147,7 +147,7 @@
     "h": "Confidentialité",
     "body": [
       "Captionshaper fonctionne sur votre ordinateur. Vos vidéos, votre audio, vos sous-titres et vos modifications y restent.",
-      "L'app ne fait qu'un type de requête réseau : télécharger un modèle vocal depuis Hugging Face (huggingface.co) quand vous cliquez sur Télécharger. Cette requête ne contient rien sur vos fichiers.",
+      "L'app fait deux types de requête réseau : télécharger un modèle vocal depuis Hugging Face (huggingface.co) quand vous cliquez sur Télécharger, et demander à GitHub une fois par jour le numéro de la dernière version, ce que vous pouvez désactiver sur l'écran d'accueil. Aucune ne contient rien sur vous ni vos fichiers.",
       "Pas de compte, pas d'analyse d'audience, pas de suivi dans l'app.",
       "Ce site est hébergé sur GitHub Pages. GitHub peut conserver des journaux serveur standard ; voir sa déclaration de confidentialité. Le site n'utilise ni cookies ni analyse d'audience."
     ]
@@ -304,7 +304,7 @@
       ],
       [
         "Internet",
-        "Seulement pour télécharger l'app et le modèle vocal une fois"
+        "Seulement pour télécharger l'app et le modèle vocal une fois, plus une vérification quotidienne des mises à jour (facultative)"
       ]
     ],
     "verify_h2": "Vérifiez votre téléchargement",
@@ -316,6 +316,22 @@
     "h1": "Nouveautés",
     "lead": "Toutes les versions de Captionshaper, de la plus récente à la plus ancienne.",
     "entries": [
+      {
+        "v": "1.1.2",
+        "date": "11 novembre 2026",
+        "name": "Vérification des mises à jour",
+        "items": [
+          "Captionshaper vérifie désormais une fois par jour s’il existe une nouvelle version et affiche une petite notification avec un lien de téléchargement. Seul le numéro de version est demandé ; désactivable sur l’écran d’accueil."
+        ]
+      },
+      {
+        "v": "1.1.1",
+        "date": "11 novembre 2026",
+        "name": "Petite mise à jour",
+        "items": [
+          "« by Hollowbit Studio » dans l’app ouvre maintenant hollowbit.dev, la maison des applis gratuites de Hollowbit."
+        ]
+      },
       {
         "v": "1.1.0",
         "date": "11 novembre 2026",
@@ -464,7 +480,7 @@
       ],
       [
         "Requêtes réseau",
-        "L'app ne fait qu'un type de requête : télécharger un modèle vocal depuis Hugging Face (huggingface.co) quand vous cliquez sur Télécharger. Cette requête ne contient rien sur vos fichiers. Ensuite, Captionshaper fonctionne sans internet."
+        "L'app fait deux types de requête réseau : télécharger un modèle vocal depuis Hugging Face (huggingface.co) quand vous cliquez sur Télécharger, et demander à GitHub une fois par jour le numéro de la dernière version, ce que vous pouvez désactiver sur l'écran d'accueil. Aucune ne contient rien sur vous ni vos fichiers. Une fois le modèle téléchargé, Captionshaper fonctionne sans internet."
       ],
       [
         "Comptes, analyses et suivi",

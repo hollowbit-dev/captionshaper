@@ -95,7 +95,7 @@
       ],
       [
         "¿Sube mi vídeo?",
-        "No. Todo ocurre en tu ordenador. La app descarga el modelo de voz una vez (unos 570 MB) y esa es su única conexión a internet."
+        "No. Todo ocurre en tu ordenador. La app descarga el modelo de voz una vez (unos 570 MB). Aparte de eso, solo pregunta a GitHub una vez al día si hay una versión nueva, y puedes desactivarlo."
       ],
       [
         "¿Qué idiomas entiende?",
@@ -147,7 +147,7 @@
     "h": "Privacidad",
     "body": [
       "Captionshaper funciona en tu ordenador. Tus vídeos, audio, subtítulos y cambios se quedan ahí.",
-      "La app hace un único tipo de petición de red: descargar un modelo de voz de Hugging Face (huggingface.co) cuando pulsas Descargar. Esa petición no incluye nada sobre tus archivos.",
+      "La app hace dos tipos de petición de red: descargar un modelo de voz de Hugging Face (huggingface.co) cuando pulsas Descargar, y preguntar a GitHub una vez al día el número de la última versión, algo que puedes desactivar en la pantalla de inicio. Ninguna incluye nada sobre ti ni tus archivos.",
       "No hay cuentas, ni analítica, ni rastreo en la app.",
       "Esta web está alojada en GitHub Pages. GitHub puede guardar registros estándar del servidor; consulta su declaración de privacidad. La web no usa cookies ni analítica."
     ]
@@ -304,7 +304,7 @@
       ],
       [
         "Internet",
-        "Solo para descargar la app y el modelo de voz una vez"
+        "Solo para descargar la app y el modelo de voz una vez, más una búsqueda diaria de actualizaciones opcional"
       ]
     ],
     "verify_h2": "Comprueba la descarga",
@@ -316,6 +316,22 @@
     "h1": "Novedades",
     "lead": "Todas las versiones de Captionshaper, de la más nueva a la más antigua.",
     "entries": [
+      {
+        "v": "1.1.2",
+        "date": "11 de noviembre de 2026",
+        "name": "Aviso de actualizaciones",
+        "items": [
+          "Captionshaper ahora comprueba una vez al día si hay una versión nueva y muestra un pequeño aviso con el enlace de descarga. Solo se pregunta el número de versión; puedes desactivarlo en la pantalla de inicio."
+        ]
+      },
+      {
+        "v": "1.1.1",
+        "date": "11 de noviembre de 2026",
+        "name": "Pequeña actualización",
+        "items": [
+          "«by Hollowbit Studio» en la app ahora abre hollowbit.dev, la casa de las apps gratuitas de Hollowbit."
+        ]
+      },
       {
         "v": "1.1.0",
         "date": "11 de noviembre de 2026",
@@ -464,7 +480,7 @@
       ],
       [
         "Peticiones de red",
-        "La app hace un solo tipo de petición: descargar un modelo de voz de Hugging Face (huggingface.co) cuando pulsas Descargar. Esa petición no contiene nada sobre tus archivos. Después, Captionshaper funciona sin internet."
+        "La app hace dos tipos de petición de red: descargar un modelo de voz de Hugging Face (huggingface.co) cuando pulsas Descargar, y preguntar a GitHub una vez al día el número de la última versión, algo que puedes desactivar en la pantalla de inicio. Ninguna incluye nada sobre ti ni tus archivos. Tras descargar el modelo, Captionshaper funciona sin internet."
       ],
       [
         "Cuentas, analítica y rastreo",

@@ -1,6 +1,6 @@
 {
   "name": "captionshaper",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "main": "src/main.js",
   "productName": "Captionshaper",
   "description": "Captionshaper by Hollowbit: free, offline auto-subtitles. Drop in a video, fix the words, export SRT or burn in TikTok-style captions. Nothing is uploaded.",

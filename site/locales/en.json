@@ -95,7 +95,7 @@
       ],
       [
         "Does it upload my video?",
-        "No. Everything happens on your computer. The app downloads the speech model once (about 570 MB), and that's its only connection to the internet."
+        "No. Everything happens on your computer. The app downloads the speech model once (about 570 MB). Apart from that, it only asks GitHub once a day whether there's a new version, which you can turn off."
       ],
       [
         "Which languages does it understand?",
@@ -147,7 +147,7 @@
     "h": "Privacy",
     "body": [
       "Captionshaper runs on your computer. Your videos, audio, captions and edits stay there.",
-      "The app makes one kind of network request: downloading a speech model from Hugging Face (huggingface.co) when you click Download. That request doesn't include anything about your files.",
+      "The app makes two kinds of network request: downloading a speech model from Hugging Face (huggingface.co) when you click Download, and asking GitHub once a day for the latest version number, which you can turn off on the home screen. Neither includes anything about you or your files.",
       "There are no accounts, no analytics and no tracking in the app.",
       "This website is hosted on GitHub Pages. GitHub may keep standard server logs; see GitHub's privacy statement. The site itself has no cookies or analytics."
     ]
@@ -304,7 +304,7 @@
       ],
       [
         "Internet",
-        "Only to download the app and the speech model once"
+        "Only to download the app and the speech model once, plus an optional daily update check"
       ]
     ],
     "verify_h2": "Check your download",
@@ -316,6 +316,22 @@
     "h1": "Changelog",
     "lead": "Every release of Captionshaper, newest first.",
     "entries": [
+      {
+        "v": "1.1.2",
+        "date": "11 November 2026",
+        "name": "Update check",
+        "items": [
+          "Captionshaper now checks once a day whether there is a new version and shows a small notice with a download link. Only the version number is asked for; turn it off on the home screen."
+        ]
+      },
+      {
+        "v": "1.1.1",
+        "date": "11 November 2026",
+        "name": "Small update",
+        "items": [
+          "“by Hollowbit Studio” in the app now opens hollowbit.dev, home of Hollowbit’s free apps."
+        ]
+      },
       {
         "v": "1.1.0",
         "date": "11 November 2026",
@@ -464,7 +480,7 @@
       ],
       [
         "Network requests",
-        "The app makes one kind of request: downloading a speech model from Hugging Face (huggingface.co) when you click Download. That request contains nothing about your files. After that, Captionshaper works with the internet off."
+        "The app makes two kinds of network request: downloading a speech model from Hugging Face (huggingface.co) when you click Download, and asking GitHub once a day for the latest version number, which you can turn off on the home screen. Neither includes anything about you or your files. After the model download, Captionshaper works with the internet off."
       ],
       [
         "Accounts, analytics and tracking",

@@ -65,12 +65,13 @@ async function renderHome() {
     <div id="model-slot"></div>
     ${S.available ? '' : '<div class="model-card"><div class="t">Speech engine missing</div><div class="d">This build has no speech engine for this computer yet.</div></div>'}
     ${S.recent.length ? `<div class="recent"><h2>Recent</h2>${S.recent.map((r) => `<button class="recent-row" data-file="${esc(r.file)}"><span class="n">${esc(r.name)}</span><span class="m num">${fmtTime(r.duration)}</span></button>`).join('')}</div>` : ''}
-    <div class="foot"><span class="dot"></span>Offline. Your videos never leave this computer. <span>·</span> <button class="btn ghost" id="theme" style="height:22px;padding:0 6px">${S.settings.theme === 'light' ? 'Dark mode' : 'Light mode'}</button></div>
+    <div class="foot"><span class="dot"></span>Offline. Your videos never leave this computer. <span>·</span> <button class="btn ghost" id="theme" style="height:22px;padding:0 6px">${S.settings.theme === 'light' ? 'Dark mode' : 'Light mode'}</button> <span>·</span> <label class="upd-opt" title="Once a day, Captionshaper asks GitHub for the latest version number. Nothing about you or your videos is sent."><input type="checkbox" id="auto-upd"${S.settings.autoUpdate !== false ? ' checked' : ''}> Check for updates</label></div>
   </div></div>`);
   view.replaceChildren(el);
   $('#choose', el).onclick = async () => { const f = await cs.pickVideo(); if (f) openFile(f); };
   $('#lang', el).onchange = (e) => cs.setSettings({ language: e.target.value });
   $('#tr', el).onchange = (e) => cs.setSettings({ translate: e.target.checked });
+  $('#auto-upd', el).onchange = async (e) => { S.settings = await cs.setSettings({ autoUpdate: e.target.checked }); if (e.target.checked) { const r = await cs.checkUpdates(); if (r.state === 'latest') toast(`You have the latest version (${r.version}).`); } };
   $('#theme', el).onclick = async () => { const t = S.settings.theme === 'light' ? 'dark' : 'light'; await cs.setSettings({ theme: t }); applyTheme(t); renderHome(); };
   el.querySelectorAll('#model button').forEach((b) => { b.onclick = async () => { await cs.setSettings({ model: b.dataset.id }); renderHome(); }; });
   el.querySelectorAll('.recent-row').forEach((b) => { b.onclick = () => openFile(b.dataset.file); });
@@ -772,6 +773,17 @@ window.addEventListener('drop', (e) => {
   const f = e.dataTransfer.files[0]; if (f) openFile(cs.pathFor(f));
 });
 cs.onOpenFiles((files) => { if (files[0]) openFile(files[0]); });
+// A newer version on GitHub: a small notice with a download link.
+function showUpdate(st) {
+  document.querySelector('.update-note')?.remove();
+  const n = document.createElement('div');
+  n.className = 'update-note'; n.setAttribute('role', 'status');
+  n.innerHTML = `<div><b>Captionshaper ${esc(st.version)} is out</b><span>You have ${esc(S.version)}. Your projects and settings stay.</span></div><div class="row"><button class="btn primary sm" id="upd-go">Download</button><button class="btn ghost sm" id="upd-later">Later</button></div>`;
+  document.body.append(n);
+  n.querySelector('#upd-go').onclick = () => { cs.openExternal(st.url); n.remove(); };
+  n.querySelector('#upd-later').onclick = () => { cs.setSettings({ skipVersion: st.version }); n.remove(); };
+}
+cs.onUpdate(showUpdate);
 cs.onFullscreen((v) => { if (v) document.documentElement.dataset.fullscreen = ''; else delete document.documentElement.dataset.fullscreen; });
 window.addEventListener('beforeunload', () => { if (current) saveNow(); });
 

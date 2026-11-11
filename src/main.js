@@ -11,6 +11,7 @@ const { Readable } = require('stream');
 const { transcribe, peaksFor } = require('./core/transcribe');
 const Captions = require('./core/captions');
 const store = require('./store');
+const { setupUpdates } = require('./update-check');
 
 const isMac = process.platform === 'darwin';
 // Tests run with their own data folder.
@@ -302,13 +303,22 @@ function registerIpc() {
   });
   ipcMain.handle('show-in-folder', (_e, p) => shell.showItemInFolder(p));
   ipcMain.handle('open-external', (_e, u) => { if (/^https:\/\//.test(u)) shell.openExternal(u); });
+  ipcMain.handle('check-updates', () => updates.check({ manual: true }));
 }
+
+// Once a day, if not turned off, ask GitHub for the latest version number (see update-check.js).
+const updates = setupUpdates({
+  app, repo: 'hollowbit-dev/captionshaper',
+  getSettings: () => store.settings, setSettings: (p) => store.setSettings(p),
+  send: (st) => { if (win && !win.isDestroyed()) win.webContents.send('update', st); },
+});
 
 app.whenReady().then(() => {
   store.load();
   registerProtocol();
   registerIpc();
   createWindow();
+  updates.schedule();
   app.on('activate', () => { if (BrowserWindow.getAllWindows().length === 0) createWindow(); });
 });
 app.on('window-all-closed', () => { if (!isMac) app.quit(); });

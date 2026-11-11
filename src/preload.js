@@ -21,6 +21,8 @@ contextBridge.exposeInMainWorld('cs', {
   burn: (a) => ipcRenderer.invoke('burn', a),
   showInFolder: (p) => ipcRenderer.invoke('show-in-folder', p),
   openExternal: (u) => ipcRenderer.invoke('open-external', u),
+  checkUpdates: () => ipcRenderer.invoke('check-updates'),
+  onUpdate: on('update'),
   rendererReady: () => ipcRenderer.invoke('renderer-ready'),
   onProgress: on('job-progress'),
   onModelProgress: on('model-progress'),
