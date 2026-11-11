@@ -28,41 +28,45 @@ document.documentElement.classList.add('js');
     if (navEl) navEl.classList.toggle('scrolled', scrollY > 10);
   };
   addEventListener('scroll', onScroll, { passive: true }); onScroll();
-  // Hero screenshot follows the cursor a little after it has tilted into place.
-  const shot = document.querySelector('.hero-shot');
-  if (shot && !reduce) {
-    setTimeout(() => shot.classList.add('ready'), 1900);
-    addEventListener('mousemove', (e) => {
-      if (!shot.classList.contains('ready')) return;
-      const r = shot.getBoundingClientRect();
-      const x = (e.clientX - (r.left + r.width / 2)) / innerWidth; const y = (e.clientY - (r.top + r.height / 2)) / innerHeight;
-      shot.style.setProperty('--ry', `${(x * 6).toFixed(2)}deg`); shot.style.setProperty('--rx', `${(-y * 5).toFixed(2)}deg`);
-    }, { passive: true });
+  // Hero: a playhead runs along the waveform; the word being "spoken" in the headline gets a lime box.
+  const wave = document.querySelector('.hero-wave');
+  const words = [...document.querySelectorAll('.kara .hw')];
+  if (wave && !reduce) {
+    const bars = [...wave.querySelectorAll('.hw-bars i')]; const head = wave.querySelector('.hw-head');
+    const loop = 7000; const t0 = performance.now() + 1200;
+    const frame = (now) => {
+      const k = Math.max(0, ((now - t0) % loop) / loop);
+      const on = now >= t0;
+      head.style.left = `${(on ? k : 0) * 100}%`;
+      const lit = on ? Math.floor(k * bars.length) : -1;
+      bars.forEach((x, i) => x.classList.toggle('lit', i <= lit));
+      // Spread the headline across the first 70% of each loop.
+      const wi = on && k < 0.7 ? Math.floor((k / 0.7) * words.length) : -1;
+      words.forEach((w, i) => w.classList.toggle('on', i === wi));
+      requestAnimationFrame(frame);
+    };
+    requestAnimationFrame(frame);
   }
   // Card spotlight follows the cursor.
   document.querySelectorAll('.spot').forEach((c) => c.addEventListener('pointermove', (e) => {
     const r = c.getBoundingClientRect();
     c.style.setProperty('--mx', `${e.clientX - r.left}px`); c.style.setProperty('--my', `${e.clientY - r.top}px`);
   }));
-  // Stats count up when they come into view (keeps each language's number format).
-  const counters = document.querySelectorAll('[data-count]');
+  // The .srt cue numbers type in when they come into view.
+  const cues = document.querySelectorAll('.srt b');
   const cio = new IntersectionObserver((es) => es.forEach((e) => {
     if (!e.isIntersecting) return; cio.unobserve(e.target);
-    const el = e.target; const final = el.dataset.count;
-    const m = /^(\D*)(\d+)(?:([.,])(\d+))?(.*)$/.exec(final);
-    if (!m || reduce) { el.classList.add('counted'); return; }
-    const [, pre, int, sep, frac = '', post] = m;
-    const target = parseFloat(`${int}.${frac || 0}`); const dec = frac.length;
-    const t0 = performance.now(); const dur = 1400;
-    const step = (now) => {
-      const k = Math.min(1, (now - t0) / dur); const v = target * (1 - Math.pow(1 - k, 3));
-      let txt = v.toFixed(dec); if (sep) txt = txt.replace('.', sep);
-      el.textContent = pre + txt + post;
-      if (k < 1) requestAnimationFrame(step); else { el.textContent = final; el.classList.add('counted'); }
+    const el = e.target; const full = el.textContent;
+    if (reduce) return;
+    let n = 0; el.textContent = '';
+    const caret = document.createElement('span'); caret.className = 'caret';
+    const tick = () => {
+      el.textContent = full.slice(0, ++n); el.append(caret);
+      if (n < full.length) setTimeout(tick, 90); else setTimeout(() => caret.remove(), 1600);
     };
-    requestAnimationFrame(step);
+    setTimeout(tick, 250);
   }), { threshold: .6 });
-  counters.forEach((c) => cio.observe(c));
+  cues.forEach((c) => cio.observe(c));
   // Fade sections in as they scroll into view.
   const items = document.querySelectorAll('.split-text, .shot:not(.hero-shot), .card, .nums-in > div, .priv .wrap, .faq, .end .wrap, h2.center, .dl-grid .card, .steps > div');
   items.forEach((x) => x.classList.add('rise'));
