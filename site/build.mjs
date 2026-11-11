@@ -5,6 +5,7 @@ import fs from 'fs';
 import path from 'path';
 import crypto from 'crypto';
 import { GUIDES, UPDATED } from './guides.mjs';
+import { studioPill, studioBadge, studioCard, studioCss } from './studio.mjs';
 
 const here = path.dirname(new URL(import.meta.url).pathname);
 const root = path.resolve(here, '..');
@@ -119,7 +120,7 @@ ${ld}
 <div class="progress" aria-hidden="true"><i></i></div>
 <a class="skip" href="#main">${esc(t.nav.skip)}</a>
 <header class="nav"><div class="wrap nav-in">
-  <a class="logo" href="${href('index')}"><img src="${base}favicon.png" alt="" width="26" height="26">Captionshaper</a>
+  <a class="logo" href="${href('index')}"><img src="${base}favicon.png" alt="" width="26" height="26">Captionshaper</a>${studioPill(L.code)}
   <nav class="links" aria-label="Main">${nav.map(([p, l]) => `<a href="${href(p)}"${p === page ? ' aria-current="page"' : ''}>${esc(l)}</a>`).join('')}</nav>
   <div class="nav-end">
     <details class="lang"><summary aria-label="${esc(t.nav.language)}">${ICON.globe}<span>${L.code.toUpperCase()}</span></summary>
@@ -131,7 +132,7 @@ ${ld}
 <main id="main">
 ${body}
 </main>
-<footer class="foot"><div class="wrap foot-grid">
+<footer class="foot"><div class="wrap">${studioCard(L.code, 'Captionshaper')}</div><div class="wrap foot-grid">
   <div class="foot-brand"><a class="logo" href="${href('index')}"><img src="${base}favicon.png" alt="" width="24" height="24">Captionshaper</a><p>${esc(t.footer.tagline)}</p></div>
   <div class="foot-col"><p class="foot-h">${esc(t.footer.product)}</p><a href="${href('features')}">${esc(t.nav.features)}</a><a href="${href('download')}">${esc(t.nav.download)}</a><a href="${href('changelog')}">${esc(t.nav.changelog)}</a><a href="${base}tools/">${esc(t.nav.tools)}</a><a href="${base}guides/">${esc(t.nav.guides)}</a></div>
   <div class="foot-col"><p class="foot-h">${esc(t.footer.help)}</p><a href="${href('faq')}">${esc(t.nav.faq)}</a><a href="${href('support')}">${esc(t.footer.support)}</a><a href="${href('privacy')}">${esc(t.nav.privacy)}</a></div>
@@ -156,6 +157,7 @@ const pageHero = (h1, lead = '', extra = '', wide = false) => `<section class="p
 function home(L, t, base) {
   return `
 <section class="hero"><div class="wrap">
+  <div class="hb-row">${studioBadge(L.code)}</div>
   <p class="cue-head"><span class="tags">${esc(t.hero.eyebrow)}</span></p>
   <h1 class="kara">${t.hero.h1.split(' ').map((w, i) => `<span class="hw" style="--i:${i}">${esc(w)}</span>`).join(' ')}</h1>
   <p class="lede">${esc(t.hero.sub)}</p>
@@ -358,7 +360,8 @@ fs.writeFileSync(path.join(out, 'tools', 'index.html'), layout(LANGS[0], T.en, '
   jsonld: [{ '@context': 'https://schema.org', '@type': 'WebApplication', name: 'Captionshaper subtitle tools', url: `${SITE.url}/tools/`, applicationCategory: 'MultimediaApplication', operatingSystem: 'Any (web browser)', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' }, publisher: { '@type': 'Organization', name: 'Hollowbit Studio', url: 'https://hollowbit.dev' } }] }));
 
 const assets = path.join(here, 'assets');
-for (const f of ['style.css', 'site.js', 'tools.js', 'favicon.png']) fs.copyFileSync(path.join(assets, f), path.join(out, f));
+for (const f of ['site.js', 'tools.js', 'favicon.png']) fs.copyFileSync(path.join(assets, f), path.join(out, f));
+fs.writeFileSync(path.join(out, 'style.css'), fs.readFileSync(path.join(assets, 'style.css'), 'utf8') + studioCss + '\n:root { --hb-accent: #c6ff3d; }\n.hb-row { display: flex; justify-content: center; }\n.hb-row .hb-badge { margin-bottom: 14px; }\n.logo { flex: none; } .hb-pill { flex: none; }\n.links a { white-space: nowrap; }\n.hb-pill span { display: none; } .hb-pill { padding: 5px; margin-left: 4px; }\n');
 // Search-engine ownership files must stay on the site to remain verified.
 for (const f of fs.readdirSync(assets)) if (/^google[a-z0-9]+\.html$|^BingSiteAuth\.xml$/.test(f)) fs.copyFileSync(path.join(assets, f), path.join(out, f));
 fs.cpSync(path.join(assets, 'fonts'), path.join(out, 'fonts'), { recursive: true });
