@@ -161,7 +161,7 @@ function drawWave(canvas, peaks, { regions = [], duration = 1, upto = null, swee
   if (!peaks || !peaks.length) return;
   const bar = 2; const gap = 1; const n = Math.floor(w / (bar + gap));
   const speech = (t) => regions.some((r) => t >= r.start && t <= r.end);
-  const lit = g.createLinearGradient(0, 0, 0, hh); lit.addColorStop(0, '#c4a6ff'); lit.addColorStop(1, '#7c3aed');
+  const lit = g.createLinearGradient(0, 0, 0, hh); lit.addColorStop(0, '#d8ff6a'); lit.addColorStop(1, '#3dffb0');
   for (let i = 0; i < n; i++) {
     const t0 = i / n; const k = Math.floor(t0 * peaks.length);
     const v = Math.max(0.04, peaks[Math.min(peaks.length - 1, k)]);
@@ -169,14 +169,14 @@ function drawWave(canvas, peaks, { regions = [], duration = 1, upto = null, swee
     const x = i * (bar + gap); const y = (hh - bh) / 2;
     const isSpeech = regions.length ? speech(t0 * duration) : true;
     const done = upto == null || t0 <= upto;
-    g.fillStyle = isSpeech && done ? lit : 'rgba(196,181,253,.16)';
+    g.fillStyle = isSpeech && done ? lit : 'rgba(214,255,190,.16)';
     g.globalAlpha = isSpeech ? 1 : 0.7;
     g.fillRect(x, y, bar, bh);
   }
   g.globalAlpha = 1;
   if (sweep != null) {
     const x = sweep * w;
-    const sg = g.createLinearGradient(x - 60, 0, x, 0); sg.addColorStop(0, 'rgba(161,123,255,0)'); sg.addColorStop(1, 'rgba(161,123,255,.35)');
+    const sg = g.createLinearGradient(x - 60, 0, x, 0); sg.addColorStop(0, 'rgba(198,255,61,0)'); sg.addColorStop(1, 'rgba(198,255,61,.35)');
     g.fillStyle = sg; g.fillRect(x - 60, 0, 60, hh);
   }
 }

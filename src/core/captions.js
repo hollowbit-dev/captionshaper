@@ -311,7 +311,7 @@
     clean: { name: 'Clean', font: 'Geist', weight: 600, size: 5.2, color: '#ffffff', outline: 0.32, outlineColor: '#000000', shadow: 0.0, box: false, boxColor: '#000000', boxOpacity: 0.6, highlight: false, highlightColor: '#ffd23f', caps: 'none', position: 'bottom', margin: 7, maxChars: 42, maxLines: 2, maxWords: 0 },
     box: { name: 'Box', font: 'Geist', weight: 600, size: 5.0, color: '#ffffff', outline: 0, outlineColor: '#000000', shadow: 0, box: true, boxColor: '#000000', boxOpacity: 0.72, highlight: false, highlightColor: '#ffd23f', caps: 'none', position: 'bottom', margin: 7, maxChars: 42, maxLines: 2, maxWords: 0 },
     pop: { name: 'Pop', font: 'Geist', weight: 900, size: 11, color: '#ffffff', outline: 0.55, outlineColor: '#000000', shadow: 0.25, box: false, boxColor: '#000000', boxOpacity: 0.6, highlight: true, highlightColor: '#ffd23f', caps: 'upper', position: 'middle', margin: 30, maxChars: 16, maxLines: 2, maxWords: 4 },
-    karaoke: { name: 'Word by word', font: 'Geist', weight: 900, size: 14, color: '#ffffff', outline: 0.6, outlineColor: '#000000', shadow: 0.3, box: false, boxColor: '#000000', boxOpacity: 0.6, highlight: true, highlightColor: '#b48cff', caps: 'upper', position: 'middle', margin: 30, maxChars: 14, maxLines: 1, maxWords: 1 },
+    karaoke: { name: 'Word by word', font: 'Geist', weight: 900, size: 14, color: '#ffffff', outline: 0.6, outlineColor: '#000000', shadow: 0.3, box: false, boxColor: '#000000', boxOpacity: 0.6, highlight: true, highlightColor: '#c6ff3d', caps: 'upper', position: 'middle', margin: 30, maxChars: 14, maxLines: 1, maxWords: 1 },
   };
   // size, outline and shadow are % of the video's shorter side (so vertical and wide videos
   // both look right); margin is % of the height from the edge.
