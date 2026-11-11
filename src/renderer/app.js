@@ -50,7 +50,7 @@ async function renderHome() {
   S = await cs.getState();
   const m = S.models.find((x) => x.id === S.settings.model) || S.models[0];
   const el = h(`<div class="home"><div class="home-inner">
-    <div class="brand"><img src="../../assets/icon.png" alt=""><div><h1>Captionshaper</h1><div class="by">by Hollowbit Studio</div></div></div>
+    <div class="brand"><img src="../../assets/icon.png" alt=""><div><h1>Captionshaper</h1><a class="by studio-link" href="https://hollowbit.dev/" target="_blank" rel="noopener" title="hollowbit.dev">by Hollowbit Studio</a></div></div>
     <div class="dropzone" id="dz">
       <div class="demo" aria-hidden="true"><div class="wave">${'<i></i>'.repeat(36)}</div><div class="line" id="demo-line"></div></div>
       <div class="t">Drop a video to caption it</div>
