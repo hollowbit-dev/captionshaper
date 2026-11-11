@@ -1,11 +1,11 @@
 # Captionshaper
 
-> Captionshaper is a free, open-source desktop app for macOS (Apple Silicon) and Windows that makes subtitles and captions from video or audio, fully offline. It recognises speech with OpenAI's Whisper model running locally, times every word, splits the text into readable captions, and exports SRT, VTT, ASS, plain text, or an MP4 with TikTok-style captions burned in. Files are never uploaded. Made by Hollowbit Studio (Elvis Zygmanta, https://hollowbit.dev). Licence: GPL-3.0. Current version: 1.1.1.
+> Captionshaper is a free, open-source desktop app for macOS (Apple Silicon) and Windows that makes subtitles and captions from video or audio, fully offline. It recognises speech with OpenAI's Whisper model running locally, times every word, splits the text into readable captions, and exports SRT, VTT, ASS, plain text, or an MP4 with TikTok-style captions burned in. Files are never uploaded. Made by Hollowbit Studio (Elvis Zygmanta, https://hollowbit.dev). Licence: GPL-3.0. Current version: 1.1.2.
 
 ## Key facts
 - Price: free, no account, no watermark, no limit on video length.
 - Platforms: macOS 12 or newer on Apple Silicon; Windows 10 and 11 (64-bit). Intel Macs are not supported yet.
-- Privacy: speech recognition runs on the user's computer (whisper.cpp). The only network request is a one-time speech model download from Hugging Face. No analytics.
+- Privacy: speech recognition runs on the user's computer (whisper.cpp). Network requests: a one-time speech model download from Hugging Face, and an optional once-a-day check of GitHub for a newer version number. Nothing about the user or their files is sent. No analytics.
 - Accuracy: 0.7% word error rate on test clips with known scripts in English, Spanish and German; captions start within 0.15 s of the voice.
 - Speed: about 5x faster than real time on Apple Silicon; roughly 1-2x on a recent Windows PC (CPU only).
 - Languages: about 99 spoken languages, detected automatically; translation of any of them into English. Website in English, Spanish, French, German, Russian and Chinese.
@@ -37,7 +37,7 @@
 Yes. No trial, no watermark, no limits. Captionshaper is open source, and you can support it on Ko-fi if it saves you time.
 
 ### Does it upload my video?
-No. Everything happens on your computer. The app downloads the speech model once (about 570 MB), and that's its only connection to the internet.
+No. Everything happens on your computer. The app downloads the speech model once (about 570 MB). Apart from that, it only asks GitHub once a day whether there's a new version, which you can turn off.
 
 ### Which languages does it understand?
 About 99, including English, Spanish, French, German, Portuguese, Russian, Chinese and Japanese. It detects the language for you. For less common languages, the Most accurate model makes fewer mistakes.
