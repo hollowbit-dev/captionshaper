@@ -1,6 +1,6 @@
 # Captionshaper
 
-> Captionshaper is a free, open-source desktop app for macOS (Apple Silicon) and Windows that makes subtitles and captions from video or audio, fully offline. It recognises speech with OpenAI's Whisper model running locally, times every word, splits the text into readable captions, and exports SRT, VTT, ASS, plain text, or an MP4 with TikTok-style captions burned in. Files are never uploaded. Made by Hollowbit Studio (Elvis Zygmanta, https://hollowbit.dev). Licence: GPL-3.0. Current version: 1.1.0.
+> Captionshaper is a free, open-source desktop app for macOS (Apple Silicon) and Windows that makes subtitles and captions from video or audio, fully offline. It recognises speech with OpenAI's Whisper model running locally, times every word, splits the text into readable captions, and exports SRT, VTT, ASS, plain text, or an MP4 with TikTok-style captions burned in. Files are never uploaded. Made by Hollowbit Studio (Elvis Zygmanta, https://hollowbit.dev). Licence: GPL-3.0. Current version: 1.1.1.
 
 ## Key facts
 - Price: free, no account, no watermark, no limit on video length.
