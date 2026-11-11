@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' captionshaper:; img-src 'self' captionshaper: data: blob:; media-src captionshaper: blob:; script-src 'self' captionshaper:; style-src 'self' 'unsafe-inline'; font-src 'self' captionshaper: data:; connect-src captionshaper:">
+  <title>Captionshaper</title>
+  <link rel="stylesheet" href="app.css">
+  <script src="../core/captions.js"></script>
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+  <div class="titlebar"></div>
+  <div id="view"></div>
+  <div id="drop-overlay"><div class="drop-card"><div class="drop-title">Drop to caption</div><div class="drop-sub">Video or audio</div></div></div>
+  <div id="toasts" role="status" aria-live="polite"></div>
+  <div id="menu-root"></div>
+</body>
+</html>

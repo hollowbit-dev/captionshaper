@@ -1,0 +1,24 @@
+// Smoke test of the built .app: transcribe and burn using only what's inside the bundle.
+import { _electron as electron } from 'playwright';
+import fs from 'fs'; import os from 'os'; import path from 'path';
+const root = path.resolve(path.dirname(new URL(import.meta.url).pathname), '..');
+const exe = path.join(root, 'dist/mac-arm64/Captionshaper.app/Contents/MacOS/Captionshaper');
+const userData = fs.mkdtempSync(path.join(os.tmpdir(), 'cs-pkg-'));
+const out = fs.mkdtempSync(path.join(os.tmpdir(), 'cs-pkg-out-'));
+const models = path.join(os.homedir(), 'Library/Application Support/Captionshaper/models');
+const app = await electron.launch({ executablePath: exe, env: { ...process.env, CAPTIONSHAPER_USERDATA: userData, CAPTIONSHAPER_MODELS: models, PATH: '/usr/bin:/bin' } });
+const win = await app.firstWindow();
+await win.waitForSelector('.dropzone');
+await app.evaluate(({ dialog }, dir) => { dialog.showSaveDialog = async (_w, o) => ({ canceled: false, filePath: `${dir}/${o.defaultPath.split('/').pop()}` }); }, out);
+const t0 = Date.now();
+await win.evaluate((f) => window.__cs.openFile(f), path.join(root, 'test/media/talk.mp4'));
+await win.waitForSelector('.editor .row', { timeout: 120000 });
+console.log('PASS transcribed in packaged app', ((Date.now() - t0) / 1000).toFixed(1), 's');
+await win.click('#export'); await win.click('.menu button:has-text("Video with captions")');
+const mp4 = path.join(out, 'talk (captions).mp4');
+for (let i = 0; i < 240 && !(fs.existsSync(mp4) && !(await win.locator('.burn-card').count())); i++) await win.waitForTimeout(500);
+const ok = fs.existsSync(mp4) && fs.statSync(mp4).size > 100000;
+console.log(ok ? 'PASS' : 'FAIL', 'burned video in packaged app');
+await app.close();
+fs.rmSync(userData, { recursive: true, force: true }); fs.rmSync(out, { recursive: true, force: true });
+process.exit(ok ? 0 : 1);

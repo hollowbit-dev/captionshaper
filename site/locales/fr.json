@@ -1,0 +1,39 @@
+{
+  "lang": "fr", "name": "Français",
+  "meta": { "title": "Captionshaper : sous-titres automatiques gratuits et hors ligne pour Mac et Windows", "desc": "Déposez une vidéo et obtenez en quelques secondes des sous-titres précis, synchronisés au mot près. Exportez en SRT, VTT ou incrustez des sous-titres façon TikTok. Gratuit, open source, rien n'est envoyé." },
+  "nav": { "features": "Fonctions", "styles": "Styles", "privacy": "Confidentialité", "faq": "FAQ", "download": "Télécharger" },
+  "hero": { "eyebrow": "Gratuit · Hors ligne · Open source", "h1": "Des sous-titres qui suivent votre rythme.", "sub": "Déposez une vidéo. Captionshaper écrit chaque mot avec son timing, directement sur votre ordinateur. Corrigez, choisissez un style, exportez. Rien n'est envoyé.", "mac": "Télécharger pour Mac", "win": "Télécharger pour Windows", "note": "macOS 12+ sur Apple Silicon · Windows 10 et 11 (64 bits)" },
+  "live": { "h": "Regardez-le écrire.", "p": "Captionshaper repère la parole, ignore la musique et les silences, et les mots apparaissent au fur et à mesure. Un clip d'une minute prend environ dix secondes sur un Mac avec puce M." },
+  "feat": { "h": "De vrais sous-titres, pas juste une transcription.", "items": [
+    ["Rien sur la musique", "La détection de voix repère où l'on parle. Intros, musique et silences restent propres, sans mots inventés."],
+    ["Synchronisé au mot", "Chaque mot commence quand la voix commence : des sous-titres bien calés et une mise en avant mot par mot qui tombe juste."],
+    ["Des lignes faciles à lire", "Les coupures tombent en fin de phrase ou de proposition, jamais après « le » ou « de », jamais au milieu d'une longue pause."],
+    ["Pensé pour la vidéo verticale", "Styles Pop et mot par mot, et une vue téléphone qui montre où TikTok, Reels et Shorts placent leurs boutons."],
+    ["Corrigez vite", "Les mots incertains sont soulignés. Modifiez sur place, rechercher-remplacer, couper, fusionner, annuler. Vos modifications sont enregistrées."],
+    ["Tous les formats", "SRT, VTT, ASS et texte brut, ou un MP4 avec sous-titres incrustés, prêt à publier."]
+  ] },
+  "styles": { "h": "Choisissez un style. Voyez-le tel qu'il sera exporté.", "p": "L'aperçu utilise la même police et les mêmes tailles que la vidéo finale : ce que vous voyez est ce qui est incrusté. Changez la taille, la position, les couleurs et les majuscules, ou faites des sous-titres d'un mot, courts ou sur deux lignes." },
+  "nums": [["0,7 %", "d'erreurs par mot sur nos clips de test"], ["~5×", "plus rapide que le temps réel sur Apple Silicon"], ["99", "langues, détectées automatiquement"]],
+  "priv": { "h": "Vos vidéos ne quittent jamais votre ordinateur.", "p": "Pas de compte, pas d'envoi, pas de filigrane, pas de limite. Seul le modèle vocal se télécharge, une fois. Ensuite, Captionshaper fonctionne sans internet.", "items": ["La reconnaissance vocale tourne sur votre Mac ou PC", "Pas de compte, pas de suivi", "Open source sous licence GPL"] },
+  "faq": { "h": "Questions", "items": [
+    ["C'est vraiment gratuit ?", "Oui. Pas d'essai, pas de filigrane, pas de limite. Captionshaper est open source, et vous pouvez le soutenir sur Ko-fi s'il vous fait gagner du temps."],
+    ["Ma vidéo est-elle envoyée ?", "Non. Tout se passe sur votre ordinateur. L'app télécharge le modèle vocal une fois (environ 570 Mo), et c'est sa seule connexion à internet."],
+    ["Quelles langues comprend-il ?", "Environ 99, dont le français, l'anglais, l'espagnol, l'allemand, le portugais, le russe, le chinois et le japonais. La langue est détectée automatiquement. Pour les langues moins courantes, le modèle Le plus précis fait moins d'erreurs."],
+    ["Quelle est sa précision ?", "Sur une voix claire, il trouve presque tous les mots. Nous le testons sur des clips au texte connu en anglais, espagnol et allemand : 0,7 % d'erreurs par mot, sous-titres à moins de 0,15 seconde de la voix. Un son bruité ou un fort accent entraînent plus d'erreurs, d'où une correction rapide."],
+    ["Peut-il traduire ?", "Il peut transformer la parole de toute langue prise en charge en sous-titres anglais. Cochez « Traduire en anglais » avant de commencer."],
+    ["Est-il rapide sous Windows ?", "Il utilise le processeur : une à deux fois le temps réel sur un PC récent. Sur les Mac Apple Silicon, il utilise le GPU et va environ cinq fois plus vite que le temps réel."],
+    ["Fonctionne-t-il sur les Mac Intel ?", "Pas encore. La version Mac nécessite Apple Silicon (M1 ou plus récent)."]
+  ] },
+  "dl": { "title": "Télécharger Captionshaper", "h": "Télécharger Captionshaper", "sub": "Gratuit, pour Mac et Windows. Version {v}.", "mac": "Mac", "macReq": "Apple Silicon (M1 ou plus récent), macOS 12 ou ultérieur", "macBtn": "Télécharger le .dmg", "win": "Windows", "winReq": "Windows 10 ou 11, 64 bits", "winBtn": "Télécharger l'installateur", "firstH": "Premier lancement",
+    "macSteps": ["Ouvrez le .dmg et faites glisser Captionshaper dans Applications.", "Faites un clic droit sur Captionshaper, choisissez Ouvrir, puis cliquez sur Ouvrir.", "Si macOS le bloque encore, allez dans Réglages Système, Confidentialité et sécurité, puis cliquez sur Ouvrir quand même."],
+    "winSteps": ["Lancez l'installateur. Si SmartScreen apparaît, cliquez sur Informations complémentaires, puis Exécuter quand même.", "Windows peut demander d'installer le runtime Microsoft Visual C++. Acceptez : le moteur vocal en a besoin."],
+    "why": "Captionshaper n'est pas encore signé avec un certificat payant d'Apple ou de Microsoft, donc les deux systèmes demandent une fois.", "src": "Code source et anciennes versions sur GitHub" },
+  "privacyPage": { "title": "Confidentialité", "h": "Confidentialité", "body": [
+    "Captionshaper fonctionne sur votre ordinateur. Vos vidéos, votre audio, vos sous-titres et vos modifications y restent.",
+    "L'app ne fait qu'un type de requête réseau : télécharger un modèle vocal depuis Hugging Face (huggingface.co) quand vous cliquez sur Télécharger. Cette requête ne contient rien sur vos fichiers.",
+    "Pas de compte, pas d'analyse d'audience, pas de suivi dans l'app.",
+    "Ce site est hébergé sur GitHub Pages. GitHub peut conserver des journaux serveur standard ; voir sa déclaration de confidentialité. Le site n'utilise ni cookies ni analyse d'audience."
+  ] },
+  "foot": { "by": "Fait par Hollowbit", "other": "Aussi par Hollowbit : Fileshaper", "source": "Code sur GitHub", "privacy": "Confidentialité", "license": "Open source, GPL-3.0" },
+  "nf": { "title": "Page introuvable", "h": "Cette page n'existe pas.", "home": "Aller à l'accueil" }
+}

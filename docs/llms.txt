@@ -1,0 +1,40 @@
+# Captionshaper
+
+> Drop in a video and get accurate, word-timed captions in seconds. Export SRT, VTT or burn in TikTok-style captions. Free, open source, and nothing is uploaded.
+
+Captionshaper by Hollowbit is a free, open-source (GPL-3.0) desktop app for macOS (Apple Silicon) and Windows that makes subtitles and captions from video or audio, fully offline. Version 1.0.0.
+
+## What it does
+- Nothing over music: Voice detection finds where people speak. Intros, music and silence stay clean, so no made-up words.
+- Timed to the word: Each word starts when the voice does, for captions that feel in sync and word-by-word highlights that land.
+- Lines that read well: Breaks fall at sentence and clause ends, never after “the” or “to”, and never across a long pause.
+- Made for vertical video: Pop and word-by-word styles, plus a phone view that shows where TikTok, Reels and Shorts put their buttons.
+- Fix it fast: Uncertain words are underlined. Edit in place, find and replace, split, merge, undo. Your edits are saved.
+- Every format: SRT, VTT, ASS and plain text, or an MP4 with captions burned in, ready to post.
+
+## FAQ
+### Is it really free?
+Yes. No trial, no watermark, no limits. Captionshaper is open source, and you can support it on Ko-fi if it saves you time.
+
+### Does it upload my video?
+No. Everything happens on your computer. The app downloads the speech model once (about 570 MB), and that's its only connection to the internet.
+
+### Which languages does it understand?
+About 99, including English, Spanish, French, German, Portuguese, Russian, Chinese and Japanese. It detects the language for you. For less common languages, the Most accurate model makes fewer mistakes.
+
+### How accurate is it?
+On clear speech it gets almost every word right. We test it on clips with known scripts in English, Spanish and German: 0.7% word error rate, with captions within 0.15 seconds of the voice. Noisy audio and strong accents make more mistakes, which is why fixing words is quick.
+
+### Can it translate?
+It can turn speech in any supported language into English captions. Tick “Translate to English” before you start.
+
+### Is it fast on Windows?
+It runs on the processor, about one to two times real time on a recent PC. On Apple Silicon Macs it uses the GPU and is around five times faster than real time.
+
+### Does it work on Intel Macs?
+Not yet. The Mac version needs Apple Silicon (M1 or newer).
+
+## Links
+- Download: https://hollowbit-dev.github.io/captionshaper/download.html
+- Source: https://github.com/hollowbit-dev/captionshaper
+- Privacy: https://hollowbit-dev.github.io/captionshaper/privacy.html

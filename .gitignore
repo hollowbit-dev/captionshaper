@@ -1,0 +1,10 @@
+node_modules/
+dist/
+vendor/
+test/out/
+test/media/*.wav
+test/media/*.aiff
+test/media/*.json
+.DS_Store
+test/media/jfk.*
+test/shots/

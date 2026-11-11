@@ -1,0 +1,36 @@
+// Website screenshots at 2x: home, live transcription, editor, style + phone view.
+import { _electron as electron } from 'playwright';
+import fs from 'fs'; import os from 'os'; import path from 'path';
+const root = path.resolve(path.dirname(new URL(import.meta.url).pathname), '..');
+const outDir = path.join(root, 'site', 'assets', 'img'); fs.mkdirSync(outDir, { recursive: true });
+const userData = fs.mkdtempSync(path.join(os.tmpdir(), 'cs-shots-'));
+const models = path.join(os.homedir(), 'Library/Application Support/Captionshaper/models');
+const app = await electron.launch({ args: [root], env: { ...process.env, CAPTIONSHAPER_SCALE: '2', CAPTIONSHAPER_USERDATA: userData, CAPTIONSHAPER_MODELS: models } });
+const win = await app.firstWindow();
+await win.setViewportSize({ width: 1320, height: 840 });
+await win.waitForSelector('.dropzone');
+await win.waitForTimeout(2600);
+const shot = async (n) => {
+  const b64 = await app.evaluate(async ({ BrowserWindow }) => (await BrowserWindow.getAllWindows()[0].webContents.capturePage()).toPNG().toString('base64'));
+  fs.writeFileSync(path.join(outDir, `${n}.png`), Buffer.from(b64, 'base64'));
+};
+await shot('app-home');
+await win.evaluate((f) => window.__cs.openFile(f), path.join(root, 'test/media/demo-vertical.mp4'));
+await win.waitForSelector('.wk-w', { timeout: 60000 });
+for (let i = 0; i < 60 && (await win.locator('.wk-w').count()) < 40; i++) await win.waitForTimeout(50);
+await shot('app-working');
+await win.waitForSelector('.editor .row', { timeout: 120000 });
+await win.click('.preset[data-k="pop"]').catch(() => {});
+await win.click('#tabs button[data-t="style"]');
+await win.click('.preset[data-k="pop"]');
+await win.click('#tabs button[data-t="captions"]');
+await win.evaluate(() => { window.__cs.current.video.currentTime = 16.5; });
+await win.waitForTimeout(700);
+await shot('app-editor');
+await win.click('#tabs button[data-t="style"]');
+await win.evaluate(() => { window.__cs.current.video.currentTime = 24.3; });
+await win.waitForTimeout(700);
+await shot('app-style');
+await app.close();
+fs.rmSync(userData, { recursive: true, force: true });
+for (const f of fs.readdirSync(outDir)) console.log(f, fs.statSync(path.join(outDir, f)).size);

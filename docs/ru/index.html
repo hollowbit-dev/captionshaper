@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Captionshaper: бесплатные офлайн-субтитры для Mac и Windows</title>
+  <meta name="description" content="Перетащите видео и получите точные субтитры с таймингом каждого слова за секунды. Экспорт в SRT, VTT или вшитые субтитры в стиле TikTok. Бесплатно, с открытым кодом, ничего не загружается в сеть.">
+  <link rel="canonical" href="https://hollowbit-dev.github.io/captionshaper/ru/">
+  <link rel="alternate" hreflang="en" href="https://hollowbit-dev.github.io/captionshaper/">
+  <link rel="alternate" hreflang="es" href="https://hollowbit-dev.github.io/captionshaper/es/">
+  <link rel="alternate" hreflang="fr" href="https://hollowbit-dev.github.io/captionshaper/fr/">
+  <link rel="alternate" hreflang="de" href="https://hollowbit-dev.github.io/captionshaper/de/">
+  <link rel="alternate" hreflang="ru" href="https://hollowbit-dev.github.io/captionshaper/ru/">
+  <link rel="alternate" hreflang="zh-Hans" href="https://hollowbit-dev.github.io/captionshaper/zh/">
+  <link rel="alternate" hreflang="x-default" href="https://hollowbit-dev.github.io/captionshaper/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Captionshaper: бесплатные офлайн-субтитры для Mac и Windows">
+  <meta property="og:description" content="Перетащите видео и получите точные субтитры с таймингом каждого слова за секунды. Экспорт в SRT, VTT или вшитые субтитры в стиле TikTok. Бесплатно, с открытым кодом, ничего не загружается в сеть.">
+  <meta property="og:url" content="https://hollowbit-dev.github.io/captionshaper/ru/">
+  <meta property="og:image" content="https://hollowbit-dev.github.io/captionshaper/img/og.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#0a090d">
+  <link rel="icon" type="image/png" href="../favicon.png">
+  <link rel="preload" href="../fonts/Geist-Variable.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../style.css?v=1.0.0">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Captionshaper","operatingSystem":"macOS, Windows","applicationCategory":"MultimediaApplication","description":"Перетащите видео и получите точные субтитры с таймингом каждого слова за секунды. Экспорт в SRT, VTT или вшитые субтитры в стиле TikTok. Бесплатно, с открытым кодом, ничего не загружается в сеть.","softwareVersion":"1.0.0","url":"https://hollowbit-dev.github.io/captionshaper/ru/","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"author":{"@type":"Organization","name":"Hollowbit"},"downloadUrl":["https://github.com/hollowbit-dev/captionshaper/releases/latest/download/Captionshaper-1.0.0-mac-arm64.dmg","https://github.com/hollowbit-dev/captionshaper/releases/latest/download/Captionshaper-Setup-1.0.0-win-x64.exe"],"license":"https://www.gnu.org/licenses/gpl-3.0.html"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Это правда бесплатно?","acceptedAnswer":{"@type":"Answer","text":"Да. Без пробного периода, водяных знаков и ограничений. Captionshaper с открытым кодом, и его можно поддержать на Ko-fi, если он экономит вам время."}},{"@type":"Question","name":"Моё видео куда-то загружается?","acceptedAnswer":{"@type":"Answer","text":"Нет. Всё происходит на вашем компьютере. Приложение один раз скачивает речевую модель (около 570 МБ), и это его единственное подключение к интернету."}},{"@type":"Question","name":"Какие языки он понимает?","acceptedAnswer":{"@type":"Answer","text":"Около 99, включая русский, английский, испанский, французский, немецкий, португальский, китайский и японский. Язык определяется автоматически. Для менее распространённых языков модель «Самая точная» ошибается реже."}},{"@type":"Question","name":"Насколько он точен?","acceptedAnswer":{"@type":"Answer","text":"На чёткой речи почти все слова верны. Мы проверяем его на роликах с известным текстом на английском, испанском и немецком: 0,7 % ошибок на слово, субтитры в пределах 0,15 секунды от голоса. Шум и сильный акцент дают больше ошибок, поэтому правки сделаны быстрыми."}},{"@type":"Question","name":"Умеет ли он переводить?","acceptedAnswer":{"@type":"Answer","text":"Он может превратить речь на любом поддерживаемом языке в английские субтитры. Отметьте «Перевести на английский» перед началом."}},{"@type":"Question","name":"Быстро ли работает на Windows?","acceptedAnswer":{"@type":"Answer","text":"Он работает на процессоре: примерно в один-два раза быстрее реального времени на современном ПК. На Mac с Apple Silicon использует GPU и работает примерно в пять раз быстрее реального времени."}},{"@type":"Question","name":"Работает ли на Mac с Intel?","acceptedAnswer":{"@type":"Answer","text":"Пока нет. Для версии для Mac нужен Apple Silicon (M1 или новее)."}}]}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="nav"><div class="wrap nav-in">
+  <a class="logo" href="./"><img src="../favicon.png" alt="" width="26" height="26">Captionshaper</a>
+  <nav class="links" aria-label="Main">
+    <a href="#features">Возможности</a><a href="#styles">Стили</a><a href="#privacy">Конфиденциальность</a><a href="#faq">Вопросы</a>
+  </nav>
+  <div class="nav-end">
+    <a class="btn btn-ghost btn-sm kofi" href="https://ko-fi.com/hollowbit" target="_blank" rel="noopener"><svg class="ic" viewBox="0 0 24 24"><path d="M12 20s-7-4.3-8.8-8.7C1.9 8 4 4.8 7.2 4.8c1.9 0 3.4 1 4.8 2.8 1.4-1.8 2.9-2.8 4.8-2.8 3.2 0 5.3 3.2 4 6.5C19 15.7 12 20 12 20z"/></svg><span>Ko-fi</span></a>
+    <a class="btn btn-primary btn-sm" href="download.html">Скачать</a>
+  </div>
+</div></header>
+<main id="main">
+<section class="hero"><div class="wrap">
+  <p class="eyebrow">Бесплатно · Офлайн · Открытый код</p>
+  <h1>Субтитры, которые успевают за вами.</h1>
+  <p class="lede">Перетащите видео. Captionshaper запишет каждое слово с таймингом прямо на вашем компьютере. Исправьте что нужно, выберите стиль и экспортируйте. Ничего не загружается в сеть.</p>
+  <div class="cta">
+  <a class="btn btn-primary btn-lg" data-os="mac" href="https://github.com/hollowbit-dev/captionshaper/releases/latest/download/Captionshaper-1.0.0-mac-arm64.dmg"><svg class="ic" viewBox="0 0 24 24"><path d="M16.4 12.6c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.1-2.8.9-3.5.9-.7 0-1.8-.8-3-.8-1.5 0-3 .9-3.8 2.3-1.6 2.8-.4 7 1.2 9.3.8 1.1 1.7 2.4 2.9 2.3 1.2 0 1.6-.7 3-.7s1.8.7 3 .7c1.3 0 2.1-1.1 2.8-2.3.9-1.3 1.3-2.6 1.3-2.6s-2.5-1-2.5-3.8zM14.2 5.8c.6-.8 1.1-1.8 1-2.8-.9 0-2 .6-2.7 1.4-.6.7-1.1 1.7-1 2.7 1 .1 2-.5 2.7-1.3z" fill="currentColor" stroke="none"/></svg>Скачать для Mac</a>
+  <a class="btn btn-ghost btn-lg" data-os="win" href="https://github.com/hollowbit-dev/captionshaper/releases/latest/download/Captionshaper-Setup-1.0.0-win-x64.exe"><svg class="ic" viewBox="0 0 24 24"><path d="M3 5.5l7.5-1v7H3zM11.5 4.3L21 3v8.5h-9.5zM3 12.5h7.5v7L3 18.5zM11.5 12.5H21V21l-9.5-1.3z" fill="currentColor" stroke="none"/></svg>Скачать для Windows</a>
+</div>
+  <p class="note">macOS 12+ на Apple Silicon · Windows 10 и 11 (64 бит) · v1.0.0</p>
+  <div class="shot hero-shot">
+    <img src="../img/app-editor.webp" width="1600" height="1018" alt="Captionshaper editor: a vertical video in a phone frame with bold captions, the caption list and a waveform timeline">
+    <div class="live-chip" aria-hidden="true"><span class="dot"></span><span class="live-words" data-words="Every|word,|right|on|time."></span></div>
+  </div>
+</div></section>
+
+<section class="split" id="live"><div class="wrap split-in">
+  <div class="split-text"><h2>Смотрите, как он пишет.</h2><p>Captionshaper находит речь, пропускает музыку и тишину, а слова появляются по мере распознавания. Минутный ролик обрабатывается примерно за десять секунд на Mac с чипом M.</p></div>
+  <div class="shot"><img src="../img/app-working.webp" width="1600" height="960" alt="Words appearing live while Captionshaper transcribes, above a waveform" loading="lazy"></div>
+</div></section>
+
+<section id="features"><div class="wrap">
+  <h2 class="center">Хорошие субтитры, а не просто расшифровка.</h2>
+  <div class="grid"><div class="card"><svg class="ic fi" viewBox="0 0 24 24"><path d="M9 18V6l10-2v12"/><circle cx="6.5" cy="18" r="2.5"/><circle cx="16.5" cy="16" r="2.5"/><path d="M3 3l18 18"/></svg><h3>Ничего поверх музыки</h3><p>Детектор голоса находит, где говорят люди. Заставки, музыка и тишина остаются чистыми, без выдуманных слов.</p></div><div class="card"><svg class="ic fi" viewBox="0 0 24 24"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2.5M9 2h6"/></svg><h3>Тайминг до слова</h3><p>Каждое слово начинается вместе с голосом: субтитры точно в такт, а подсветка слов попадает куда нужно.</p></div><div class="card"><svg class="ic fi" viewBox="0 0 24 24"><path d="M4 7h16M4 12h11M4 17h14"/></svg><h3>Строки, которые легко читать</h3><p>Переносы приходятся на конец предложения или фразы, не после предлогов и никогда не через долгую паузу.</p></div><div class="card"><svg class="ic fi" viewBox="0 0 24 24"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M10 18.5h4"/></svg><h3>Для вертикального видео</h3><p>Стили Pop и «по слову», плюс вид телефона, где видно, куда TikTok, Reels и Shorts ставят свои кнопки.</p></div><div class="card"><svg class="ic fi" viewBox="0 0 24 24"><path d="M4 20h4L19 9l-4-4L4 16v4zM13.5 6.5l4 4"/></svg><h3>Быстрые правки</h3><p>Сомнительные слова подчёркнуты. Правка на месте, поиск и замена, разделение, объединение, отмена. Всё сохраняется.</p></div><div class="card"><svg class="ic fi" viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg><h3>Любой формат</h3><p>SRT, VTT, ASS и текст или MP4 со вшитыми субтитрами, готовый к публикации.</p></div></div>
+</div></section>
+
+<section class="split rev" id="styles"><div class="wrap split-in">
+  <div class="split-text"><h2>Выберите стиль. Видите ровно то, что экспортируется.</h2><p>Превью использует тот же шрифт и размеры, что и итоговое видео: что видите, то и вшивается. Меняйте размер, положение, цвета и регистр или делайте субтитры по одному слову, короткие или в две строки.</p></div>
+  <div class="shot"><img src="../img/app-style.webp" width="1600" height="1018" alt="Caption style options: Clean, Box, Pop and Word by word, with size, position and colours" loading="lazy"></div>
+</div></section>
+
+<section class="nums"><div class="wrap nums-in"><div><b>0,7 %</b><span>ошибок на слово в наших тестовых роликах</span></div><div><b>~5×</b><span>быстрее реального времени на Apple Silicon</span></div><div><b>99</b><span>языков, определяются автоматически</span></div></div></section>
+
+<section id="privacy" class="priv"><div class="wrap narrow center">
+  <h2>Ваши видео никогда не покидают компьютер.</h2><p class="lede">Без аккаунта, без загрузки в сеть, без водяных знаков и ограничений. Один раз скачивается только речевая модель. Дальше Captionshaper работает без интернета.</p>
+  <ul class="ticks"><li><svg class="ic" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Распознавание речи работает на вашем Mac или ПК</li><li><svg class="ic" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Без аккаунта и слежки</li><li><svg class="ic" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Открытый код под лицензией GPL</li></ul>
+</div></section>
+
+<section id="faq"><div class="wrap narrow">
+  <h2>Вопросы</h2>
+  <div class="faq"><details><summary>Это правда бесплатно?</summary><p>Да. Без пробного периода, водяных знаков и ограничений. Captionshaper с открытым кодом, и его можно поддержать на Ko-fi, если он экономит вам время.</p></details><details><summary>Моё видео куда-то загружается?</summary><p>Нет. Всё происходит на вашем компьютере. Приложение один раз скачивает речевую модель (около 570 МБ), и это его единственное подключение к интернету.</p></details><details><summary>Какие языки он понимает?</summary><p>Около 99, включая русский, английский, испанский, французский, немецкий, португальский, китайский и японский. Язык определяется автоматически. Для менее распространённых языков модель «Самая точная» ошибается реже.</p></details><details><summary>Насколько он точен?</summary><p>На чёткой речи почти все слова верны. Мы проверяем его на роликах с известным текстом на английском, испанском и немецком: 0,7 % ошибок на слово, субтитры в пределах 0,15 секунды от голоса. Шум и сильный акцент дают больше ошибок, поэтому правки сделаны быстрыми.</p></details><details><summary>Умеет ли он переводить?</summary><p>Он может превратить речь на любом поддерживаемом языке в английские субтитры. Отметьте «Перевести на английский» перед началом.</p></details><details><summary>Быстро ли работает на Windows?</summary><p>Он работает на процессоре: примерно в один-два раза быстрее реального времени на современном ПК. На Mac с Apple Silicon использует GPU и работает примерно в пять раз быстрее реального времени.</p></details><details><summary>Работает ли на Mac с Intel?</summary><p>Пока нет. Для версии для Mac нужен Apple Silicon (M1 или новее).</p></details></div>
+</div></section>
+
+<section class="end"><div class="wrap center">
+  <h2>Субтитры, которые успевают за вами.</h2>
+  <div class="cta">
+  <a class="btn btn-primary btn-lg" data-os="mac" href="https://github.com/hollowbit-dev/captionshaper/releases/latest/download/Captionshaper-1.0.0-mac-arm64.dmg"><svg class="ic" viewBox="0 0 24 24"><path d="M16.4 12.6c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.1-2.8.9-3.5.9-.7 0-1.8-.8-3-.8-1.5 0-3 .9-3.8 2.3-1.6 2.8-.4 7 1.2 9.3.8 1.1 1.7 2.4 2.9 2.3 1.2 0 1.6-.7 3-.7s1.8.7 3 .7c1.3 0 2.1-1.1 2.8-2.3.9-1.3 1.3-2.6 1.3-2.6s-2.5-1-2.5-3.8zM14.2 5.8c.6-.8 1.1-1.8 1-2.8-.9 0-2 .6-2.7 1.4-.6.7-1.1 1.7-1 2.7 1 .1 2-.5 2.7-1.3z" fill="currentColor" stroke="none"/></svg>Скачать для Mac</a>
+  <a class="btn btn-ghost btn-lg" data-os="win" href="https://github.com/hollowbit-dev/captionshaper/releases/latest/download/Captionshaper-Setup-1.0.0-win-x64.exe"><svg class="ic" viewBox="0 0 24 24"><path d="M3 5.5l7.5-1v7H3zM11.5 4.3L21 3v8.5h-9.5zM3 12.5h7.5v7L3 18.5zM11.5 12.5H21V21l-9.5-1.3z" fill="currentColor" stroke="none"/></svg>Скачать для Windows</a>
+</div>
+  <p class="note">macOS 12+ на Apple Silicon · Windows 10 и 11 (64 бит)</p>
+</div></section>
+</main>
+<footer class="foot"><div class="wrap foot-in">
+  <div class="foot-brand"><img src="../favicon.png" alt="" width="22" height="22"><span>Сделано Hollowbit</span><span class="dim">·</span><a href="https://fileshaper.app">Ещё от Hollowbit: Fileshaper</a></div>
+  <div class="foot-links"><a href="https://github.com/hollowbit-dev/captionshaper"><svg class="ic" viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-3.2 19.5c.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.3-3.4-1.3-.5-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.6 2.4 1.1 3 .9.1-.7.4-1.1.6-1.4-2.2-.3-4.6-1.1-4.6-5 0-1.1.4-2 1-2.7-.1-.3-.4-1.3.1-2.7 0 0 .8-.3 2.8 1a9.6 9.6 0 0 1 5 0c1.9-1.3 2.8-1 2.8-1 .5 1.4.2 2.4.1 2.7.6.7 1 1.6 1 2.7 0 3.9-2.4 4.7-4.6 5 .4.3.7.9.7 1.9V21c0 .3.2.6.7.5A10 10 0 0 0 12 2z" fill="currentColor" stroke="none"/></svg>Код на GitHub</a><a href="privacy.html">Конфиденциальность</a><span class="dim">Открытый код, GPL-3.0</span></div>
+  <div class="langs"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 3.8 5.7 3.8 9s-1.3 6.3-3.8 9c-2.5-2.7-3.8-5.7-3.8-9S9.5 5.7 12 3z"/></svg><a href="../" hreflang="en">English</a><a href="../es/" hreflang="es">Español</a><a href="../fr/" hreflang="fr">Français</a><a href="../de/" hreflang="de">Deutsch</a><a href="../ru/" aria-current="true" hreflang="ru">Русский</a><a href="../zh/" hreflang="zh">简体中文</a></div>
+</div></footer>
+<script src="../site.js?v=1.0.0" defer></script>
+</body></html>

@@ -1,0 +1,76 @@
+{
+  "lang": "en", "name": "English",
+  "meta": {
+    "title": "Captionshaper: free offline auto subtitles for Mac and Windows",
+    "desc": "Drop in a video and get accurate, word-timed captions in seconds. Export SRT, VTT or burn in TikTok-style captions. Free, open source, and nothing is uploaded."
+  },
+  "nav": { "features": "Features", "styles": "Styles", "privacy": "Privacy", "faq": "FAQ", "download": "Download" },
+  "hero": {
+    "eyebrow": "Free · Offline · Open source",
+    "h1": "Captions that keep up with you.",
+    "sub": "Drop in a video. Captionshaper writes every word with its timing, right on your computer. Fix anything, pick a style, export. Nothing is uploaded.",
+    "mac": "Download for Mac", "win": "Download for Windows",
+    "note": "macOS 12+ on Apple Silicon · Windows 10 and 11 (64-bit)"
+  },
+  "live": {
+    "h": "Watch it write.",
+    "p": "Captionshaper finds the speech, skips the music and silence, and the words appear as they're written. A one-minute clip takes about ten seconds on an M-series Mac."
+  },
+  "feat": {
+    "h": "Good captions, not just a transcript.",
+    "items": [
+      ["Nothing over music", "Voice detection finds where people speak. Intros, music and silence stay clean, so no made-up words."],
+      ["Timed to the word", "Each word starts when the voice does, for captions that feel in sync and word-by-word highlights that land."],
+      ["Lines that read well", "Breaks fall at sentence and clause ends, never after “the” or “to”, and never across a long pause."],
+      ["Made for vertical video", "Pop and word-by-word styles, plus a phone view that shows where TikTok, Reels and Shorts put their buttons."],
+      ["Fix it fast", "Uncertain words are underlined. Edit in place, find and replace, split, merge, undo. Your edits are saved."],
+      ["Every format", "SRT, VTT, ASS and plain text, or an MP4 with captions burned in, ready to post."]
+    ]
+  },
+  "styles": {
+    "h": "Pick a look. See it exactly as it exports.",
+    "p": "The preview uses the same font and sizes as the finished video, so what you see is what gets burned in. Change size, position, colours and caps, or make captions one word, short, or two full lines."
+  },
+  "nums": [["0.7%", "word error rate on our test clips"], ["~5×", "faster than real time on Apple Silicon"], ["99", "languages, detected automatically"]],
+  "priv": {
+    "h": "Your videos never leave your computer.",
+    "p": "No account, no upload, no watermark, no limits. The only download is the speech model, once. After that Captionshaper works without the internet.",
+    "items": ["Speech recognition runs on your Mac or PC", "No account and no tracking", "Open source under the GPL"]
+  },
+  "faq": {
+    "h": "Questions",
+    "items": [
+      ["Is it really free?", "Yes. No trial, no watermark, no limits. Captionshaper is open source, and you can support it on Ko-fi if it saves you time."],
+      ["Does it upload my video?", "No. Everything happens on your computer. The app downloads the speech model once (about 570 MB), and that's its only connection to the internet."],
+      ["Which languages does it understand?", "About 99, including English, Spanish, French, German, Portuguese, Russian, Chinese and Japanese. It detects the language for you. For less common languages, the Most accurate model makes fewer mistakes."],
+      ["How accurate is it?", "On clear speech it gets almost every word right. We test it on clips with known scripts in English, Spanish and German: 0.7% word error rate, with captions within 0.15 seconds of the voice. Noisy audio and strong accents make more mistakes, which is why fixing words is quick."],
+      ["Can it translate?", "It can turn speech in any supported language into English captions. Tick “Translate to English” before you start."],
+      ["Is it fast on Windows?", "It runs on the processor, about one to two times real time on a recent PC. On Apple Silicon Macs it uses the GPU and is around five times faster than real time."],
+      ["Does it work on Intel Macs?", "Not yet. The Mac version needs Apple Silicon (M1 or newer)."]
+    ]
+  },
+  "dl": {
+    "title": "Download Captionshaper",
+    "h": "Download Captionshaper",
+    "sub": "Free, for Mac and Windows. Version {v}.",
+    "mac": "Mac", "macReq": "Apple Silicon (M1 or newer), macOS 12 or later", "macBtn": "Download .dmg",
+    "win": "Windows", "winReq": "Windows 10 or 11, 64-bit", "winBtn": "Download installer",
+    "firstH": "Opening it the first time",
+    "macSteps": ["Open the .dmg and drag Captionshaper to Applications.", "Right-click Captionshaper and choose Open, then click Open.", "If macOS still blocks it, go to System Settings, Privacy & Security, and click Open Anyway."],
+    "winSteps": ["Run the installer. If SmartScreen appears, click More info, then Run anyway.", "Windows may ask to install the Microsoft Visual C++ runtime. Say yes; the speech engine needs it."],
+    "why": "Captionshaper isn't signed with a paid Apple or Microsoft certificate yet, so both systems ask once.",
+    "src": "Source code and older versions on GitHub"
+  },
+  "privacyPage": {
+    "title": "Privacy",
+    "h": "Privacy",
+    "body": [
+      "Captionshaper runs on your computer. Your videos, audio, captions and edits stay there.",
+      "The app makes one kind of network request: downloading a speech model from Hugging Face (huggingface.co) when you click Download. That request doesn't include anything about your files.",
+      "There are no accounts, no analytics and no tracking in the app.",
+      "This website is hosted on GitHub Pages. GitHub may keep standard server logs; see GitHub's privacy statement. The site itself has no cookies or analytics."
+    ]
+  },
+  "foot": { "by": "Made by Hollowbit", "other": "Also by Hollowbit: Fileshaper", "source": "Source on GitHub", "privacy": "Privacy", "license": "Open source, GPL-3.0" },
+  "nf": { "title": "Page not found", "h": "This page isn't here.", "home": "Go to the home page" }
+}

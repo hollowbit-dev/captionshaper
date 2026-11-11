@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Captionshaper: free offline auto subtitles for Mac and Windows</title>
+  <meta name="description" content="Drop in a video and get accurate, word-timed captions in seconds. Export SRT, VTT or burn in TikTok-style captions. Free, open source, and nothing is uploaded.">
+  <link rel="canonical" href="https://hollowbit-dev.github.io/captionshaper/">
+  <link rel="alternate" hreflang="en" href="https://hollowbit-dev.github.io/captionshaper/">
+  <link rel="alternate" hreflang="es" href="https://hollowbit-dev.github.io/captionshaper/es/">
+  <link rel="alternate" hreflang="fr" href="https://hollowbit-dev.github.io/captionshaper/fr/">
+  <link rel="alternate" hreflang="de" href="https://hollowbit-dev.github.io/captionshaper/de/">
+  <link rel="alternate" hreflang="ru" href="https://hollowbit-dev.github.io/captionshaper/ru/">
+  <link rel="alternate" hreflang="zh-Hans" href="https://hollowbit-dev.github.io/captionshaper/zh/">
+  <link rel="alternate" hreflang="x-default" href="https://hollowbit-dev.github.io/captionshaper/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Captionshaper: free offline auto subtitles for Mac and Windows">
+  <meta property="og:description" content="Drop in a video and get accurate, word-timed captions in seconds. Export SRT, VTT or burn in TikTok-style captions. Free, open source, and nothing is uploaded.">
+  <meta property="og:url" content="https://hollowbit-dev.github.io/captionshaper/">
+  <meta property="og:image" content="https://hollowbit-dev.github.io/captionshaper/img/og.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#0a090d">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="preload" href="fonts/Geist-Variable.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="style.css?v=1.0.0">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Captionshaper","operatingSystem":"macOS, Windows","applicationCategory":"MultimediaApplication","description":"Drop in a video and get accurate, word-timed captions in seconds. Export SRT, VTT or burn in TikTok-style captions. Free, open source, and nothing is uploaded.","softwareVersion":"1.0.0","url":"https://hollowbit-dev.github.io/captionshaper/","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"author":{"@type":"Organization","name":"Hollowbit"},"downloadUrl":["https://github.com/hollowbit-dev/captionshaper/releases/latest/download/Captionshaper-1.0.0-mac-arm64.dmg","https://github.com/hollowbit-dev/captionshaper/releases/latest/download/Captionshaper-Setup-1.0.0-win-x64.exe"],"license":"https://www.gnu.org/licenses/gpl-3.0.html"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is it really free?","acceptedAnswer":{"@type":"Answer","text":"Yes. No trial, no watermark, no limits. Captionshaper is open source, and you can support it on Ko-fi if it saves you time."}},{"@type":"Question","name":"Does it upload my video?","acceptedAnswer":{"@type":"Answer","text":"No. Everything happens on your computer. The app downloads the speech model once (about 570 MB), and that's its only connection to the internet."}},{"@type":"Question","name":"Which languages does it understand?","acceptedAnswer":{"@type":"Answer","text":"About 99, including English, Spanish, French, German, Portuguese, Russian, Chinese and Japanese. It detects the language for you. For less common languages, the Most accurate model makes fewer mistakes."}},{"@type":"Question","name":"How accurate is it?","acceptedAnswer":{"@type":"Answer","text":"On clear speech it gets almost every word right. We test it on clips with known scripts in English, Spanish and German: 0.7% word error rate, with captions within 0.15 seconds of the voice. Noisy audio and strong accents make more mistakes, which is why fixing words is quick."}},{"@type":"Question","name":"Can it translate?","acceptedAnswer":{"@type":"Answer","text":"It can turn speech in any supported language into English captions. Tick “Translate to English” before you start."}},{"@type":"Question","name":"Is it fast on Windows?","acceptedAnswer":{"@type":"Answer","text":"It runs on the processor, about one to two times real time on a recent PC. On Apple Silicon Macs it uses the GPU and is around five times faster than real time."}},{"@type":"Question","name":"Does it work on Intel Macs?","acceptedAnswer":{"@type":"Answer","text":"Not yet. The Mac version needs Apple Silicon (M1 or newer)."}}]}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="nav"><div class="wrap nav-in">
+  <a class="logo" href="./"><img src="favicon.png" alt="" width="26" height="26">Captionshaper</a>
+  <nav class="links" aria-label="Main">
+    <a href="#features">Features</a><a href="#styles">Styles</a><a href="#privacy">Privacy</a><a href="#faq">FAQ</a>
+  </nav>
+  <div class="nav-end">
+    <a class="btn btn-ghost btn-sm kofi" href="https://ko-fi.com/hollowbit" target="_blank" rel="noopener"><svg class="ic" viewBox="0 0 24 24"><path d="M12 20s-7-4.3-8.8-8.7C1.9 8 4 4.8 7.2 4.8c1.9 0 3.4 1 4.8 2.8 1.4-1.8 2.9-2.8 4.8-2.8 3.2 0 5.3 3.2 4 6.5C19 15.7 12 20 12 20z"/></svg><span>Ko-fi</span></a>
+    <a class="btn btn-primary btn-sm" href="download.html">Download</a>
+  </div>
+</div></header>
+<main id="main">
+<section class="hero"><div class="wrap">
+  <p class="eyebrow">Free · Offline · Open source</p>
+  <h1>Captions that keep up with you.</h1>
+  <p class="lede">Drop in a video. Captionshaper writes every word with its timing, right on your computer. Fix anything, pick a style, export. Nothing is uploaded.</p>
+  <div class="cta">
+  <a class="btn btn-primary btn-lg" data-os="mac" href="https://github.com/hollowbit-dev/captionshaper/releases/latest/download/Captionshaper-1.0.0-mac-arm64.dmg"><svg class="ic" viewBox="0 0 24 24"><path d="M16.4 12.6c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.1-2.8.9-3.5.9-.7 0-1.8-.8-3-.8-1.5 0-3 .9-3.8 2.3-1.6 2.8-.4 7 1.2 9.3.8 1.1 1.7 2.4 2.9 2.3 1.2 0 1.6-.7 3-.7s1.8.7 3 .7c1.3 0 2.1-1.1 2.8-2.3.9-1.3 1.3-2.6 1.3-2.6s-2.5-1-2.5-3.8zM14.2 5.8c.6-.8 1.1-1.8 1-2.8-.9 0-2 .6-2.7 1.4-.6.7-1.1 1.7-1 2.7 1 .1 2-.5 2.7-1.3z" fill="currentColor" stroke="none"/></svg>Download for Mac</a>
+  <a class="btn btn-ghost btn-lg" data-os="win" href="https://github.com/hollowbit-dev/captionshaper/releases/latest/download/Captionshaper-Setup-1.0.0-win-x64.exe"><svg class="ic" viewBox="0 0 24 24"><path d="M3 5.5l7.5-1v7H3zM11.5 4.3L21 3v8.5h-9.5zM3 12.5h7.5v7L3 18.5zM11.5 12.5H21V21l-9.5-1.3z" fill="currentColor" stroke="none"/></svg>Download for Windows</a>
+</div>
+  <p class="note">macOS 12+ on Apple Silicon · Windows 10 and 11 (64-bit) · v1.0.0</p>
+  <div class="shot hero-shot">
+    <img src="img/app-editor.webp" width="1600" height="1018" alt="Captionshaper editor: a vertical video in a phone frame with bold captions, the caption list and a waveform timeline">
+    <div class="live-chip" aria-hidden="true"><span class="dot"></span><span class="live-words" data-words="Every|word,|right|on|time."></span></div>
+  </div>
+</div></section>
+
+<section class="split" id="live"><div class="wrap split-in">
+  <div class="split-text"><h2>Watch it write.</h2><p>Captionshaper finds the speech, skips the music and silence, and the words appear as they're written. A one-minute clip takes about ten seconds on an M-series Mac.</p></div>
+  <div class="shot"><img src="img/app-working.webp" width="1600" height="960" alt="Words appearing live while Captionshaper transcribes, above a waveform" loading="lazy"></div>
+</div></section>
+
+<section id="features"><div class="wrap">
+  <h2 class="center">Good captions, not just a transcript.</h2>
+  <div class="grid"><div class="card"><svg class="ic fi" viewBox="0 0 24 24"><path d="M9 18V6l10-2v12"/><circle cx="6.5" cy="18" r="2.5"/><circle cx="16.5" cy="16" r="2.5"/><path d="M3 3l18 18"/></svg><h3>Nothing over music</h3><p>Voice detection finds where people speak. Intros, music and silence stay clean, so no made-up words.</p></div><div class="card"><svg class="ic fi" viewBox="0 0 24 24"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2.5M9 2h6"/></svg><h3>Timed to the word</h3><p>Each word starts when the voice does, for captions that feel in sync and word-by-word highlights that land.</p></div><div class="card"><svg class="ic fi" viewBox="0 0 24 24"><path d="M4 7h16M4 12h11M4 17h14"/></svg><h3>Lines that read well</h3><p>Breaks fall at sentence and clause ends, never after “the” or “to”, and never across a long pause.</p></div><div class="card"><svg class="ic fi" viewBox="0 0 24 24"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M10 18.5h4"/></svg><h3>Made for vertical video</h3><p>Pop and word-by-word styles, plus a phone view that shows where TikTok, Reels and Shorts put their buttons.</p></div><div class="card"><svg class="ic fi" viewBox="0 0 24 24"><path d="M4 20h4L19 9l-4-4L4 16v4zM13.5 6.5l4 4"/></svg><h3>Fix it fast</h3><p>Uncertain words are underlined. Edit in place, find and replace, split, merge, undo. Your edits are saved.</p></div><div class="card"><svg class="ic fi" viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg><h3>Every format</h3><p>SRT, VTT, ASS and plain text, or an MP4 with captions burned in, ready to post.</p></div></div>
+</div></section>
+
+<section class="split rev" id="styles"><div class="wrap split-in">
+  <div class="split-text"><h2>Pick a look. See it exactly as it exports.</h2><p>The preview uses the same font and sizes as the finished video, so what you see is what gets burned in. Change size, position, colours and caps, or make captions one word, short, or two full lines.</p></div>
+  <div class="shot"><img src="img/app-style.webp" width="1600" height="1018" alt="Caption style options: Clean, Box, Pop and Word by word, with size, position and colours" loading="lazy"></div>
+</div></section>
+
+<section class="nums"><div class="wrap nums-in"><div><b>0.7%</b><span>word error rate on our test clips</span></div><div><b>~5×</b><span>faster than real time on Apple Silicon</span></div><div><b>99</b><span>languages, detected automatically</span></div></div></section>
+
+<section id="privacy" class="priv"><div class="wrap narrow center">
+  <h2>Your videos never leave your computer.</h2><p class="lede">No account, no upload, no watermark, no limits. The only download is the speech model, once. After that Captionshaper works without the internet.</p>
+  <ul class="ticks"><li><svg class="ic" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Speech recognition runs on your Mac or PC</li><li><svg class="ic" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>No account and no tracking</li><li><svg class="ic" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Open source under the GPL</li></ul>
+</div></section>
+
+<section id="faq"><div class="wrap narrow">
+  <h2>Questions</h2>
+  <div class="faq"><details><summary>Is it really free?</summary><p>Yes. No trial, no watermark, no limits. Captionshaper is open source, and you can support it on Ko-fi if it saves you time.</p></details><details><summary>Does it upload my video?</summary><p>No. Everything happens on your computer. The app downloads the speech model once (about 570 MB), and that's its only connection to the internet.</p></details><details><summary>Which languages does it understand?</summary><p>About 99, including English, Spanish, French, German, Portuguese, Russian, Chinese and Japanese. It detects the language for you. For less common languages, the Most accurate model makes fewer mistakes.</p></details><details><summary>How accurate is it?</summary><p>On clear speech it gets almost every word right. We test it on clips with known scripts in English, Spanish and German: 0.7% word error rate, with captions within 0.15 seconds of the voice. Noisy audio and strong accents make more mistakes, which is why fixing words is quick.</p></details><details><summary>Can it translate?</summary><p>It can turn speech in any supported language into English captions. Tick “Translate to English” before you start.</p></details><details><summary>Is it fast on Windows?</summary><p>It runs on the processor, about one to two times real time on a recent PC. On Apple Silicon Macs it uses the GPU and is around five times faster than real time.</p></details><details><summary>Does it work on Intel Macs?</summary><p>Not yet. The Mac version needs Apple Silicon (M1 or newer).</p></details></div>
+</div></section>
+
+<section class="end"><div class="wrap center">
+  <h2>Captions that keep up with you.</h2>
+  <div class="cta">
+  <a class="btn btn-primary btn-lg" data-os="mac" href="https://github.com/hollowbit-dev/captionshaper/releases/latest/download/Captionshaper-1.0.0-mac-arm64.dmg"><svg class="ic" viewBox="0 0 24 24"><path d="M16.4 12.6c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.1-2.8.9-3.5.9-.7 0-1.8-.8-3-.8-1.5 0-3 .9-3.8 2.3-1.6 2.8-.4 7 1.2 9.3.8 1.1 1.7 2.4 2.9 2.3 1.2 0 1.6-.7 3-.7s1.8.7 3 .7c1.3 0 2.1-1.1 2.8-2.3.9-1.3 1.3-2.6 1.3-2.6s-2.5-1-2.5-3.8zM14.2 5.8c.6-.8 1.1-1.8 1-2.8-.9 0-2 .6-2.7 1.4-.6.7-1.1 1.7-1 2.7 1 .1 2-.5 2.7-1.3z" fill="currentColor" stroke="none"/></svg>Download for Mac</a>
+  <a class="btn btn-ghost btn-lg" data-os="win" href="https://github.com/hollowbit-dev/captionshaper/releases/latest/download/Captionshaper-Setup-1.0.0-win-x64.exe"><svg class="ic" viewBox="0 0 24 24"><path d="M3 5.5l7.5-1v7H3zM11.5 4.3L21 3v8.5h-9.5zM3 12.5h7.5v7L3 18.5zM11.5 12.5H21V21l-9.5-1.3z" fill="currentColor" stroke="none"/></svg>Download for Windows</a>
+</div>
+  <p class="note">macOS 12+ on Apple Silicon · Windows 10 and 11 (64-bit)</p>
+</div></section>
+</main>
+<footer class="foot"><div class="wrap foot-in">
+  <div class="foot-brand"><img src="favicon.png" alt="" width="22" height="22"><span>Made by Hollowbit</span><span class="dim">·</span><a href="https://fileshaper.app">Also by Hollowbit: Fileshaper</a></div>
+  <div class="foot-links"><a href="https://github.com/hollowbit-dev/captionshaper"><svg class="ic" viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-3.2 19.5c.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.3-3.4-1.3-.5-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.6 2.4 1.1 3 .9.1-.7.4-1.1.6-1.4-2.2-.3-4.6-1.1-4.6-5 0-1.1.4-2 1-2.7-.1-.3-.4-1.3.1-2.7 0 0 .8-.3 2.8 1a9.6 9.6 0 0 1 5 0c1.9-1.3 2.8-1 2.8-1 .5 1.4.2 2.4.1 2.7.6.7 1 1.6 1 2.7 0 3.9-2.4 4.7-4.6 5 .4.3.7.9.7 1.9V21c0 .3.2.6.7.5A10 10 0 0 0 12 2z" fill="currentColor" stroke="none"/></svg>Source on GitHub</a><a href="privacy.html">Privacy</a><span class="dim">Open source, GPL-3.0</span></div>
+  <div class="langs"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 3.8 5.7 3.8 9s-1.3 6.3-3.8 9c-2.5-2.7-3.8-5.7-3.8-9S9.5 5.7 12 3z"/></svg><a href="./" aria-current="true" hreflang="en">English</a><a href="es/" hreflang="es">Español</a><a href="fr/" hreflang="fr">Français</a><a href="de/" hreflang="de">Deutsch</a><a href="ru/" hreflang="ru">Русский</a><a href="zh/" hreflang="zh">简体中文</a></div>
+</div></footer>
+<script src="site.js?v=1.0.0" defer></script>
+</body></html>

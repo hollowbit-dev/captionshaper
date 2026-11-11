@@ -1,0 +1,25 @@
+// Model download: start, cancel half way, start again (it resumes), check it's verified and installed.
+import { _electron as electron } from 'playwright';
+import fs from 'fs'; import os from 'os'; import path from 'path';
+const root = path.resolve(path.dirname(new URL(import.meta.url).pathname), '..');
+const userData = fs.mkdtempSync(path.join(os.tmpdir(), 'cs-dl-'));
+const models = path.join(userData, 'models');
+const app = await electron.launch({ args: [root], env: { ...process.env, CAPTIONSHAPER_USERDATA: userData, CAPTIONSHAPER_MODELS: models } });
+const win = await app.firstWindow();
+await win.waitForSelector('.dropzone');
+await win.click('#model button[data-id="fast"]');
+await win.click('#dl');
+const part = path.join(models, 'ggml-base-q5_1.bin.part');
+for (let i = 0; i < 200 && !(fs.existsSync(part) && fs.statSync(part).size > 15e6); i++) await win.waitForTimeout(100);
+await win.click('#dl-cancel');
+await win.waitForTimeout(800);
+const half = fs.existsSync(part) ? fs.statSync(part).size : 0;
+console.log(half > 0 ? 'PASS' : 'FAIL', 'cancel keeps partial file', half);
+await win.waitForSelector('#dl');
+await win.click('#dl');
+for (let i = 0; i < 1200 && await win.locator('.model-card').count(); i++) await win.waitForTimeout(100);
+const ok = fs.existsSync(path.join(models, 'ggml-base-q5_1.bin')) && !fs.existsSync(part);
+console.log(ok ? 'PASS' : 'FAIL', 'resumed, verified and installed');
+await app.close();
+fs.rmSync(userData, { recursive: true, force: true });
+process.exit(ok && half > 0 ? 0 : 1);
