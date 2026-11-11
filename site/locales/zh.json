@@ -153,8 +153,8 @@
     ]
   },
   "foot": {
-    "by": "由 Hollowbit 制作",
-    "other": "Hollowbit 的其他作品：Fileshaper",
+    "by": "由 Hollowbit Studio 制作",
+    "other": "Hollowbit Studio 的其他作品：Fileshaper",
     "source": "GitHub 源代码",
     "privacy": "隐私",
     "license": "开源，GPL-3.0"
@@ -173,11 +173,11 @@
     "tagline": "免费离线自动字幕，支持 Mac 和 Windows。",
     "product": "产品",
     "help": "帮助",
-    "studio": "Hollowbit",
+    "studio": "Hollowbit Studio",
     "support": "支持",
     "about": "关于",
     "github": "GitHub",
-    "made": "由 Hollowbit · Elvis Zygmanta 制作",
+    "made": "由 Hollowbit Studio · Elvis Zygmanta 制作",
     "legal": "基于 GPL-3.0 开源。与 TikTok、Instagram 或 YouTube 无关。"
   },
   "featuresPage": {
@@ -440,7 +440,7 @@
       ]
     ],
     "github": "我的 GitHub",
-    "other_h2": "Hollowbit 的其他作品",
+    "other_h2": "Hollowbit Studio 的其他作品",
     "other_p": "Fileshaper：把视频压缩到指定大小、转换 iPhone 照片、合并和签署 PDF，全部离线完成。"
   },
   "support": {

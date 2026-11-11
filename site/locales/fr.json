@@ -153,8 +153,8 @@
     ]
   },
   "foot": {
-    "by": "Fait par Hollowbit",
-    "other": "Aussi par Hollowbit : Fileshaper",
+    "by": "Fait par Hollowbit Studio",
+    "other": "Aussi par Hollowbit Studio : Fileshaper",
     "source": "Code sur GitHub",
     "privacy": "Confidentialité",
     "license": "Open source, GPL-3.0"
@@ -173,11 +173,11 @@
     "tagline": "Sous-titres automatiques gratuits et hors ligne pour Mac et Windows.",
     "product": "Produit",
     "help": "Aide",
-    "studio": "Hollowbit",
+    "studio": "Hollowbit Studio",
     "support": "Assistance",
     "about": "À propos",
     "github": "GitHub",
-    "made": "Fait par Hollowbit · Elvis Zygmanta",
+    "made": "Fait par Hollowbit Studio · Elvis Zygmanta",
     "legal": "Open source sous licence GPL-3.0. Sans lien avec TikTok, Instagram ou YouTube."
   },
   "featuresPage": {
@@ -440,7 +440,7 @@
       ]
     ],
     "github": "Mon GitHub",
-    "other_h2": "Aussi chez Hollowbit",
+    "other_h2": "Aussi chez Hollowbit Studio",
     "other_p": "Fileshaper : compresser des vidéos à une taille, convertir les photos d'iPhone, fusionner et signer des PDF, le tout hors ligne."
   },
   "support": {

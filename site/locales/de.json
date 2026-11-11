@@ -153,8 +153,8 @@
     ]
   },
   "foot": {
-    "by": "Gemacht von Hollowbit",
-    "other": "Auch von Hollowbit: Fileshaper",
+    "by": "Gemacht von Hollowbit Studio",
+    "other": "Auch von Hollowbit Studio: Fileshaper",
     "source": "Quellcode auf GitHub",
     "privacy": "Datenschutz",
     "license": "Open Source, GPL-3.0"
@@ -173,11 +173,11 @@
     "tagline": "Kostenlose Offline-Untertitel für Mac und Windows.",
     "product": "Produkt",
     "help": "Hilfe",
-    "studio": "Hollowbit",
+    "studio": "Hollowbit Studio",
     "support": "Support",
     "about": "Über",
     "github": "GitHub",
-    "made": "Gemacht von Hollowbit · Elvis Zygmanta",
+    "made": "Gemacht von Hollowbit Studio · Elvis Zygmanta",
     "legal": "Open Source unter der GPL-3.0. Nicht verbunden mit TikTok, Instagram oder YouTube."
   },
   "featuresPage": {
@@ -440,7 +440,7 @@
       ]
     ],
     "github": "Mein GitHub",
-    "other_h2": "Auch von Hollowbit",
+    "other_h2": "Auch von Hollowbit Studio",
     "other_p": "Fileshaper: Videos auf eine Größe komprimieren, iPhone-Fotos umwandeln und PDFs zusammenfügen und unterschreiben, alles offline."
   },
   "support": {

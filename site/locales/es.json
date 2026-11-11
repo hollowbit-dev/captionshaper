@@ -153,8 +153,8 @@
     ]
   },
   "foot": {
-    "by": "Hecho por Hollowbit",
-    "other": "También de Hollowbit: Fileshaper",
+    "by": "Hecho por Hollowbit Studio",
+    "other": "También de Hollowbit Studio: Fileshaper",
     "source": "Código en GitHub",
     "privacy": "Privacidad",
     "license": "Código abierto, GPL-3.0"
@@ -173,11 +173,11 @@
     "tagline": "Subtítulos automáticos gratis y sin conexión para Mac y Windows.",
     "product": "Producto",
     "help": "Ayuda",
-    "studio": "Hollowbit",
+    "studio": "Hollowbit Studio",
     "support": "Soporte",
     "about": "Acerca de",
     "github": "GitHub",
-    "made": "Hecho por Hollowbit · Elvis Zygmanta",
+    "made": "Hecho por Hollowbit Studio · Elvis Zygmanta",
     "legal": "Código abierto bajo la GPL-3.0. Sin relación con TikTok, Instagram ni YouTube."
   },
   "featuresPage": {
@@ -440,7 +440,7 @@
       ]
     ],
     "github": "Mi GitHub",
-    "other_h2": "También de Hollowbit",
+    "other_h2": "También de Hollowbit Studio",
     "other_p": "Fileshaper: comprime vídeos a un tamaño, convierte fotos del iPhone y une y firma PDF, todo sin conexión."
   },
   "support": {

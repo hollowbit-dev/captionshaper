@@ -153,8 +153,8 @@
     ]
   },
   "foot": {
-    "by": "Made by Hollowbit",
-    "other": "Also by Hollowbit: Fileshaper",
+    "by": "Made by Hollowbit Studio",
+    "other": "Also by Hollowbit Studio: Fileshaper",
     "source": "Source on GitHub",
     "privacy": "Privacy",
     "license": "Open source, GPL-3.0"
@@ -173,11 +173,11 @@
     "tagline": "Free, offline auto-subtitles for Mac and Windows.",
     "product": "Product",
     "help": "Help",
-    "studio": "Hollowbit",
+    "studio": "Hollowbit Studio",
     "support": "Support",
     "about": "About",
     "github": "GitHub",
-    "made": "Made by Hollowbit · Elvis Zygmanta",
+    "made": "Made by Hollowbit Studio · Elvis Zygmanta",
     "legal": "Open source under the GPL-3.0. Not affiliated with TikTok, Instagram or YouTube."
   },
   "featuresPage": {
@@ -440,7 +440,7 @@
       ]
     ],
     "github": "My GitHub",
-    "other_h2": "Also from Hollowbit",
+    "other_h2": "Also from Hollowbit Studio",
     "other_p": "Fileshaper: compress videos to a size, convert iPhone photos, and merge and sign PDFs, all offline."
   },
   "support": {

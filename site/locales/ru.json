@@ -153,8 +153,8 @@
     ]
   },
   "foot": {
-    "by": "Сделано Hollowbit",
-    "other": "Ещё от Hollowbit: Fileshaper",
+    "by": "Сделано Hollowbit Studio",
+    "other": "Ещё от Hollowbit Studio: Fileshaper",
     "source": "Код на GitHub",
     "privacy": "Конфиденциальность",
     "license": "Открытый код, GPL-3.0"
@@ -173,11 +173,11 @@
     "tagline": "Бесплатные офлайн-субтитры для Mac и Windows.",
     "product": "Продукт",
     "help": "Помощь",
-    "studio": "Hollowbit",
+    "studio": "Hollowbit Studio",
     "support": "Поддержка",
     "about": "О проекте",
     "github": "GitHub",
-    "made": "Сделано Hollowbit · Elvis Zygmanta",
+    "made": "Сделано Hollowbit Studio · Elvis Zygmanta",
     "legal": "Открытый код под лицензией GPL-3.0. Не связано с TikTok, Instagram или YouTube."
   },
   "featuresPage": {
@@ -440,7 +440,7 @@
       ]
     ],
     "github": "Мой GitHub",
-    "other_h2": "Ещё от Hollowbit",
+    "other_h2": "Ещё от Hollowbit Studio",
     "other_p": "Fileshaper: сжатие видео до нужного размера, конвертация фото с iPhone, объединение и подпись PDF, всё офлайн."
   },
   "support": {
