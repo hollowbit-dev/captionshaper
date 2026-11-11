@@ -19,7 +19,7 @@
   <meta property="og:url" content="https://hollowbit-dev.github.io/captionshaper/">
   <meta property="og:image" content="https://hollowbit-dev.github.io/captionshaper/img/og.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="theme-color" content="#0a090d">
+  <meta name="theme-color" content="#08090a">
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="preload" href="fonts/Geist-Variable.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="style.css?v=1.0.0">
@@ -27,6 +27,7 @@
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is it really free?","acceptedAnswer":{"@type":"Answer","text":"Yes. No trial, no watermark, no limits. Captionshaper is open source, and you can support it on Ko-fi if it saves you time."}},{"@type":"Question","name":"Does it upload my video?","acceptedAnswer":{"@type":"Answer","text":"No. Everything happens on your computer. The app downloads the speech model once (about 570 MB), and that's its only connection to the internet."}},{"@type":"Question","name":"Which languages does it understand?","acceptedAnswer":{"@type":"Answer","text":"About 99, including English, Spanish, French, German, Portuguese, Russian, Chinese and Japanese. It detects the language for you. For less common languages, the Most accurate model makes fewer mistakes."}},{"@type":"Question","name":"How accurate is it?","acceptedAnswer":{"@type":"Answer","text":"On clear speech it gets almost every word right. We test it on clips with known scripts in English, Spanish and German: 0.7% word error rate, with captions within 0.15 seconds of the voice. Noisy audio and strong accents make more mistakes, which is why fixing words is quick."}},{"@type":"Question","name":"Can it translate?","acceptedAnswer":{"@type":"Answer","text":"It can turn speech in any supported language into English captions. Tick “Translate to English” before you start."}},{"@type":"Question","name":"Is it fast on Windows?","acceptedAnswer":{"@type":"Answer","text":"It runs on the processor, about one to two times real time on a recent PC. On Apple Silicon Macs it uses the GPU and is around five times faster than real time."}},{"@type":"Question","name":"Does it work on Intel Macs?","acceptedAnswer":{"@type":"Answer","text":"Not yet. The Mac version needs Apple Silicon (M1 or newer)."}}]}</script>
 </head>
 <body>
+<div class="progress" aria-hidden="true"><i></i></div>
 <a class="skip" href="#main">Skip to content</a>
 <header class="nav"><div class="wrap nav-in">
   <a class="logo" href="./"><img src="favicon.png" alt="" width="26" height="26">Captionshaper</a>
@@ -39,9 +40,12 @@
   </div>
 </div></header>
 <main id="main">
-<section class="hero"><div class="wrap">
-  <p class="eyebrow">Free · Offline · Open source</p>
-  <h1>Captions that keep up with you.</h1>
+<section class="hero">
+  <div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div>
+  <div class="grid-bg" aria-hidden="true"></div>
+  <div class="wrap">
+  <p class="eyebrow"><span class="eb-dot"></span>Free · Offline · Open source</p>
+  <h1 class="kara"><span class="hw" style="--i:0">Captions</span> <span class="hw" style="--i:1">that</span> <span class="hw" style="--i:2">keep</span> <span class="hw" style="--i:3">up</span> <span class="hw" style="--i:4">with</span> <span class="hw" style="--i:5">you.</span></h1>
   <p class="lede">Drop in a video. Captionshaper writes every word with its timing, right on your computer. Fix anything, pick a style, export. Nothing is uploaded.</p>
   <div class="cta">
   <a class="btn btn-primary btn-lg" data-os="mac" href="https://github.com/hollowbit-dev/captionshaper/releases/latest/download/Captionshaper-1.0.0-mac-arm64.dmg"><svg class="ic" viewBox="0 0 24 24"><path d="M16.4 12.6c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.1-2.8.9-3.5.9-.7 0-1.8-.8-3-.8-1.5 0-3 .9-3.8 2.3-1.6 2.8-.4 7 1.2 9.3.8 1.1 1.7 2.4 2.9 2.3 1.2 0 1.6-.7 3-.7s1.8.7 3 .7c1.3 0 2.1-1.1 2.8-2.3.9-1.3 1.3-2.6 1.3-2.6s-2.5-1-2.5-3.8zM14.2 5.8c.6-.8 1.1-1.8 1-2.8-.9 0-2 .6-2.7 1.4-.6.7-1.1 1.7-1 2.7 1 .1 2-.5 2.7-1.3z" fill="currentColor" stroke="none"/></svg>Download for Mac</a>
@@ -50,18 +54,21 @@
   <p class="note">macOS 12+ on Apple Silicon · Windows 10 and 11 (64-bit) · v1.0.0</p>
   <div class="shot hero-shot">
     <img src="img/app-editor.webp" width="1600" height="1018" alt="Captionshaper editor: a vertical video in a phone frame with bold captions, the caption list and a waveform timeline">
+    <div class="scan" aria-hidden="true"></div>
     <div class="live-chip" aria-hidden="true"><span class="dot"></span><span class="live-words" data-words="Every|word,|right|on|time."></span></div>
   </div>
 </div></section>
 
+<div class="marquee" aria-hidden="true"><div class="mq-track"><span><b>Hello</b><i>·</i><b>Hola</b><i>·</i><b>Bonjour</b><i>·</i><b>Hallo</b><i>·</i><b>Ciao</b><i>·</i><b>Olá</b><i>·</i><b>Привет</b><i>·</i><b>Labas</b><i>·</i><b>Cześć</b><i>·</i><b>Merhaba</b><i>·</i><b>こんにちは</b><i>·</i><b>你好</b><i>·</i><b>안녕하세요</b><i>·</i><b>مرحبا</b><i>·</i><b>नमस्ते</b><i>·</i><b>Hej</b><i>·</i><b>Γεια σου</b><i>·</i><b>Sveiki</b><i>·</i><b>Xin chào</b><i>·</i><b>Shalom</b><i>·</i><b>Ahoj</b><i>·</i><b>Hei</b><i>·</i><b>Szia</b><i>·</i><b>Halo</b><i>·</i></span><span><b>Hello</b><i>·</i><b>Hola</b><i>·</i><b>Bonjour</b><i>·</i><b>Hallo</b><i>·</i><b>Ciao</b><i>·</i><b>Olá</b><i>·</i><b>Привет</b><i>·</i><b>Labas</b><i>·</i><b>Cześć</b><i>·</i><b>Merhaba</b><i>·</i><b>こんにちは</b><i>·</i><b>你好</b><i>·</i><b>안녕하세요</b><i>·</i><b>مرحبا</b><i>·</i><b>नमस्ते</b><i>·</i><b>Hej</b><i>·</i><b>Γεια σου</b><i>·</i><b>Sveiki</b><i>·</i><b>Xin chào</b><i>·</i><b>Shalom</b><i>·</i><b>Ahoj</b><i>·</i><b>Hei</b><i>·</i><b>Szia</b><i>·</i><b>Halo</b><i>·</i></span></div></div>
+
 <section class="split" id="live"><div class="wrap split-in">
-  <div class="split-text"><h2>Watch it write.</h2><p>Captionshaper finds the speech, skips the music and silence, and the words appear as they're written. A one-minute clip takes about ten seconds on an M-series Mac.</p></div>
+  <div class="split-text"><h2>Watch it write.</h2><p>Captionshaper finds the speech, skips the music and silence, and the words appear as they're written. A one-minute clip takes about ten seconds on an M-series Mac.</p><div class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
   <div class="shot"><img src="img/app-working.webp" width="1600" height="960" alt="Words appearing live while Captionshaper transcribes, above a waveform" loading="lazy"></div>
 </div></section>
 
 <section id="features"><div class="wrap">
   <h2 class="center">Good captions, not just a transcript.</h2>
-  <div class="grid"><div class="card"><svg class="ic fi" viewBox="0 0 24 24"><path d="M9 18V6l10-2v12"/><circle cx="6.5" cy="18" r="2.5"/><circle cx="16.5" cy="16" r="2.5"/><path d="M3 3l18 18"/></svg><h3>Nothing over music</h3><p>Voice detection finds where people speak. Intros, music and silence stay clean, so no made-up words.</p></div><div class="card"><svg class="ic fi" viewBox="0 0 24 24"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2.5M9 2h6"/></svg><h3>Timed to the word</h3><p>Each word starts when the voice does, for captions that feel in sync and word-by-word highlights that land.</p></div><div class="card"><svg class="ic fi" viewBox="0 0 24 24"><path d="M4 7h16M4 12h11M4 17h14"/></svg><h3>Lines that read well</h3><p>Breaks fall at sentence and clause ends, never after “the” or “to”, and never across a long pause.</p></div><div class="card"><svg class="ic fi" viewBox="0 0 24 24"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M10 18.5h4"/></svg><h3>Made for vertical video</h3><p>Pop and word-by-word styles, plus a phone view that shows where TikTok, Reels and Shorts put their buttons.</p></div><div class="card"><svg class="ic fi" viewBox="0 0 24 24"><path d="M4 20h4L19 9l-4-4L4 16v4zM13.5 6.5l4 4"/></svg><h3>Fix it fast</h3><p>Uncertain words are underlined. Edit in place, find and replace, split, merge, undo. Your edits are saved.</p></div><div class="card"><svg class="ic fi" viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg><h3>Every format</h3><p>SRT, VTT, ASS and plain text, or an MP4 with captions burned in, ready to post.</p></div></div>
+  <div class="grid"><div class="card spot" style="--d:0"><svg class="ic fi" viewBox="0 0 24 24"><path d="M9 18V6l10-2v12"/><circle cx="6.5" cy="18" r="2.5"/><circle cx="16.5" cy="16" r="2.5"/><path d="M3 3l18 18"/></svg><h3>Nothing over music</h3><p>Voice detection finds where people speak. Intros, music and silence stay clean, so no made-up words.</p></div><div class="card spot" style="--d:1"><svg class="ic fi" viewBox="0 0 24 24"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2.5M9 2h6"/></svg><h3>Timed to the word</h3><p>Each word starts when the voice does, for captions that feel in sync and word-by-word highlights that land.</p></div><div class="card spot" style="--d:2"><svg class="ic fi" viewBox="0 0 24 24"><path d="M4 7h16M4 12h11M4 17h14"/></svg><h3>Lines that read well</h3><p>Breaks fall at sentence and clause ends, never after “the” or “to”, and never across a long pause.</p></div><div class="card spot" style="--d:3"><svg class="ic fi" viewBox="0 0 24 24"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M10 18.5h4"/></svg><h3>Made for vertical video</h3><p>Pop and word-by-word styles, plus a phone view that shows where TikTok, Reels and Shorts put their buttons.</p></div><div class="card spot" style="--d:4"><svg class="ic fi" viewBox="0 0 24 24"><path d="M4 20h4L19 9l-4-4L4 16v4zM13.5 6.5l4 4"/></svg><h3>Fix it fast</h3><p>Uncertain words are underlined. Edit in place, find and replace, split, merge, undo. Your edits are saved.</p></div><div class="card spot" style="--d:5"><svg class="ic fi" viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg><h3>Every format</h3><p>SRT, VTT, ASS and plain text, or an MP4 with captions burned in, ready to post.</p></div></div>
 </div></section>
 
 <section class="split rev" id="styles"><div class="wrap split-in">
@@ -69,7 +76,7 @@
   <div class="shot"><img src="img/app-style.webp" width="1600" height="1018" alt="Caption style options: Clean, Box, Pop and Word by word, with size, position and colours" loading="lazy"></div>
 </div></section>
 
-<section class="nums"><div class="wrap nums-in"><div><b>0.7%</b><span>word error rate on our test clips</span></div><div><b>~5×</b><span>faster than real time on Apple Silicon</span></div><div><b>99</b><span>languages, detected automatically</span></div></div></section>
+<section class="nums"><div class="wrap nums-in"><div><b data-count="0.7%">0.7%</b><span>word error rate on our test clips</span></div><div><b data-count="~5×">~5×</b><span>faster than real time on Apple Silicon</span></div><div><b data-count="99">99</b><span>languages, detected automatically</span></div></div></section>
 
 <section id="privacy" class="priv"><div class="wrap narrow center">
   <h2>Your videos never leave your computer.</h2><p class="lede">No account, no upload, no watermark, no limits. The only download is the speech model, once. After that Captionshaper works without the internet.</p>

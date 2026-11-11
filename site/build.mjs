@@ -69,7 +69,7 @@ function head(lang, page, title, desc) {
   <meta property="og:url" content="${url(lang, page)}">
   <meta property="og:image" content="${BASE}/img/og.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="theme-color" content="#0a090d">
+  <meta name="theme-color" content="#08090a">
   <link rel="icon" type="image/png" href="${up(lang)}favicon.png">
   <link rel="preload" href="${up(lang)}fonts/Geist-Variable.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="${up(lang)}style.css?v=${V}">
@@ -77,10 +77,14 @@ function head(lang, page, title, desc) {
 </head>`;
 }
 
+// Shown scrolling under the hero: Captionshaper hears about 99 languages.
+const GREETINGS = ['Hello', 'Hola', 'Bonjour', 'Hallo', 'Ciao', 'Olá', 'Привет', 'Labas', 'Cześć', 'Merhaba', 'こんにちは', '你好', '안녕하세요', 'مرحبا', 'नमस्ते', 'Hej', 'Γεια σου', 'Sveiki', 'Xin chào', 'Shalom', 'Ahoj', 'Hei', 'Szia', 'Halo'];
+
 function nav(lang, page) {
   const t = L[lang]; const u = up(lang); const home = lang === 'en' ? u || './' : './';
   const sec = (id) => (page === 'index' ? `#${id}` : `${home}#${id}`);
-  return `<a class="skip" href="#main">Skip to content</a>
+  return `<div class="progress" aria-hidden="true"><i></i></div>
+<a class="skip" href="#main">Skip to content</a>
 <header class="nav"><div class="wrap nav-in">
   <a class="logo" href="${home}"><img src="${u}favicon.png" alt="" width="26" height="26">Captionshaper</a>
   <nav class="links" aria-label="Main">
@@ -116,26 +120,32 @@ function indexPage(lang) {
 <body>
 ${nav(lang, 'index')}
 <main id="main">
-<section class="hero"><div class="wrap">
-  <p class="eyebrow">${t.hero.eyebrow}</p>
-  <h1>${t.hero.h1}</h1>
+<section class="hero">
+  <div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div>
+  <div class="grid-bg" aria-hidden="true"></div>
+  <div class="wrap">
+  <p class="eyebrow"><span class="eb-dot"></span>${t.hero.eyebrow}</p>
+  <h1 class="kara">${t.hero.h1.split(' ').map((w, i) => `<span class="hw" style="--i:${i}">${w}</span>`).join(' ')}</h1>
   <p class="lede">${t.hero.sub}</p>
   ${dlButtons(t)}
   <p class="note">${t.hero.note} · v${V}</p>
   <div class="shot hero-shot">
     <img src="${u}img/app-editor.webp" width="1600" height="1018" alt="Captionshaper editor: a vertical video in a phone frame with bold captions, the caption list and a waveform timeline">
+    <div class="scan" aria-hidden="true"></div>
     <div class="live-chip" aria-hidden="true"><span class="dot"></span><span class="live-words" data-words="Every|word,|right|on|time."></span></div>
   </div>
 </div></section>
 
+<div class="marquee" aria-hidden="true"><div class="mq-track">${[0, 1].map(() => `<span>${GREETINGS.map((g) => `<b>${g}</b>`).join('<i>·</i>')}<i>·</i></span>`).join('')}</div></div>
+
 <section class="split" id="live"><div class="wrap split-in">
-  <div class="split-text"><h2>${t.live.h}</h2><p>${t.live.p}</p></div>
+  <div class="split-text"><h2>${t.live.h}</h2><p>${t.live.p}</p><div class="eq" aria-hidden="true">${'<i></i>'.repeat(32)}</div></div>
   <div class="shot"><img src="${u}img/app-working.webp" width="1600" height="960" alt="Words appearing live while Captionshaper transcribes, above a waveform" loading="lazy"></div>
 </div></section>
 
 <section id="features"><div class="wrap">
   <h2 class="center">${t.feat.h}</h2>
-  <div class="grid">${t.feat.items.map(([h, p], i) => `<div class="card"><svg class="ic fi" viewBox="0 0 24 24">${FEAT_ICONS[i]}</svg><h3>${h}</h3><p>${p}</p></div>`).join('')}</div>
+  <div class="grid">${t.feat.items.map(([h, p], i) => `<div class="card spot" style="--d:${i}"><svg class="ic fi" viewBox="0 0 24 24">${FEAT_ICONS[i]}</svg><h3>${h}</h3><p>${p}</p></div>`).join('')}</div>
 </div></section>
 
 <section class="split rev" id="styles"><div class="wrap split-in">
@@ -143,7 +153,7 @@ ${nav(lang, 'index')}
   <div class="shot"><img src="${u}img/app-style.webp" width="1600" height="1018" alt="Caption style options: Clean, Box, Pop and Word by word, with size, position and colours" loading="lazy"></div>
 </div></section>
 
-<section class="nums"><div class="wrap nums-in">${t.nums.map(([n, l]) => `<div><b>${n}</b><span>${l}</span></div>`).join('')}</div></section>
+<section class="nums"><div class="wrap nums-in">${t.nums.map(([n, l]) => `<div><b data-count="${esc(n)}">${n}</b><span>${l}</span></div>`).join('')}</div></section>
 
 <section id="privacy" class="priv"><div class="wrap narrow center">
   <h2>${t.priv.h}</h2><p class="lede">${t.priv.p}</p>

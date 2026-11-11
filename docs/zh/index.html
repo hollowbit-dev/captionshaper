@@ -19,7 +19,7 @@
   <meta property="og:url" content="https://hollowbit-dev.github.io/captionshaper/zh/">
   <meta property="og:image" content="https://hollowbit-dev.github.io/captionshaper/img/og.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="theme-color" content="#0a090d">
+  <meta name="theme-color" content="#08090a">
   <link rel="icon" type="image/png" href="../favicon.png">
   <link rel="preload" href="../fonts/Geist-Variable.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="../style.css?v=1.0.0">
@@ -27,6 +27,7 @@
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"真的免费吗？","acceptedAnswer":{"@type":"Answer","text":"是的。没有试用期、没有水印、没有限制。Captionshaper 是开源的，如果它帮你省了时间，可以在 Ko-fi 上支持。"}},{"@type":"Question","name":"会上传我的视频吗？","acceptedAnswer":{"@type":"Answer","text":"不会。一切都在你的电脑上完成。应用只会下载一次语音模型（约 570 MB），这是它唯一的联网操作。"}},{"@type":"Question","name":"支持哪些语言？","acceptedAnswer":{"@type":"Answer","text":"约 99 种，包括中文、英语、西班牙语、法语、德语、葡萄牙语、俄语和日语，并会自动识别语言。较少见的语言建议使用“最准确”模型。"}},{"@type":"Question","name":"准确度如何？","acceptedAnswer":{"@type":"Answer","text":"清晰的语音几乎每个词都对。我们用英语、西班牙语和德语的已知文稿片段测试：词错误率 0.7%，字幕与声音相差不到 0.15 秒。噪音和浓重口音会带来更多错误，所以修改也做得很快。"}},{"@type":"Question","name":"能翻译吗？","acceptedAnswer":{"@type":"Answer","text":"可以把任何支持语言的语音转成英文字幕。开始前勾选“翻译成英文”。"}},{"@type":"Question","name":"Windows 上速度快吗？","acceptedAnswer":{"@type":"Answer","text":"Windows 版使用处理器运行，在较新的电脑上约为实时的一到两倍。Apple 芯片的 Mac 使用 GPU，约为实时的五倍。"}},{"@type":"Question","name":"支持 Intel 芯片的 Mac 吗？","acceptedAnswer":{"@type":"Answer","text":"暂不支持。Mac 版需要 Apple 芯片（M1 或更新）。"}}]}</script>
 </head>
 <body>
+<div class="progress" aria-hidden="true"><i></i></div>
 <a class="skip" href="#main">Skip to content</a>
 <header class="nav"><div class="wrap nav-in">
   <a class="logo" href="./"><img src="../favicon.png" alt="" width="26" height="26">Captionshaper</a>
@@ -39,9 +40,12 @@
   </div>
 </div></header>
 <main id="main">
-<section class="hero"><div class="wrap">
-  <p class="eyebrow">免费 · 离线 · 开源</p>
-  <h1>跟得上你的字幕。</h1>
+<section class="hero">
+  <div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div>
+  <div class="grid-bg" aria-hidden="true"></div>
+  <div class="wrap">
+  <p class="eyebrow"><span class="eb-dot"></span>免费 · 离线 · 开源</p>
+  <h1 class="kara"><span class="hw" style="--i:0">跟得上你的字幕。</span></h1>
   <p class="lede">拖入视频，Captionshaper 就在你的电脑上写下每个词及其时间。修改、选样式、导出。不上传任何内容。</p>
   <div class="cta">
   <a class="btn btn-primary btn-lg" data-os="mac" href="https://github.com/hollowbit-dev/captionshaper/releases/latest/download/Captionshaper-1.0.0-mac-arm64.dmg"><svg class="ic" viewBox="0 0 24 24"><path d="M16.4 12.6c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.1-2.8.9-3.5.9-.7 0-1.8-.8-3-.8-1.5 0-3 .9-3.8 2.3-1.6 2.8-.4 7 1.2 9.3.8 1.1 1.7 2.4 2.9 2.3 1.2 0 1.6-.7 3-.7s1.8.7 3 .7c1.3 0 2.1-1.1 2.8-2.3.9-1.3 1.3-2.6 1.3-2.6s-2.5-1-2.5-3.8zM14.2 5.8c.6-.8 1.1-1.8 1-2.8-.9 0-2 .6-2.7 1.4-.6.7-1.1 1.7-1 2.7 1 .1 2-.5 2.7-1.3z" fill="currentColor" stroke="none"/></svg>下载 Mac 版</a>
@@ -50,18 +54,21 @@
   <p class="note">macOS 12+（Apple 芯片）· Windows 10 和 11（64 位） · v1.0.0</p>
   <div class="shot hero-shot">
     <img src="../img/app-editor.webp" width="1600" height="1018" alt="Captionshaper editor: a vertical video in a phone frame with bold captions, the caption list and a waveform timeline">
+    <div class="scan" aria-hidden="true"></div>
     <div class="live-chip" aria-hidden="true"><span class="dot"></span><span class="live-words" data-words="Every|word,|right|on|time."></span></div>
   </div>
 </div></section>
 
+<div class="marquee" aria-hidden="true"><div class="mq-track"><span><b>Hello</b><i>·</i><b>Hola</b><i>·</i><b>Bonjour</b><i>·</i><b>Hallo</b><i>·</i><b>Ciao</b><i>·</i><b>Olá</b><i>·</i><b>Привет</b><i>·</i><b>Labas</b><i>·</i><b>Cześć</b><i>·</i><b>Merhaba</b><i>·</i><b>こんにちは</b><i>·</i><b>你好</b><i>·</i><b>안녕하세요</b><i>·</i><b>مرحبا</b><i>·</i><b>नमस्ते</b><i>·</i><b>Hej</b><i>·</i><b>Γεια σου</b><i>·</i><b>Sveiki</b><i>·</i><b>Xin chào</b><i>·</i><b>Shalom</b><i>·</i><b>Ahoj</b><i>·</i><b>Hei</b><i>·</i><b>Szia</b><i>·</i><b>Halo</b><i>·</i></span><span><b>Hello</b><i>·</i><b>Hola</b><i>·</i><b>Bonjour</b><i>·</i><b>Hallo</b><i>·</i><b>Ciao</b><i>·</i><b>Olá</b><i>·</i><b>Привет</b><i>·</i><b>Labas</b><i>·</i><b>Cześć</b><i>·</i><b>Merhaba</b><i>·</i><b>こんにちは</b><i>·</i><b>你好</b><i>·</i><b>안녕하세요</b><i>·</i><b>مرحبا</b><i>·</i><b>नमस्ते</b><i>·</i><b>Hej</b><i>·</i><b>Γεια σου</b><i>·</i><b>Sveiki</b><i>·</i><b>Xin chào</b><i>·</i><b>Shalom</b><i>·</i><b>Ahoj</b><i>·</i><b>Hei</b><i>·</i><b>Szia</b><i>·</i><b>Halo</b><i>·</i></span></div></div>
+
 <section class="split" id="live"><div class="wrap split-in">
-  <div class="split-text"><h2>看它一边听一边写。</h2><p>Captionshaper 找到说话的部分，跳过音乐和静音，文字随识别实时出现。在 M 系列芯片的 Mac 上，一分钟的视频大约十秒完成。</p></div>
+  <div class="split-text"><h2>看它一边听一边写。</h2><p>Captionshaper 找到说话的部分，跳过音乐和静音，文字随识别实时出现。在 M 系列芯片的 Mac 上，一分钟的视频大约十秒完成。</p><div class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
   <div class="shot"><img src="../img/app-working.webp" width="1600" height="960" alt="Words appearing live while Captionshaper transcribes, above a waveform" loading="lazy"></div>
 </div></section>
 
 <section id="features"><div class="wrap">
   <h2 class="center">真正好用的字幕，而不只是文字稿。</h2>
-  <div class="grid"><div class="card"><svg class="ic fi" viewBox="0 0 24 24"><path d="M9 18V6l10-2v12"/><circle cx="6.5" cy="18" r="2.5"/><circle cx="16.5" cy="16" r="2.5"/><path d="M3 3l18 18"/></svg><h3>不会盖在音乐上</h3><p>语音检测找出有人说话的地方。片头、音乐和静音保持干净，不会凭空冒出文字。</p></div><div class="card"><svg class="ic fi" viewBox="0 0 24 24"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2.5M9 2h6"/></svg><h3>精确到每个词</h3><p>每个词都在声音响起时出现：字幕同步自然，逐词高亮恰到好处。</p></div><div class="card"><svg class="ic fi" viewBox="0 0 24 24"><path d="M4 7h16M4 12h11M4 17h14"/></svg><h3>断行好读</h3><p>在句子和短语结尾断行，不在虚词后断开，也不会跨过长停顿。</p></div><div class="card"><svg class="ic fi" viewBox="0 0 24 24"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M10 18.5h4"/></svg><h3>为竖屏视频而做</h3><p>Pop 和逐词样式，加上手机预览，显示 TikTok、Reels 和 Shorts 的按钮位置。</p></div><div class="card"><svg class="ic fi" viewBox="0 0 24 24"><path d="M4 20h4L19 9l-4-4L4 16v4zM13.5 6.5l4 4"/></svg><h3>改起来很快</h3><p>不确定的词会加下划线。直接编辑、查找替换、拆分、合并、撤销，修改自动保存。</p></div><div class="card"><svg class="ic fi" viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg><h3>支持所有格式</h3><p>SRT、VTT、ASS 和纯文本，或烧录字幕的 MP4，直接发布。</p></div></div>
+  <div class="grid"><div class="card spot" style="--d:0"><svg class="ic fi" viewBox="0 0 24 24"><path d="M9 18V6l10-2v12"/><circle cx="6.5" cy="18" r="2.5"/><circle cx="16.5" cy="16" r="2.5"/><path d="M3 3l18 18"/></svg><h3>不会盖在音乐上</h3><p>语音检测找出有人说话的地方。片头、音乐和静音保持干净，不会凭空冒出文字。</p></div><div class="card spot" style="--d:1"><svg class="ic fi" viewBox="0 0 24 24"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2.5M9 2h6"/></svg><h3>精确到每个词</h3><p>每个词都在声音响起时出现：字幕同步自然，逐词高亮恰到好处。</p></div><div class="card spot" style="--d:2"><svg class="ic fi" viewBox="0 0 24 24"><path d="M4 7h16M4 12h11M4 17h14"/></svg><h3>断行好读</h3><p>在句子和短语结尾断行，不在虚词后断开，也不会跨过长停顿。</p></div><div class="card spot" style="--d:3"><svg class="ic fi" viewBox="0 0 24 24"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M10 18.5h4"/></svg><h3>为竖屏视频而做</h3><p>Pop 和逐词样式，加上手机预览，显示 TikTok、Reels 和 Shorts 的按钮位置。</p></div><div class="card spot" style="--d:4"><svg class="ic fi" viewBox="0 0 24 24"><path d="M4 20h4L19 9l-4-4L4 16v4zM13.5 6.5l4 4"/></svg><h3>改起来很快</h3><p>不确定的词会加下划线。直接编辑、查找替换、拆分、合并、撤销，修改自动保存。</p></div><div class="card spot" style="--d:5"><svg class="ic fi" viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg><h3>支持所有格式</h3><p>SRT、VTT、ASS 和纯文本，或烧录字幕的 MP4，直接发布。</p></div></div>
 </div></section>
 
 <section class="split rev" id="styles"><div class="wrap split-in">
@@ -69,7 +76,7 @@
   <div class="shot"><img src="../img/app-style.webp" width="1600" height="1018" alt="Caption style options: Clean, Box, Pop and Word by word, with size, position and colours" loading="lazy"></div>
 </div></section>
 
-<section class="nums"><div class="wrap nums-in"><div><b>0.7%</b><span>测试片段的词错误率</span></div><div><b>~5×</b><span>Apple 芯片上快于实时</span></div><div><b>99</b><span>种语言，自动识别</span></div></div></section>
+<section class="nums"><div class="wrap nums-in"><div><b data-count="0.7%">0.7%</b><span>测试片段的词错误率</span></div><div><b data-count="~5×">~5×</b><span>Apple 芯片上快于实时</span></div><div><b data-count="99">99</b><span>种语言，自动识别</span></div></div></section>
 
 <section id="privacy" class="priv"><div class="wrap narrow center">
   <h2>你的视频从不离开你的电脑。</h2><p class="lede">无需账号，不上传，无水印，无限制。只需下载一次语音模型，之后 Captionshaper 无需联网即可使用。</p>
