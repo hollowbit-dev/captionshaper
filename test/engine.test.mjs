@@ -2,6 +2,7 @@
 import { createRequire } from 'module';
 const require = createRequire(import.meta.url);
 const C = require('../src/core/captions.js');
+const R = require('../src/core/render.js');
 let pass = 0; let fail = 0;
 const t = (name, ok, extra = '') => { ok ? pass++ : fail++; console.log(`${ok ? 'PASS' : 'FAIL'} ${name}${extra ? ' — ' + extra : ''}`); };
 
@@ -41,11 +42,25 @@ t('typed line break kept', C.captionLines(twoLines).length === 2 && C.captionLin
 const srt = C.toSRT(caps);
 t('srt format', /^1\n00:00:01,000 --> 00:00:\d\d,\d{3}\nSo this is/.test(srt), srt.slice(0, 50).replace(/\n/g, '⏎'));
 t('vtt format', C.toVTT(caps).startsWith('WEBVTT\n\n00:00:01.000 --> '));
-const ass = C.toASS(pop, C.STYLES.pop, { width: 1080, height: 1920 });
-t('ass has play res and style', /PlayResX: 1080\nPlayResY: 1920/.test(ass) && /Style: Default,Geist Black,119,/.test(ass), (ass.match(/Style: Default,[^,]+,\d+/) || [''])[0]);
-t('ass highlights words', (ass.match(/Dialogue:/g) || []).length === pop.reduce((n, c) => n + c.words.length, 0) && ass.includes('{\\c&H3FD2FF&}'));
-t('ass upper-cases for pop', /Dialogue: .*SO/.test(ass));
-t('ass escapes braces', !C.toASS([{ start: 0, end: 1, words: [{ text: '{x}', start: 0, end: 1 }], lineBreaks: [] }], C.STYLES.clean).includes('{x}'));
+const popStyle = R.fromPreset('bold');
+const ass = R.toASS(pop, popStyle, { width: 1080, height: 1920 });
+t('ass has play res', /PlayResX: 1080\nPlayResY: 1920/.test(ass));
+t('ass uses the preset font', /\\fnMontserrat Black/.test(ass));
+t('ass highlights the spoken word', ass.includes('\\1c&H3FD2FF&'));
+t('ass pops the spoken word', ass.includes('\\t(0,80,\\fscx120\\fscy120)'));
+t('ass upper-cases for bold', /\}SO\b|\}THIS\b/.test(ass));
+t('ass escapes braces', !R.toASS([{ start: 0, end: 1, words: [{ text: '{x}', start: 0, end: 1 }], lineBreaks: [] }], R.fromPreset('clean')).includes('{x}'));
+const hl = R.toASS(pop.slice(0, 2), R.fromPreset('highlight'), { width: 1080, height: 1920 });
+t('highlight box is drawn', /\\p1\}m /.test(hl));
+const rv = R.toASS([pop[0]], R.fromPreset('reveal'), { width: 1080, height: 1920 });
+const firstSlice = rv.split('\n').filter((l) => l.startsWith('Dialogue')).filter((l) => l.includes(',0:00:01.00,'));
+t('reveal hides words not spoken yet', firstSlice.length === 1, `${firstSlice.length} words in first slice`);
+const L = R.layout({ start: 0, end: 1, words: Array.from({ length: 12 }, (_, i) => ({ text: 'extraordinarily', start: i * 0.1 })), lineBreaks: [] }, R.fromPreset('bold'), { W: 1080, H: 1920 });
+t('wide captions shrink to fit the safe area', L.lines[0].width <= 1080 * 0.76 + 1, `${Math.round(L.lines[0].width)} px`);
+const old = R.normalizeStyle({ preset: 'pop', weight: 900, highlight: true, caps: 'upper', size: 11 });
+t('old saved styles are migrated', old.v === 2 && old.highlight === 'color' && old.font === 'geist-black' && old.size === 11);
+for (const p of R.PRESETS) { const a = R.toASS(pop.slice(0, 3), R.fromPreset(p.id), { width: 1920, height: 1080 }); if (!/Dialogue/.test(a)) t(`preset ${p.id} renders`, false); }
+t('every preset renders', true);
 t('txt paragraphs on long pause', C.toTXT(caps).includes('say.\n\nAfter'));
 
 // Whisper JSON -> words

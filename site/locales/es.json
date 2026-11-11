@@ -1,39 +1,161 @@
 {
-  "lang": "es", "name": "Español",
-  "meta": { "title": "Captionshaper: subtítulos automáticos gratis y sin conexión para Mac y Windows", "desc": "Suelta un vídeo y obtén subtítulos precisos, sincronizados palabra por palabra, en segundos. Exporta SRT, VTT o incrusta subtítulos estilo TikTok. Gratis, de código abierto y sin subir nada." },
-  "nav": { "features": "Funciones", "styles": "Estilos", "privacy": "Privacidad", "faq": "Preguntas", "download": "Descargar" },
-  "hero": { "eyebrow": "Gratis · Sin conexión · Código abierto", "h1": "Subtítulos que siguen tu ritmo.", "sub": "Suelta un vídeo. Captionshaper escribe cada palabra con su tiempo, en tu ordenador. Corrige lo que quieras, elige un estilo y exporta. No se sube nada.", "mac": "Descargar para Mac", "win": "Descargar para Windows", "note": "macOS 12+ con Apple Silicon · Windows 10 y 11 (64 bits)" },
-  "live": { "h": "Míralo escribir.", "p": "Captionshaper encuentra la voz, se salta la música y los silencios, y las palabras aparecen a medida que se escriben. Un clip de un minuto tarda unos diez segundos en un Mac con chip M." },
-  "feat": { "h": "Buenos subtítulos, no solo una transcripción.", "items": [
-    ["Nada encima de la música", "La detección de voz encuentra dónde habla la gente. Intros, música y silencios quedan limpios, sin palabras inventadas."],
-    ["Sincronizado palabra a palabra", "Cada palabra empieza cuando empieza la voz: subtítulos que se sienten sincronizados y resaltados que caen en su sitio."],
-    ["Líneas fáciles de leer", "Los cortes caen al final de frases y cláusulas, nunca después de “el” o “de”, y nunca a través de una pausa larga."],
-    ["Hecho para vídeo vertical", "Estilos Pop y palabra por palabra, y una vista de móvil que muestra dónde ponen sus botones TikTok, Reels y Shorts."],
-    ["Corrige rápido", "Las palabras dudosas aparecen subrayadas. Edita en el sitio, busca y reemplaza, divide, une, deshaz. Tus cambios se guardan."],
-    ["Todos los formatos", "SRT, VTT, ASS y texto, o un MP4 con los subtítulos incrustados, listo para publicar."]
-  ] },
-  "styles": { "h": "Elige un estilo. Velo tal como se exporta.", "p": "La vista previa usa la misma fuente y los mismos tamaños que el vídeo final: lo que ves es lo que se incrusta. Cambia tamaño, posición, colores y mayúsculas, o haz subtítulos de una palabra, cortos o de dos líneas." },
-  "nums": [["0,7 %", "de error por palabra en nuestros clips de prueba"], ["~5×", "más rápido que el tiempo real en Apple Silicon"], ["99", "idiomas, detectados automáticamente"]],
-  "priv": { "h": "Tus vídeos nunca salen de tu ordenador.", "p": "Sin cuenta, sin subidas, sin marca de agua, sin límites. Lo único que se descarga es el modelo de voz, una vez. Después, Captionshaper funciona sin internet.", "items": ["El reconocimiento de voz funciona en tu Mac o PC", "Sin cuenta y sin rastreo", "Código abierto bajo la GPL"] },
-  "faq": { "h": "Preguntas", "items": [
-    ["¿De verdad es gratis?", "Sí. Sin prueba, sin marca de agua, sin límites. Captionshaper es de código abierto y puedes apoyarlo en Ko-fi si te ahorra tiempo."],
-    ["¿Sube mi vídeo?", "No. Todo ocurre en tu ordenador. La app descarga el modelo de voz una vez (unos 570 MB) y esa es su única conexión a internet."],
-    ["¿Qué idiomas entiende?", "Unos 99, entre ellos español, inglés, francés, alemán, portugués, ruso, chino y japonés. Detecta el idioma por ti. Para idiomas menos comunes, el modelo Más preciso comete menos errores."],
-    ["¿Qué precisión tiene?", "Con voz clara acierta casi todas las palabras. Lo probamos con clips de guion conocido en inglés, español y alemán: 0,7 % de error por palabra y subtítulos a menos de 0,15 segundos de la voz. El audio con ruido y los acentos fuertes producen más errores; por eso corregir es rápido."],
-    ["¿Puede traducir?", "Puede convertir la voz de cualquier idioma compatible en subtítulos en inglés. Marca “Traducir al inglés” antes de empezar."],
-    ["¿Es rápido en Windows?", "Funciona con el procesador, entre una y dos veces el tiempo real en un PC reciente. En los Mac con Apple Silicon usa la GPU y va unas cinco veces más rápido que el tiempo real."],
-    ["¿Funciona en Mac con Intel?", "Todavía no. La versión para Mac necesita Apple Silicon (M1 o posterior)."]
-  ] },
-  "dl": { "title": "Descargar Captionshaper", "h": "Descargar Captionshaper", "sub": "Gratis, para Mac y Windows. Versión {v}.", "mac": "Mac", "macReq": "Apple Silicon (M1 o posterior), macOS 12 o posterior", "macBtn": "Descargar .dmg", "win": "Windows", "winReq": "Windows 10 u 11, 64 bits", "winBtn": "Descargar instalador", "firstH": "Abrirlo la primera vez",
-    "macSteps": ["Abre el .dmg y arrastra Captionshaper a Aplicaciones.", "Haz clic derecho en Captionshaper, elige Abrir y vuelve a hacer clic en Abrir.", "Si macOS lo sigue bloqueando, ve a Ajustes del Sistema, Privacidad y seguridad, y pulsa Abrir igualmente."],
-    "winSteps": ["Ejecuta el instalador. Si aparece SmartScreen, pulsa Más información y luego Ejecutar de todas formas.", "Windows puede pedir instalar el runtime de Microsoft Visual C++. Acepta: el motor de voz lo necesita."],
-    "why": "Captionshaper aún no está firmado con un certificado de pago de Apple o Microsoft, así que ambos sistemas preguntan una vez.", "src": "Código fuente y versiones anteriores en GitHub" },
-  "privacyPage": { "title": "Privacidad", "h": "Privacidad", "body": [
-    "Captionshaper funciona en tu ordenador. Tus vídeos, audio, subtítulos y cambios se quedan ahí.",
-    "La app hace un único tipo de petición de red: descargar un modelo de voz de Hugging Face (huggingface.co) cuando pulsas Descargar. Esa petición no incluye nada sobre tus archivos.",
-    "No hay cuentas, ni analítica, ni rastreo en la app.",
-    "Esta web está alojada en GitHub Pages. GitHub puede guardar registros estándar del servidor; consulta su declaración de privacidad. La web no usa cookies ni analítica."
-  ] },
-  "foot": { "by": "Hecho por Hollowbit", "other": "También de Hollowbit: Fileshaper", "source": "Código en GitHub", "privacy": "Privacidad", "license": "Código abierto, GPL-3.0" },
-  "nf": { "title": "Página no encontrada", "h": "Esta página no existe.", "home": "Ir a la página de inicio" }
+  "lang": "es",
+  "name": "Español",
+  "meta": {
+    "title": "Captionshaper: subtítulos automáticos gratis y sin conexión para Mac y Windows",
+    "desc": "Suelta un vídeo y obtén subtítulos precisos, sincronizados palabra por palabra, en segundos. Exporta SRT, VTT o incrusta subtítulos estilo TikTok. Gratis, de código abierto y sin subir nada."
+  },
+  "nav": {
+    "features": "Funciones",
+    "styles": "Estilos",
+    "privacy": "Privacidad",
+    "faq": "Preguntas",
+    "download": "Descargar"
+  },
+  "hero": {
+    "eyebrow": "Gratis · Sin conexión · Código abierto",
+    "h1": "Subtítulos que siguen tu ritmo.",
+    "sub": "Suelta un vídeo. Captionshaper escribe cada palabra con su tiempo, en tu ordenador. Corrige lo que quieras, elige un estilo y exporta. No se sube nada.",
+    "mac": "Descargar para Mac",
+    "win": "Descargar para Windows",
+    "note": "macOS 12+ con Apple Silicon · Windows 10 y 11 (64 bits)"
+  },
+  "live": {
+    "h": "Míralo escribir.",
+    "p": "Captionshaper encuentra la voz, se salta la música y los silencios, y las palabras aparecen a medida que se escriben. Un clip de un minuto tarda unos diez segundos en un Mac con chip M."
+  },
+  "feat": {
+    "h": "Buenos subtítulos, no solo una transcripción.",
+    "items": [
+      [
+        "Nada encima de la música",
+        "La detección de voz encuentra dónde habla la gente. Intros, música y silencios quedan limpios, sin palabras inventadas."
+      ],
+      [
+        "Sincronizado palabra a palabra",
+        "Cada palabra empieza cuando empieza la voz: subtítulos que se sienten sincronizados y resaltados que caen en su sitio."
+      ],
+      [
+        "Líneas fáciles de leer",
+        "Los cortes caen al final de frases y cláusulas, nunca después de “el” o “de”, y nunca a través de una pausa larga."
+      ],
+      [
+        "Hecho para vídeo vertical",
+        "Estilos Pop y palabra por palabra, y una vista de móvil que muestra dónde ponen sus botones TikTok, Reels y Shorts."
+      ],
+      [
+        "Corrige rápido",
+        "Las palabras dudosas aparecen subrayadas. Edita en el sitio, busca y reemplaza, divide, une, deshaz. Tus cambios se guardan."
+      ],
+      [
+        "Todos los formatos",
+        "SRT, VTT, ASS y texto, o un MP4 con los subtítulos incrustados, listo para publicar."
+      ]
+    ]
+  },
+  "styles": {
+    "h": "Elige un estilo. Velo tal como se exporta.",
+    "p": "Nueve estilos para empezar, como Negrita, Caja resaltada, Una palabra, Revelar y Neón, con once fuentes para subtítulos. La palabra que se dice puede cambiar de color o ir sobre una caja, y las palabras pueden aparecer con rebote, fundido o deslizándose. La vista previa es el vídeo final: mismas fuentes, tamaños y tiempos."
+  },
+  "nums": [
+    [
+      "0,7 %",
+      "de error por palabra en nuestros clips de prueba"
+    ],
+    [
+      "~5×",
+      "más rápido que el tiempo real en Apple Silicon"
+    ],
+    [
+      "99",
+      "idiomas, detectados automáticamente"
+    ]
+  ],
+  "priv": {
+    "h": "Tus vídeos nunca salen de tu ordenador.",
+    "p": "Sin cuenta, sin subidas, sin marca de agua, sin límites. Lo único que se descarga es el modelo de voz, una vez. Después, Captionshaper funciona sin internet.",
+    "items": [
+      "El reconocimiento de voz funciona en tu Mac o PC",
+      "Sin cuenta y sin rastreo",
+      "Código abierto bajo la GPL"
+    ]
+  },
+  "faq": {
+    "h": "Preguntas",
+    "items": [
+      [
+        "¿De verdad es gratis?",
+        "Sí. Sin prueba, sin marca de agua, sin límites. Captionshaper es de código abierto y puedes apoyarlo en Ko-fi si te ahorra tiempo."
+      ],
+      [
+        "¿Sube mi vídeo?",
+        "No. Todo ocurre en tu ordenador. La app descarga el modelo de voz una vez (unos 570 MB) y esa es su única conexión a internet."
+      ],
+      [
+        "¿Qué idiomas entiende?",
+        "Unos 99, entre ellos español, inglés, francés, alemán, portugués, ruso, chino y japonés. Detecta el idioma por ti. Para idiomas menos comunes, el modelo Más preciso comete menos errores."
+      ],
+      [
+        "¿Qué precisión tiene?",
+        "Con voz clara acierta casi todas las palabras. Lo probamos con clips de guion conocido en inglés, español y alemán: 0,7 % de error por palabra y subtítulos a menos de 0,15 segundos de la voz. El audio con ruido y los acentos fuertes producen más errores; por eso corregir es rápido."
+      ],
+      [
+        "¿Puede traducir?",
+        "Puede convertir la voz de cualquier idioma compatible en subtítulos en inglés. Marca “Traducir al inglés” antes de empezar."
+      ],
+      [
+        "¿Es rápido en Windows?",
+        "Funciona con el procesador, entre una y dos veces el tiempo real en un PC reciente. En los Mac con Apple Silicon usa la GPU y va unas cinco veces más rápido que el tiempo real."
+      ],
+      [
+        "¿Funciona en Mac con Intel?",
+        "Todavía no. La versión para Mac necesita Apple Silicon (M1 o posterior)."
+      ]
+    ]
+  },
+  "dl": {
+    "title": "Descargar Captionshaper",
+    "h": "Descargar Captionshaper",
+    "sub": "Gratis, para Mac y Windows. Versión {v}.",
+    "mac": "Mac",
+    "macReq": "Apple Silicon (M1 o posterior), macOS 12 o posterior",
+    "macBtn": "Descargar .dmg",
+    "win": "Windows",
+    "winReq": "Windows 10 u 11, 64 bits",
+    "winBtn": "Descargar instalador",
+    "firstH": "Abrirlo la primera vez",
+    "macSteps": [
+      "Abre el .dmg y arrastra Captionshaper a Aplicaciones.",
+      "Haz clic derecho en Captionshaper, elige Abrir y vuelve a hacer clic en Abrir.",
+      "Si macOS lo sigue bloqueando, ve a Ajustes del Sistema, Privacidad y seguridad, y pulsa Abrir igualmente."
+    ],
+    "winSteps": [
+      "Ejecuta el instalador. Si aparece SmartScreen, pulsa Más información y luego Ejecutar de todas formas.",
+      "Windows puede pedir instalar el runtime de Microsoft Visual C++. Acepta: el motor de voz lo necesita."
+    ],
+    "why": "Captionshaper aún no está firmado con un certificado de pago de Apple o Microsoft, así que ambos sistemas preguntan una vez.",
+    "src": "Código fuente y versiones anteriores en GitHub"
+  },
+  "privacyPage": {
+    "title": "Privacidad",
+    "h": "Privacidad",
+    "body": [
+      "Captionshaper funciona en tu ordenador. Tus vídeos, audio, subtítulos y cambios se quedan ahí.",
+      "La app hace un único tipo de petición de red: descargar un modelo de voz de Hugging Face (huggingface.co) cuando pulsas Descargar. Esa petición no incluye nada sobre tus archivos.",
+      "No hay cuentas, ni analítica, ni rastreo en la app.",
+      "Esta web está alojada en GitHub Pages. GitHub puede guardar registros estándar del servidor; consulta su declaración de privacidad. La web no usa cookies ni analítica."
+    ]
+  },
+  "foot": {
+    "by": "Hecho por Hollowbit",
+    "other": "También de Hollowbit: Fileshaper",
+    "source": "Código en GitHub",
+    "privacy": "Privacidad",
+    "license": "Código abierto, GPL-3.0"
+  },
+  "nf": {
+    "title": "Página no encontrada",
+    "h": "Esta página no existe.",
+    "home": "Ir a la página de inicio"
+  }
 }

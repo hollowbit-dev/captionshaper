@@ -130,7 +130,7 @@ ${nav(lang, 'index')}
 <main id="main">
 <section class="hero">
   <div class="wrap">
-  <p class="cue-head"><span class="tc">00:00:01,900 --&gt; 00:00:03,300</span><span class="tags">${t.hero.eyebrow}</span></p>
+  <p class="cue-head"><span class="tags">${t.hero.eyebrow}</span></p>
   <h1 class="kara">${t.hero.h1.split(' ').map((w, i) => `<span class="hw" style="--i:${i}">${w}</span>`).join(' ')}</h1>
   <p class="lede">${t.hero.sub}</p>
   ${dlButtons(t)}

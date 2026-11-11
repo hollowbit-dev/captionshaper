@@ -1,6 +1,6 @@
 {
   "name": "captionshaper",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "main": "src/main.js",
   "productName": "Captionshaper",
   "description": "Captionshaper by Hollowbit: free, offline auto-subtitles. Drop in a video, fix the words, export SRT or burn in TikTok-style captions. Nothing is uploaded.",
@@ -116,7 +116,7 @@
       "include": "installer/installer.nsh"
     },
     "afterPack": "scripts/after-pack.js",
-    "copyright": "© 2026 Hollowbit · Elvis Zygmanta",
+    "copyright": "\u00a9 2026 Hollowbit \u00b7 Elvis Zygmanta",
     "extraResources": [
       {
         "from": "LICENSE",

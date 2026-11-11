@@ -41,8 +41,8 @@ check('first caption text', /okay, so today/i.test(first), JSON.stringify(first)
 // Seek into the first caption: the preview shows it.
 await win.evaluate(() => { window.__cs.current.video.currentTime = 2.5; });
 await win.waitForTimeout(400);
-const ov = await win.locator('#overlay').innerText();
-check('preview overlay shows caption', /today/i.test(ov), JSON.stringify(ov));
+const inked = await win.evaluate(() => { const c = document.querySelector('#overlay canvas'); if (!c) return 0; const d = c.getContext('2d').getImageData(0, 0, c.width, c.height).data; let n = 0; for (let i = 3; i < d.length; i += 16) if (d[i] > 0) n++; return n; });
+check('preview draws the caption', inked > 500, `${inked} pixels`);
 await win.waitForTimeout(300);
 await win.screenshot({ path: path.join(shots, 'editor.png') });
 check('waveform drawn', await win.evaluate(() => { const c = document.querySelector('#tl-wave'); return !!c && c.width > 0 && !!window.__cs.current.project.peaks; }));
@@ -72,7 +72,7 @@ check('replace all', hasReels);
 
 // Style: Pop preset re-splits into short captions.
 await win.click('#tabs button[data-t="style"]');
-await win.click('.preset[data-k="pop"]');
+await win.click('.preset[data-k="bold"]');
 const nPop = await win.evaluate(() => window.__cs.current.project.captions.length);
 check('pop preset re-splits', nPop > n, `${n} -> ${nPop}`);
 await win.evaluate(() => { window.__cs.current.video.currentTime = 9.0; });
@@ -106,7 +106,7 @@ await win.waitForSelector('.recent-row');
 await win.click('.recent-row');
 await win.waitForSelector('.editor .row', { timeout: 10000 });
 const persisted = await win.evaluate(() => window.__cs.current.project.style.preset);
-check('project reopens with edits', persisted === 'pop', persisted);
+check('project reopens with edits', persisted === 'bold', persisted);
 
 await app.close();
 fs.rmSync(userData, { recursive: true, force: true });

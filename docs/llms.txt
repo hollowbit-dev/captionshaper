@@ -2,7 +2,7 @@
 
 > Drop in a video and get accurate, word-timed captions in seconds. Export SRT, VTT or burn in TikTok-style captions. Free, open source, and nothing is uploaded.
 
-Captionshaper by Hollowbit is a free, open-source (GPL-3.0) desktop app for macOS (Apple Silicon) and Windows that makes subtitles and captions from video or audio, fully offline. Version 1.0.1.
+Captionshaper by Hollowbit is a free, open-source (GPL-3.0) desktop app for macOS (Apple Silicon) and Windows that makes subtitles and captions from video or audio, fully offline. Version 1.1.0.
 
 ## What it does
 - Nothing over music: Voice detection finds where people speak. Intros, music and silence stay clean, so no made-up words.

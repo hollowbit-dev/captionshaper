@@ -232,7 +232,7 @@ async function runTranscription(media, modelId) {
     setPct(100);
     for (let i = 0; i < 40 && st.queue.length; i++) await new Promise((res) => setTimeout(res, 50));
     await new Promise((res) => setTimeout(res, 350));
-    const style = { ...C.STYLES[S.settings.style] || C.STYLES.clean, preset: S.settings.style || 'clean' };
+    const style = R.fromPreset(S.settings.style);
     const captions = C.buildCaptions(r.words, { noSpace: r.noSpace, maxChars: lineChars(style, media.info), maxLines: style.maxLines, maxWords: style.maxWords });
     const project = { v: 1, language: r.language, noSpace: r.noSpace, regions: r.regions, peaks: r.peaks, style, captions, model: modelId };
     renderEditor(media, project);
@@ -252,6 +252,7 @@ cs.onProgress((p) => { const f = progressHandlers.get(p.jobId); if (f) f(p); });
 
 // ---------- Editor ----------
 function renderEditor(media, project) {
+  project.style = R.normalizeStyle(project.style);
   current = { media, project, history: [], future: [], active: -1, editing: null };
   const { info } = media;
   const el = h(`<div class="editor">
@@ -369,31 +370,42 @@ function tick() {
 
 // Live preview: the same style numbers as the burned-in ASS file, in CSS.
 let lastDraw = '';
-function hexA(hex, a) { const n = parseInt(hex.slice(1), 16); return `rgba(${n >> 16},${(n >> 8) & 255},${n & 255},${a})`; }
+// Fonts for the preview, measured with the same canvas engine the export uses.
+const R = window.CaptionRender; const Fonts = window.CaptionFonts;
+const fontsReady = Promise.all(Fonts.FONTS.map((f) => new FontFace(Fonts.css(f.id), `url(../../assets/fonts/${f.file})`).load().then((ff) => document.fonts.add(ff)).catch(() => {})));
+const measureCtx = document.createElement('canvas').getContext('2d');
+const measureCache = new Map();
+function measure(text, font, em) {
+  const k = `${font}|${text}`;
+  let w = measureCache.get(k);
+  if (w == null) { measureCtx.font = `100px "${Fonts.css(font)}"`; w = measureCtx.measureText(text).width; measureCache.set(k, w); }
+  return w * em / 100;
+}
+fontsReady.then(() => { measureCache.clear(); lastDraw = ''; });
+const videoSize = (info) => (info.hasVideo && info.width ? { W: info.width - (info.width % 2), H: info.height - (info.height % 2) } : { W: 1920, H: 1080 });
+
+// Live preview: draws the caption exactly as the burned-in video will show it.
 function drawOverlay(idx, t) {
   const ov = $('#overlay'); if (!ov) return;
-  const s = current.project.style;
+  let cv = ov.querySelector('canvas');
+  if (!cv) { cv = document.createElement('canvas'); ov.append(cv); }
+  const dpr = window.devicePixelRatio || 1;
+  const cw = ov.clientWidth; const ch = ov.clientHeight;
+  if (!cw || !ch) return;
+  if (cv.width !== Math.round(cw * dpr) || cv.height !== Math.round(ch * dpr)) { cv.width = Math.round(cw * dpr); cv.height = Math.round(ch * dpr); lastDraw = ''; }
   const c = current.project.captions[idx];
-  let active = -1;
-  if (c && s.highlight) { for (let i = 0; i < c.words.length; i++) if (t >= (i === 0 ? c.start : c.words[i].start)) active = i; }
-  const key = `${idx}|${active}|${current.styleRev || 0}|${current.textRev || 0}`;
-  if (key === lastDraw) return; lastDraw = key;
-  if (!c) { ov.replaceChildren(); return; }
-  const breaks = new Set(c.lineBreaks || []);
-  const lines = [[]];
-  c.words.forEach((w, i) => { if (i > 0 && breaks.has(i)) lines.push([]); lines[lines.length - 1].push(i); });
-  const sep = current.project.noSpace ? '' : ' ';
-  const word = (i) => {
-    let tx = c.words[i].text; if (s.caps === 'strip' || s.stripPunct) tx = C.stripPunct(tx);
-    tx = C.applyCase(tx, s.caps);
-    return `<span class="w" style="${i === active ? `color:${s.highlightColor}` : ''}">${esc(tx)}</span>`;
-  };
-  const pos = s.position === 'top' ? `top:${s.margin}cqh` : s.position === 'middle' ? 'top:50%;transform:translateY(-50%)' : `bottom:${s.margin}cqh`;
-  const stroke = s.box ? '' : `-webkit-text-stroke:${(s.outline * 2).toFixed(3)}cqmin ${s.outlineColor};`;
-  const shadow = !s.box && s.shadow ? `text-shadow:${s.shadow}cqmin ${s.shadow}cqmin 0 ${hexA(s.outlineColor, 0.65)};` : '';
-  const box = s.box ? `background:${hexA(s.boxColor, s.boxOpacity)};padding:0 ${(s.size * 0.22).toFixed(3)}cqmin;` : '';
-  ov.innerHTML = `<div class="cap${s.box ? ' boxed' : ''}" style="${pos};font-family:Geist;font-weight:${s.weight};font-size:${(s.size / C.FONT_SCALE).toFixed(3)}cqmin;color:${s.color};${stroke}${shadow}">${
-    lines.map((ln) => `<span class="ln"><span class="txt" style="${box}">${ln.map(word).join(sep)}</span></span>`).join('')}</div>`;
+  const s = current.project.style;
+  // Redraw while a word animates; otherwise only when something changes.
+  const animating = c && (s.animation !== 'none' || s.upcoming !== 'show');
+  const key = `${idx}|${c ? R.activeAt(c, t) : -1}|${current.styleRev || 0}|${current.textRev || 0}|${cv.width}`;
+  if (!animating && key === lastDraw) return;
+  lastDraw = key;
+  const g = cv.getContext('2d');
+  g.setTransform(1, 0, 0, 1, 0, 0); g.clearRect(0, 0, cv.width, cv.height);
+  if (!c) return;
+  const { W, H } = videoSize(current.media.info);
+  g.setTransform(cv.width / W, 0, 0, cv.height / H, 0, 0);
+  R.drawFrame(g, c, s, t, { W, H, measure, noSpace: current.project.noSpace });
 }
 
 function drawTimelineWave() {
@@ -482,53 +494,82 @@ function renderCaptions(p) {
   if (current.active >= 0) { const r = el.querySelector(`.row[data-i="${current.active}"]`); if (r) r.classList.add('on'); }
 }
 
+// A small rendered sample of each preset (the real renderer, real fonts).
+const SAMPLE = { start: 0, end: 2, words: [{ text: 'Make', start: 0 }, { text: 'it', start: 0.3 }, { text: 'pop', start: 0.6 }], lineBreaks: [] };
+function drawPresetThumb(cv, style) {
+  const dpr = window.devicePixelRatio || 1; const W = 420; const H = 264;
+  cv.width = 180 * dpr; cv.height = 113 * dpr;
+  const g = cv.getContext('2d');
+  const grd = g.createLinearGradient(0, 0, cv.width, cv.height); grd.addColorStop(0, '#2a3324'); grd.addColorStop(1, '#0f120d');
+  g.fillStyle = grd; g.fillRect(0, 0, cv.width, cv.height);
+  g.setTransform(cv.width / W, 0, 0, cv.height / H, 0, 0);
+  const st = { ...style, position: 'middle', size: 24, animation: 'none', upcoming: 'show' };
+  const words = st.maxWords === 1 ? SAMPLE.words.slice(2) : SAMPLE.words;
+  const cap = { ...SAMPLE, words: words.map((w, i) => ({ ...w, start: i === words.length - 1 ? 0.6 : 0 })) };
+  // Fit the sample to the tile: about 70% wide, never taller than 40% of it.
+  const L = R.layout(cap, st, { W, H, measure });
+  const k = Math.min((W * 0.7) / L.lines[0].width, (H * 0.4) / (L.em * 1.2));
+  st.size *= k;
+  R.drawFrame(g, cap, st, 0.7, { W, H, measure });
+}
+const seg = (id, opts, val) => `<div class="seg wide" id="${id}">${opts.map(([v, n]) => `<button data-v="${v}" class="${String(val) === String(v) ? 'on' : ''}">${n}</button>`).join('')}</div>`;
 function renderStyle(p) {
   const s = current.project.style;
-  const pv = (k) => {
-    const st = C.STYLES[k];
-    const txt = st.caps === 'upper' ? 'LIKE <b style="color:' + st.highlightColor + '">THIS</b>' : 'Captions like this';
-    const css = st.box ? `background:rgba(0,0,0,.72);padding:3px 7px;border-radius:3px;font-weight:${st.weight};font-size:13px`
-      : `font-weight:${st.weight};-webkit-text-stroke:${st.outline > .4 ? 3 : 2}px #000;paint-order:stroke fill;font-size:${st.caps === 'upper' ? 18 : 14}px`;
-    return `<button class="preset${s.preset === k ? ' on' : ''}" data-k="${k}"><span class="pv" style="${css}">${txt}</span><span class="nm">${st.name}</span></button>`;
-  };
   const el = h(`<div class="style-panel">
-    <div class="presets">${Object.keys(C.STYLES).map(pv).join('')}</div>
-    <div class="sub-h">Text</div>
-    <label class="field">Size<input type="range" id="size" min="2.5" max="14" step="0.1" value="${s.size}"></label>
-    <div class="grid2">
-      <label class="field">Position<div class="seg" id="pos">${['top', 'middle', 'bottom'].map((x) => `<button data-v="${x}" class="${s.position === x ? 'on' : ''}">${x[0].toUpperCase() + x.slice(1)}</button>`).join('')}</div></label>
-      <label class="field">Weight<div class="seg" id="weight">${[[600, 'Regular'], [700, 'Bold'], [900, 'Heavy']].map(([v, n]) => `<button data-v="${v}" class="${s.weight === v ? 'on' : ''}">${n}</button>`).join('')}</div></label>
-    </div>
-    <label class="field">Distance from edge<input type="range" id="margin" min="2" max="45" step="0.5" value="${s.margin}"${s.position === 'middle' ? ' disabled' : ''}></label>
-    <div class="colors">
-      <label>Text <input type="color" id="color" value="${s.color}"></label>
-      <label>${s.box ? 'Box' : 'Outline'} <input type="color" id="ocolor" value="${s.box ? s.boxColor : s.outlineColor}"></label>
-      <label>Highlight <input type="color" id="hcolor" value="${s.highlightColor}"></label>
-    </div>
-    <label class="check"><input type="checkbox" id="hl"${s.highlight ? ' checked' : ''}> Highlight the word being spoken</label>
-    <label class="check"><input type="checkbox" id="box"${s.box ? ' checked' : ''}> Background box</label>
-    <label class="check"><input type="checkbox" id="upper"${s.caps === 'upper' ? ' checked' : ''}> ALL CAPS</label>
-    <label class="check"><input type="checkbox" id="strip"${s.stripPunct ? ' checked' : ''}> Hide commas and full stops</label>
-    <div class="sub-h">Caption length</div>
-    <div class="seg" id="len">${[['1', 'One word'], ['short', 'Short'], ['medium', 'Medium'], ['long', 'Two lines']].map(([v, n]) => `<button data-v="${v}" class="${lenKey(s) === v ? 'on' : ''}">${n}</button>`).join('')}</div>
-    <p class="note">Changing the length splits the captions again from your corrected words. Your text edits are kept.</p>
+    <div class="presets">${R.PRESETS.map((pr) => `<button class="preset${s.preset === pr.id ? ' on' : ''}" data-k="${pr.id}"><canvas></canvas><span class="nm">${pr.name}</span></button>`).join('')}</div>
+
+    <section class="sp-sec"><h3>Text</h3>
+      <label class="field">Font<select class="sel" id="font">${Fonts.FONTS.map((f) => `<option value="${f.id}"${f.id === s.font ? ' selected' : ''}>${f.label}</option>`).join('')}</select></label>
+      <label class="field">Size<input type="range" id="size" min="2.5" max="18" step="0.1" value="${s.size}"></label>
+      <div class="row2"><label class="field">Case${seg('caps', [['none', 'Aa'], ['upper', 'AA'], ['lower', 'aa']], s.caps)}</label>
+      <label class="field">Colour<input type="color" id="color" value="${s.color}"></label></div>
+      <label class="check"><input type="checkbox" id="strip"${s.stripPunct ? ' checked' : ''}> Hide commas and full stops</label>
+    </section>
+
+    <section class="sp-sec"><h3>Spoken word</h3>
+      <label class="field">Highlight${seg('hl', [['none', 'None'], ['color', 'Colour'], ['box', 'Box']], s.highlight)}</label>
+      ${s.highlight !== 'none' ? `<div class="row2"><label class="field">${s.highlight === 'box' ? 'Box colour' : 'Highlight colour'}<input type="color" id="hcolor" value="${s.highlightColor}"></label>${s.highlight === 'box' ? `<label class="field">Text on box<input type="color" id="htext" value="${s.highlightText}"></label>` : ''}</div>` : ''}
+      <label class="field">Animation${seg('anim', [['none', 'None'], ['pop', 'Pop'], ['fade', 'Fade in'], ['slide', 'Slide up']], s.animation)}</label>
+      <label class="field">Words not spoken yet${seg('up', [['show', 'Show'], ['dim', 'Dim'], ['hide', 'Hide']], s.upcoming)}</label>
+    </section>
+
+    <section class="sp-sec"><h3>Outline, shadow and glow</h3>
+      <div class="slider-row"><label class="field">Outline<input type="range" id="outline" min="0" max="1.4" step="0.02" value="${s.outline}"></label><input type="color" id="ocolor" value="${s.outlineColor}"></div>
+      <div class="slider-row"><label class="field">Shadow<input type="range" id="shadow" min="0" max="1.4" step="0.02" value="${s.shadow}"></label><input type="color" id="scolor" value="${s.shadowColor}"></div>
+      <div class="slider-row"><label class="field">Glow<input type="range" id="glow" min="0" max="3" step="0.05" value="${s.glow}"></label><input type="color" id="gcolor" value="${s.glowColor}"></div>
+      <label class="check"><input type="checkbox" id="box"${s.box ? ' checked' : ''}> Background box behind each line</label>
+      ${s.box ? `<div class="slider-row"><label class="field">Box opacity<input type="range" id="bop" min="0.2" max="1" step="0.02" value="${s.boxOpacity}"></label><input type="color" id="bcolor" value="${s.boxColor}"></div>` : ''}
+    </section>
+
+    <section class="sp-sec"><h3>Placement</h3>
+      <label class="field">Position${seg('pos', [['top', 'Top'], ['middle', 'Middle'], ['bottom', 'Bottom']], s.position)}</label>
+      ${s.position !== 'middle' ? `<label class="field">Distance from edge<input type="range" id="margin" min="2" max="40" step="0.5" value="${s.margin}"></label>` : ''}
+      <label class="field">Caption length${seg('len', [['1', 'One word'], ['short', 'Short'], ['medium', 'One line'], ['long', 'Two lines']], lenKey(s))}</label>
+      <p class="note">Changing the length splits the captions again from your corrected words. Your edits are kept.</p>
+    </section>
   </div>`);
   p.replaceChildren(el);
-  const set = (patch, resplit = false) => { pushHistory(); Object.assign(current.project.style, patch); if (resplit) resegment(); styleChanged(); };
-  el.querySelectorAll('.preset').forEach((b) => { b.onclick = () => { const st = C.STYLES[b.dataset.k]; set({ ...st, preset: b.dataset.k, stripPunct: false }, true); cs.setSettings({ style: b.dataset.k }); renderPanel(); }; });
-  $('#size', el).oninput = (e) => { Object.assign(current.project.style, { size: +e.target.value }); styleChanged(); };
-  $('#size', el).onchange = () => pushHistory();
-  $('#margin', el).oninput = (e) => { Object.assign(current.project.style, { margin: +e.target.value }); styleChanged(); };
-  el.querySelectorAll('#pos button').forEach((b) => { b.onclick = () => { set({ position: b.dataset.v, margin: b.dataset.v === 'middle' ? s.margin : Math.min(s.margin, 20) }); renderPanel(); }; });
-  el.querySelectorAll('#weight button').forEach((b) => { b.onclick = () => { set({ weight: +b.dataset.v }); renderPanel(); }; });
-  $('#color', el).oninput = (e) => { current.project.style.color = e.target.value; styleChanged(); };
-  $('#ocolor', el).oninput = (e) => { current.project.style[s.box ? 'boxColor' : 'outlineColor'] = e.target.value; styleChanged(); };
-  $('#hcolor', el).oninput = (e) => { current.project.style.highlightColor = e.target.value; styleChanged(); };
-  $('#hl', el).onchange = (e) => set({ highlight: e.target.checked });
-  $('#box', el).onchange = (e) => { set({ box: e.target.checked }); renderPanel(); };
-  $('#upper', el).onchange = (e) => set({ caps: e.target.checked ? 'upper' : 'none' });
+  fontsReady.then(() => el.querySelectorAll('.preset').forEach((b) => drawPresetThumb(b.querySelector('canvas'), R.fromPreset(b.dataset.k))));
+  const set = (patch, { resplit = false, rerender = false } = {}) => { pushHistory(); Object.assign(current.project.style, patch); if (resplit) resegment(); styleChanged(); if (rerender) renderPanel(); };
+  const live = (id, key, num = true) => {
+    const x = $(`#${id}`, el); if (!x) return;
+    x.addEventListener('pointerdown', () => pushHistory(), { once: false });
+    x.oninput = () => { current.project.style[key] = num ? +x.value : x.value; styleChanged(); };
+  };
+  const segOn = (id, fn) => el.querySelectorAll(`#${id} button`).forEach((b) => { b.onclick = () => fn(b.dataset.v); });
+  el.querySelectorAll('.preset').forEach((b) => { b.onclick = () => { set(R.fromPreset(b.dataset.k), { resplit: true, rerender: true }); cs.setSettings({ style: b.dataset.k }); }; });
+  $('#font', el).onchange = (e) => set({ font: e.target.value }, { resplit: true });
+  for (const [id, key] of [['size', 'size'], ['outline', 'outline'], ['shadow', 'shadow'], ['glow', 'glow'], ['bop', 'boxOpacity'], ['margin', 'margin']]) live(id, key);
+  for (const [id, key] of [['color', 'color'], ['ocolor', 'outlineColor'], ['scolor', 'shadowColor'], ['gcolor', 'glowColor'], ['hcolor', 'highlightColor'], ['htext', 'highlightText'], ['bcolor', 'boxColor']]) live(id, key, false);
+  $('#size', el).addEventListener('change', () => { resegment(); styleChanged(); });
+  segOn('caps', (v) => set({ caps: v }, { resplit: true, rerender: true }));
+  segOn('hl', (v) => set({ highlight: v }, { rerender: true }));
+  segOn('anim', (v) => set({ animation: v }, { rerender: true }));
+  segOn('up', (v) => set({ upcoming: v }, { rerender: true }));
+  segOn('pos', (v) => set({ position: v }, { rerender: true }));
+  segOn('len', (v) => set(LENGTHS[v], { resplit: true, rerender: true }));
   $('#strip', el).onchange = (e) => set({ stripPunct: e.target.checked });
-  el.querySelectorAll('#len button').forEach((b) => { b.onclick = () => { set(LENGTHS[b.dataset.v], true); renderPanel(); }; });
+  $('#box', el).onchange = (e) => set({ box: e.target.checked }, { rerender: true });
 }
 const LENGTHS = {
   1: { maxWords: 1, maxLines: 1, maxChars: 14 },
@@ -536,12 +577,16 @@ const LENGTHS = {
   medium: { maxWords: 0, maxLines: 1, maxChars: 32 },
   long: { maxWords: 0, maxLines: 2, maxChars: 42 },
 };
-function lenKey(s) { return Object.keys(LENGTHS).find((k) => LENGTHS[k].maxWords === s.maxWords && LENGTHS[k].maxLines === s.maxLines && LENGTHS[k].maxChars === s.maxChars) || ''; }
+function lenKey(s) {
+  if (s.maxWords === 1) return '1';
+  if (s.maxWords && s.maxWords <= 6) return 'short';
+  return s.maxLines === 1 ? 'medium' : 'long';
+}
 
 // Characters per line for this video: the style's limit, or less if the text wouldn't fit.
 function lineChars(style, info) {
-  if (!info.hasVideo || !info.width) return style.maxChars;
-  return C.fitChars(style, info.width, info.height);
+  const { W, H } = videoSize(info);
+  return R.fitChars(style, W, H);
 }
 function styleChanged() { current.styleRev = (current.styleRev || 0) + 1; lastDraw = ''; scheduleSave(); }
 
@@ -678,11 +723,8 @@ async function exportText(format) {
 }
 function assFor() {
   const { project, media } = current;
-  const s = { ...project.style };
-  let caps = project.captions;
-  if (s.stripPunct) caps = caps.map((c) => ({ ...c, words: c.words.map((w) => ({ ...w, text: C.stripPunct(w.text) || w.text })) }));
-  const w = media.info.width || 1920; const hgt = media.info.height || 1080;
-  return C.toASS(caps, s, { width: w - (w % 2), height: hgt - (hgt % 2), noSpace: project.noSpace });
+  const { W, H } = videoSize(media.info);
+  return R.toASS(project.captions, project.style, { width: W, height: H, measure, noSpace: project.noSpace });
 }
 async function burn() {
   const jobId = `b${Date.now()}`;
