@@ -12,6 +12,8 @@ const root = path.resolve(here, '..');
 const out = path.join(root, 'docs');
 const pkg = JSON.parse(fs.readFileSync(path.join(root, 'package.json'), 'utf8'));
 const V = pkg.version;
+// Stylesheet version: app version plus a hash of the CSS, so browsers refetch after every restyle.
+const CSSV = V + '-' + (await import('node:crypto')).createHash('md5').update(['style.css', 'glass.css'].map((f) => fs.readFileSync(new URL(`./assets/${f}`, import.meta.url), 'utf8')).join('')).digest('hex').slice(0, 6);
 const SITE = { url: 'https://captionshaper.app', github: 'https://github.com/hollowbit-dev/captionshaper', tip: 'https://ko-fi.com/hollowbit', fileshaper: 'https://fileshaper.app' };
 const FILES = { mac: `Captionshaper-${V}-mac-arm64.dmg`, win: `Captionshaper-Setup-${V}-win-x64.exe` };
 const DL = `${SITE.github}/releases/latest/download/`;
@@ -120,9 +122,10 @@ ${alternates}
 ${ld}
 <link rel="icon" type="image/png" href="${base}favicon.png">
 <link rel="preload" href="${base}fonts/Geist-Variable.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="${base}style.css?v=${V}">
+<link rel="stylesheet" href="${base}style.css?v=${CSSV}">
 </head>
 <body data-page="${page}">
+<div class="wash" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
 <div class="progress" aria-hidden="true"><i></i></div>
 <a class="skip" href="#main">${esc(t.nav.skip)}</a>
 <header class="nav"><div class="wrap nav-in">
@@ -367,7 +370,7 @@ fs.writeFileSync(path.join(out, 'tools', 'index.html'), layout(LANGS[0], T.en, '
 
 const assets = path.join(here, 'assets');
 for (const f of ['site.js', 'tools.js', 'favicon.png']) fs.copyFileSync(path.join(assets, f), path.join(out, f));
-fs.writeFileSync(path.join(out, 'style.css'), fs.readFileSync(path.join(assets, 'style.css'), 'utf8') + studioCss + '\n:root { --hb-accent: #c6ff3d; }\n.hb-row { display: flex; justify-content: center; }\n.hb-row .hb-badge { margin-bottom: 14px; }\n.logo { flex: none; } .hb-pill { flex: none; }\n.links a { white-space: nowrap; }\n.hb-pill span { display: none; } .hb-pill { padding: 5px; margin-left: 4px; }\n');
+fs.writeFileSync(path.join(out, 'style.css'), fs.readFileSync(path.join(assets, 'style.css'), 'utf8') + studioCss + fs.readFileSync(path.join(assets, 'glass.css'), 'utf8') + '\n:root { --hb-accent: #c6ff3d; }\n.hb-row { display: flex; justify-content: center; }\n.hb-row .hb-badge { margin-bottom: 14px; }\n.logo { flex: none; } .hb-pill { flex: none; }\n.links a { white-space: nowrap; }\n.hb-pill span { display: none; } .hb-pill { padding: 5px; margin-left: 4px; }\n');
 // Search-engine ownership files must stay on the site to remain verified.
 for (const f of fs.readdirSync(assets)) if (/^google[a-z0-9]+\.html$|^BingSiteAuth\.xml$/.test(f)) fs.copyFileSync(path.join(assets, f), path.join(out, f));
 fs.cpSync(path.join(assets, 'fonts'), path.join(out, 'fonts'), { recursive: true });

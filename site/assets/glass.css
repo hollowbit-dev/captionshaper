@@ -1,0 +1,88 @@
+/* ---------- Hollowbit dark liquid glass (shared look with hollowbit.dev and Writeshaper) ----------
+   Loaded last: a slow colour wash behind frosted panels, bright 1px top edges, soft layered shadows.
+   Captionshaper keeps its lime. */
+@property --a { syntax: "<angle>"; inherits: false; initial-value: 0deg; }
+:root {
+  --bg: #0b0a10; --bg-2: rgba(255,255,255,.035);
+  --panel: rgba(255,255,255,.045); --panel-2: rgba(255,255,255,.1);
+  --line: rgba(255,255,255,.08); --line-2: rgba(255,255,255,.14);
+  --text: #f4f3f8; --text-2: #adabbd; --text-3: #85839a;
+  --hi: inset 0 1px 0 rgba(255,255,255,.10), inset 0 0 0 1px rgba(255,255,255,.06);
+  --sh-1: 0 1px 2px rgba(0,0,0,.35), 0 4px 12px rgba(0,0,0,.25);
+  --sh-2: 0 2px 6px rgba(0,0,0,.3), 0 18px 48px rgba(0,0,0,.38);
+  --sh-3: 0 4px 12px rgba(0,0,0,.35), 0 30px 90px rgba(0,0,0,.55);
+  --ease-io: cubic-bezier(.65,0,.35,1);
+}
+body { background: var(--bg); overflow-x: clip; }
+
+.wash { position: fixed; inset: 0; z-index: -1; pointer-events: none; overflow: hidden; }
+.wash i { position: absolute; width: 70vmax; height: 70vmax; border-radius: 50%; filter: blur(90px); opacity: .13; will-change: transform; }
+.wash i:nth-child(1) { background: radial-gradient(circle, #c6ff3d, transparent 62%); left: -28vmax; top: -36vmax; animation: d1 30s var(--ease-io) infinite alternate; }
+.wash i:nth-child(2) { background: radial-gradient(circle, #3dffb0, transparent 62%); right: -30vmax; top: -26vmax; animation: d2 34s var(--ease-io) infinite alternate; opacity: .1; }
+.wash i:nth-child(3) { background: radial-gradient(circle, #a07cff, transparent 62%); left: 6vmax; bottom: -48vmax; animation: d3 31s var(--ease-io) infinite alternate; opacity: .17; }
+.wash i:nth-child(4) { background: radial-gradient(circle, #33e0c0, transparent 62%); right: -34vmax; bottom: -46vmax; animation: d1 38s var(--ease-io) infinite alternate-reverse; opacity: .12; }
+@keyframes d1 { to { transform: translate(9vmax, 7vmax) scale(1.08); } }
+@keyframes d2 { to { transform: translate(-8vmax, 10vmax) scale(.93); } }
+@keyframes d3 { to { transform: translate(10vmax, -7vmax) scale(1.06); } }
+
+/* glass, shared by every panel */
+.card, .stat, .panel, .dl, .cell, .guide-list a, .lang-menu, .hb-card {
+  background: var(--panel); border: 0;
+  backdrop-filter: blur(28px) saturate(1.6); -webkit-backdrop-filter: blur(28px) saturate(1.6);
+  box-shadow: var(--hi), var(--sh-2);
+}
+.card, .stat, .panel, .dl { border-radius: 22px; }
+.lang-menu { background: rgba(30,29,40,.85); border-radius: 14px; box-shadow: var(--hi), var(--sh-3); }
+.card.spot:hover, .link-panel:hover, .guide-list a:hover, .hb-card:hover { box-shadow: inset 0 1px 0 rgba(255,255,255,.14), inset 0 0 0 1px rgba(198,255,61,.3), var(--sh-3); }
+.dl.mine { box-shadow: inset 0 1px 0 rgba(255,255,255,.14), inset 0 0 0 1.5px rgba(198,255,61,.55), 0 0 0 5px rgba(198,255,61,.07), var(--sh-2); }
+.answer { border-left: 0; padding: 18px 20px; border-radius: 16px; background: var(--panel); box-shadow: var(--hi), inset 3px 0 0 var(--accent), var(--sh-1); }
+.stat b { text-shadow: 0 0 40px rgba(198,255,61,.25); }
+
+/* nav: the same floating glass pill as the other Hollowbit sites */
+.nav { max-width: 1180px; width: calc(100% - 32px); border: 0; border-radius: 20px; background: rgba(22,21,30,.55); backdrop-filter: blur(30px) saturate(1.8); -webkit-backdrop-filter: blur(30px) saturate(1.8); box-shadow: var(--hi), 0 10px 40px rgba(0,0,0,.25); }
+.nav.scrolled { background: rgba(22,21,30,.78); box-shadow: var(--hi), var(--sh-2); }
+.links { padding: 3px; border-radius: 14px; background: rgba(255,255,255,.04); box-shadow: inset 0 0 0 1px var(--line); gap: 2px; }
+.links a { border-radius: 11px; padding: 6px 12px; }
+.links a[aria-current="page"] { background: rgba(255,255,255,.1); box-shadow: inset 0 1px 0 rgba(255,255,255,.12), var(--sh-1); color: var(--text); }
+.lang summary, .hb-pill { border: 0; background: rgba(255,255,255,.05); box-shadow: inset 0 0 0 1px var(--line); border-radius: 999px; }
+
+/* buttons */
+.btn-primary { box-shadow: inset 0 1px 0 rgba(255,255,255,.5), 0 8px 28px -10px rgba(198,255,61,.7); }
+.btn-ghost { border-color: transparent; background: rgba(255,255,255,.06); box-shadow: var(--hi); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
+.btn-ghost:hover { background: rgba(255,255,255,.1); }
+.jump a { border: 0; border-radius: 999px; background: rgba(255,255,255,.04); box-shadow: inset 0 0 0 1px var(--line-2); }
+
+.shot { border: 0; box-shadow: inset 0 0 0 1px var(--line-2), var(--sh-3); }
+.marquee { border-block: 0; }
+
+/* FAQ: one glass sheet */
+.faq { border-top: 0; background: var(--panel); border-radius: 24px; padding: 4px 26px; box-shadow: var(--hi), var(--sh-2); backdrop-filter: blur(28px) saturate(1.5); -webkit-backdrop-filter: blur(28px) saturate(1.5); }
+.faq details:last-child { border-bottom: 0; }
+
+/* end CTA: glass with a moving lime edge */
+.end { border-top: 0; }
+.end .wrap { position: relative; isolation: isolate; overflow: hidden; max-width: 1132px; padding: clamp(56px, 7vw, 92px) 24px; border-radius: 32px; background: var(--panel); box-shadow: var(--hi), var(--sh-2); backdrop-filter: blur(28px) saturate(1.5); -webkit-backdrop-filter: blur(28px) saturate(1.5); }
+.end .wrap::before { content: ""; position: absolute; inset: 0; border-radius: inherit; padding: 1.5px; z-index: 1; pointer-events: none;
+  background: conic-gradient(from var(--a), #c6ff3d, #3dffb0, #33e0c0, #a07cff, #d8ff6a, #c6ff3d);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude; animation: spin 8s linear infinite; }
+.end .wrap::after { content: ""; position: absolute; z-index: -1; inset: 30% 10% -40%; border-radius: 50%; background: conic-gradient(from var(--a), #c6ff3d, #3dffb0, #a07cff, #c6ff3d); filter: blur(80px); opacity: .18; animation: spin 8s linear infinite; }
+@keyframes spin { to { --a: 360deg; } }
+
+/* free tools */
+.drop { border-radius: 16px; background: rgba(255,255,255,.025); }
+.tool textarea { background: rgba(255,255,255,.04); border: 0; box-shadow: inset 0 0 0 1px var(--line-2); border-radius: 14px; }
+.tool textarea:focus { box-shadow: inset 0 0 0 1.5px var(--accent); }
+
+@media (max-width: 640px) {
+  .faq { padding: 2px 18px; border-radius: 20px; }
+  .end .wrap { margin: 0 8px; border-radius: 24px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .wash i, .end .wrap::before, .end .wrap::after { animation: none; }
+}
+@media (max-width: 640px) {
+  .nav-in .hb-pill { display: none; }
+  .nav-in { gap: 10px; }
+  .nav .wrap { padding: 0 6px 0 12px; }
+}
+.dl .dl-os h2, .dl .dl-os > * { margin: 0; }
