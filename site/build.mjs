@@ -28,7 +28,7 @@ const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<
 // Checksums: from the local installers if they're built, otherwise from the GitHub release (same files).
 const RELEASE_SUMS = {};
 try {
-  const r = await fetch(`https://api.github.com/repos/hollowbit-dev/captionshaper/releases/tags/v${V}`, { headers: { 'User-Agent': 'hollowbit-site-build' } });
+  const r = await fetch(`https://api.github.com/repos/hollowbit-dev/captionshaper/releases/tags/v${V}`, { headers: { 'User-Agent': 'hollowbit-site-build', ...(process.env.GITHUB_TOKEN ? { Authorization: `Bearer ${process.env.GITHUB_TOKEN}` } : {}) } });
   if (r.ok) for (const a of (await r.json()).assets || []) if (a.digest) RELEASE_SUMS[a.name] = a.digest.replace(/^sha256:/, '');
 } catch { /* offline */ }
 function sha(file) {

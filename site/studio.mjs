@@ -9,7 +9,7 @@ const T = {
   ru: { pill: 'Hollowbit', badge: 'Бесплатное приложение от Hollowbit Studio', card: '{app} сделан Hollowbit Studio — авторами {others}. Бесплатные инструменты, которые никогда не загружают ваши файлы.', visit: 'Перейти на hollowbit.dev', and: 'и' },
   zh: { pill: 'Hollowbit', badge: 'Hollowbit Studio 出品的免费应用', card: '{app} 由 Hollowbit Studio 制作，他们也做了 {others}。从不上传你文件的免费工具。', visit: '访问 hollowbit.dev', and: '和' },
 };
-const APPS = ['Fileshaper', 'Captionshaper', 'Diskshaper', 'Writeshaper', 'Fuseduo'];
+const APPS = ['Fileshaper', 'Captionshaper', 'Diskshaper', 'Writeshaper', 'Startshaper', 'Fuseduo'];
 const MARK = '<svg class="hbm" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" fill-rule="evenodd" d="M6 2h12a4 4 0 0 1 4 4v12a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V6a4 4 0 0 1 4-4Zm9 13.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Z"/></svg>';
 const ARROW = '<svg class="hba" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></svg>';
 const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
