@@ -313,7 +313,7 @@ const updates = setupUpdates({
   send: (st) => { if (win && !win.isDestroyed()) win.webContents.send('update', st); },
 });
 
-app.whenReady().then(() => {
+app.whenReady().then(() => { require('./discord-menu').addDiscordMenu();
   store.load();
   registerProtocol();
   registerIpc();
