@@ -14,23 +14,23 @@
 - Exports: MP4 with burned-in captions (H.264), SRT, VTT, ASS, TXT.
 
 ## Links
-- [Download](https://captionshaper.app/download.html)
-- [Features](https://captionshaper.app/features.html)
-- [FAQ](https://captionshaper.app/faq.html)
-- [Changelog](https://captionshaper.app/changelog.html)
-- [Privacy policy](https://captionshaper.app/privacy.html)
+- [Download](https://hollowbit.dev/captionshaper/download.html)
+- [Features](https://hollowbit.dev/captionshaper/features.html)
+- [FAQ](https://hollowbit.dev/captionshaper/faq.html)
+- [Changelog](https://hollowbit.dev/captionshaper/changelog.html)
+- [Privacy policy](https://hollowbit.dev/captionshaper/privacy.html)
 - [Source code](https://github.com/hollowbit-dev/captionshaper)
 
 ## Free online tools (run in the browser, nothing uploaded)
-- [Subtitle tools](https://captionshaper.app/tools/): convert SRT to VTT and back, shift subtitle timing, subtitles to plain text.
+- [Subtitle tools](https://hollowbit.dev/captionshaper/tools/): convert SRT to VTT and back, shift subtitle timing, subtitles to plain text.
 
 ## Guides
-- [How to add subtitles to a video automatically](https://captionshaper.app/guides/add-subtitles-to-video.html): Open the video in Captionshaper. It listens on your own computer, writes every word with its timing and splits it into readable captions in about a fifth of the video's length. Fix any words it got wrong, then export an SRT file or a new video with the subtitles burned in.
-- [How to add TikTok-style captions to a video](https://captionshaper.app/guides/tiktok-captions.html): TikTok-style captions are big, bold words in the middle of the screen, a few at a time, with the word being spoken highlighted. In Captionshaper, open your video, pick the Bold or Highlight style, and export the video with the captions burned in. Each word is timed to the voice, so the highlight lands as it is said.
-- [How to make an SRT file from a video](https://captionshaper.app/guides/generate-srt-from-video.html): Open the video in Captionshaper, let it transcribe, check the text, then choose Export, Subtitles (.srt). You get a standard SRT file that YouTube, Premiere Pro, DaVinci Resolve, Final Cut and CapCut can import, with captions split at natural pauses and lines no longer than 42 characters.
-- [How to transcribe a video to text](https://captionshaper.app/guides/transcribe-video-to-text.html): Open the video or audio in Captionshaper and let it transcribe on your computer, then choose Export, Transcript (.txt). You get the whole text with punctuation, split into paragraphs at long pauses. It works in about 99 languages and nothing is uploaded.
-- [How to burn subtitles into a video](https://captionshaper.app/guides/burn-subtitles-into-video.html): Burning (hardcoding) subtitles draws them into the picture, so they show on TikTok, Instagram, WhatsApp and anywhere else. In Captionshaper, open the video, let it write the captions (or fix them), pick a style, then choose Export, Video with captions. It saves a new MP4 and leaves the original untouched.
-- [How to add English subtitles to a foreign-language video](https://captionshaper.app/guides/translate-video-subtitles-to-english.html): In Captionshaper, tick "Translate to English" before opening the video. It listens to the original language and writes English captions with timing, on your own computer. Then fix any phrases and export an SRT file or a video with the English subtitles burned in.
+- [How to add subtitles to a video automatically](https://hollowbit.dev/captionshaper/guides/add-subtitles-to-video.html): Open the video in Captionshaper. It listens on your own computer, writes every word with its timing and splits it into readable captions in about a fifth of the video's length. Fix any words it got wrong, then export an SRT file or a new video with the subtitles burned in.
+- [How to add TikTok-style captions to a video](https://hollowbit.dev/captionshaper/guides/tiktok-captions.html): TikTok-style captions are big, bold words in the middle of the screen, a few at a time, with the word being spoken highlighted. In Captionshaper, open your video, pick the Bold or Highlight style, and export the video with the captions burned in. Each word is timed to the voice, so the highlight lands as it is said.
+- [How to make an SRT file from a video](https://hollowbit.dev/captionshaper/guides/generate-srt-from-video.html): Open the video in Captionshaper, let it transcribe, check the text, then choose Export, Subtitles (.srt). You get a standard SRT file that YouTube, Premiere Pro, DaVinci Resolve, Final Cut and CapCut can import, with captions split at natural pauses and lines no longer than 42 characters.
+- [How to transcribe a video to text](https://hollowbit.dev/captionshaper/guides/transcribe-video-to-text.html): Open the video or audio in Captionshaper and let it transcribe on your computer, then choose Export, Transcript (.txt). You get the whole text with punctuation, split into paragraphs at long pauses. It works in about 99 languages and nothing is uploaded.
+- [How to burn subtitles into a video](https://hollowbit.dev/captionshaper/guides/burn-subtitles-into-video.html): Burning (hardcoding) subtitles draws them into the picture, so they show on TikTok, Instagram, WhatsApp and anywhere else. In Captionshaper, open the video, let it write the captions (or fix them), pick a style, then choose Export, Video with captions. It saves a new MP4 and leaves the original untouched.
+- [How to add English subtitles to a foreign-language video](https://hollowbit.dev/captionshaper/guides/translate-video-subtitles-to-english.html): In Captionshaper, tick "Translate to English" before opening the video. It listens to the original language and writes English captions with timing, on your own computer. Then fix any phrases and export an SRT file or a video with the English subtitles burned in.
 
 ## FAQ
 ### Is it really free?

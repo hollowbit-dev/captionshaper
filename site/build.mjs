@@ -14,7 +14,7 @@ const pkg = JSON.parse(fs.readFileSync(path.join(root, 'package.json'), 'utf8'))
 const V = pkg.version;
 // Stylesheet version: app version plus a hash of the CSS, so browsers refetch after every restyle.
 const CSSV = V + '-' + (await import('node:crypto')).createHash('md5').update(['style.css', 'glass.css'].map((f) => fs.readFileSync(new URL(`./assets/${f}`, import.meta.url), 'utf8')).join('')).digest('hex').slice(0, 6);
-const SITE = { url: 'https://captionshaper.app', github: 'https://github.com/hollowbit-dev/captionshaper', tip: 'https://ko-fi.com/hollowbit', fileshaper: 'https://fileshaper.app' };
+const SITE = { url: 'https://hollowbit.dev/captionshaper', github: 'https://github.com/hollowbit-dev/captionshaper', tip: 'https://ko-fi.com/hollowbit', fileshaper: 'https://hollowbit.dev/fileshaper/' };
 const FILES = { mac: `Captionshaper-${V}-mac-arm64.dmg`, win: `Captionshaper-Setup-${V}-win-x64.exe` };
 const DL = `${SITE.github}/releases/latest/download/`;
 const LANGS = [
@@ -359,7 +359,7 @@ for (const L of LANGS) {
 }
 // 404: absolute links, since GitHub serves it for any missing path.
 fs.writeFileSync(path.join(out, '404.html'), layout(LANGS[0], T.en, '404', `${T.en.notfound.title} · Captionshaper`, notfound(T.en))
-  .replace(/(href|src)="(?!https?:|#|\/|data:)([^"]*)"/g, (m, a, h) => `${a}="/${h.replace(/^\.\//, '')}"`));
+  .replace(/(href|src)="(?!https?:|#|\/|data:)([^"]*)"/g, (m, a, h) => `${a}="/captionshaper/${h.replace(/^\.\//, '')}"`));
 fs.mkdirSync(path.join(out, 'guides'), { recursive: true });
 for (const g of GUIDES) fs.writeFileSync(path.join(out, 'guides', `${g.slug}.html`), layout(LANGS[0], T.en, 'guides', `${g.title} · Captionshaper`, guidePage(g), { prefix: '../', path: `guides/${g.slug}.html`, desc: g.desc, jsonld: guideLd(g), article: true }));
 fs.writeFileSync(path.join(out, 'guides', 'index.html'), layout(LANGS[0], T.en, 'guides', 'Caption and subtitle guides · Captionshaper', guideIndex(), { prefix: '../', path: 'guides/', desc: 'Free guides: add subtitles to a video, make TikTok-style captions, create an SRT file, transcribe video to text, burn subtitles in, translate to English. All offline with Captionshaper.' }));
@@ -378,7 +378,6 @@ fs.mkdirSync(path.join(out, 'img'));
 for (const f of fs.readdirSync(path.join(assets, 'img'))) if (/\.webp$|^icon-256\.png$/.test(f)) fs.copyFileSync(path.join(assets, 'img', f), path.join(out, 'img', f));
 if (fs.existsSync(path.join(assets, 'og'))) fs.cpSync(path.join(assets, 'og'), path.join(out, 'og'), { recursive: true });
 fs.writeFileSync(path.join(out, '.nojekyll'), '');
-fs.writeFileSync(path.join(out, 'CNAME'), `${new URL(SITE.url).host}\n`); // custom domain for GitHub Pages
 
 // Sitemap, robots, llms.txt
 const urlOf = (code, p) => `${SITE.url}/${code === 'en' ? '' : `${code}/`}${p === 'index' ? '' : `${p}.html`}`;

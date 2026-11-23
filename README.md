@@ -2,7 +2,7 @@
 
 Free, offline auto-subtitles for Mac and Windows, by Hollowbit.
 
-**[Download](https://captionshaper.app/download.html)** · [Website](https://captionshaper.app)
+**[Download](https://hollowbit.dev/captionshaper/download.html)** · [Website](https://hollowbit.dev/captionshaper/)
 
 ![Captionshaper editor](site/assets/img/app-editor.png)
 
